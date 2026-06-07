@@ -591,7 +591,7 @@ const chatMsgs=document.getElementById('chatMsgs');
 const chatIn=document.getElementById('chatIn');
 const chatSend=document.getElementById('chatSend');
 
-let open=false, apiKey='', history=[];
+let open=false, apiKey='AQ.Ab8RN6J6ui6u4LdNPNTCB6uFFjye16J7HQHzzfJU8pJnSsJj0g', history=[];
 
 const SYS=`Eres el asistente virtual de M.C Love Travel, agencia de turismo en Guatemala especializada en tours al Volcán Acatenango y Fuego.
 
@@ -695,15 +695,8 @@ function handleSend(){
 chatSend.addEventListener('click',handleSend);
 chatIn.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();handleSend();}});
 
-btnConn.addEventListener('click',()=>{
-    const k=apiKeyIn.value.trim();
-    if(!k||k.length<20){apiKeyIn.style.borderColor='#ff4500';return;}
-    apiKey=k;
-    apiSetup.style.display='none';
-    chatUI.style.display='flex';
-    addMsg('¡Hola! 👋 Soy el asistente de <strong>M.C Love Travel</strong>.\n\n¿En qué te puedo ayudar hoy? Puedo responderte sobre nuestros tours al Volcán Acatenango, precios, itinerario y reservas.','bot');
-});
-apiKeyIn.addEventListener('keydown',e=>{if(e.key==='Enter')btnConn.click();});
+apiSetup.style.display='none';
+chatUI.style.display='flex';
 </script>
 </body>
 </html>
