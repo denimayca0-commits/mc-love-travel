@@ -156,19 +156,44 @@
         .warning-card h3{color:var(--accent-fire);}
         /* ── GALLERY ── */
         .gallery{background:var(--bg-primary);}
-        .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:230px 230px;gap:.9rem;}
-        .gal-item{border-radius:8px;overflow:hidden;position:relative;cursor:pointer;}
-        .gal-item:first-child{grid-row:span 2;}
-        .gal-vis{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;transition:transform .4s;}
-        .gal-item:nth-child(1) .gal-vis{background:linear-gradient(135deg,#1a0a05,#4a1f0d);}
-        .gal-item:nth-child(2) .gal-vis{background:linear-gradient(135deg,#0d1a2d,#1a3d5c);}
-        .gal-item:nth-child(3) .gal-vis{background:linear-gradient(135deg,#1a1505,#3d3010);}
-        .gal-item:nth-child(4) .gal-vis{background:linear-gradient(135deg,#1a0508,#4a1525);}
-        .gal-item:nth-child(5) .gal-vis{background:linear-gradient(135deg,#050d1a,#0d2040);}
-        .gal-item:hover .gal-vis{transform:scale(1.06);}
-        .gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 60%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;}
-        .gal-item:hover .gal-overlay{opacity:1;}
-        .gal-caption{color:#fff;font-size:.85rem;font-weight:500;}
+        .gal-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;}
+        .gal-cat{border-radius:10px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.6rem;border:1px solid var(--border);transition:transform .35s,box-shadow .35s;}
+        .gal-cat:nth-child(1){background:linear-gradient(135deg,#1a0a05,#4a1f0d);}
+        .gal-cat:nth-child(2){background:linear-gradient(135deg,#0d1a2d,#1a3d5c);}
+        .gal-cat:nth-child(3){background:linear-gradient(135deg,#1a1505,#3d3010);}
+        .gal-cat:nth-child(4){background:linear-gradient(135deg,#1a0508,#4a1525);}
+        .gal-cat:nth-child(5){background:linear-gradient(135deg,#050d1a,#0d2040);}
+        .gal-cat:nth-child(6){background:linear-gradient(135deg,#071a05,#133d10);}
+        .gal-cat:hover{transform:scale(1.04);box-shadow:0 8px 32px rgba(255,69,0,.28);}
+        .gal-cat-emoji{font-size:2.8rem;line-height:1;}
+        .gal-cat-name{color:#fff;font-weight:600;font-size:.9rem;text-align:center;padding:0 .6rem;letter-spacing:.3px;}
+        .gal-cat-count{color:rgba(255,255,255,.5);font-size:.75rem;}
+        .gal-back{display:none;align-items:center;gap:.5rem;background:none;border:1px solid var(--border);color:var(--text-secondary);padding:.5rem 1.2rem;border-radius:30px;cursor:pointer;font-size:.85rem;margin-bottom:1.5rem;transition:all .3s;}
+        .gal-back:hover{border-color:var(--accent-orange);color:var(--text-primary);}
+        .gal-back.show{display:inline-flex;}
+        .gal-cat-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--text-primary);margin-bottom:1.2rem;display:none;}
+        .gal-cat-title.show{display:block;}
+        .gal-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;display:none;}
+        .gal-photos.show{display:grid;}
+        .gal-photo{border-radius:8px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:4/3;background:var(--bg-card);}
+        .gal-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block;}
+        .gal-photo:hover img{transform:scale(1.07);}
+        .gal-photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:.9rem;}
+        .gal-photo:hover .gal-photo-overlay{opacity:1;}
+        .gal-photo-caption{color:#fff;font-size:.78rem;font-weight:500;}
+        /* Lightbox */
+        .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;}
+        .lightbox.open{opacity:1;visibility:visible;}
+        .lb-wrap{position:relative;display:flex;align-items:center;gap:1rem;max-width:92vw;}
+        .lb-img-box{border-radius:8px;overflow:hidden;}
+        .lb-img-box img{display:block;max-width:80vw;max-height:82vh;object-fit:contain;transform:scale(.9);opacity:0;transition:transform .35s,opacity .35s;}
+        .lightbox.open .lb-img-box img{transform:scale(1);opacity:1;}
+        .lb-close{position:fixed;top:1rem;right:1.2rem;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.5rem;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s;z-index:10;}
+        .lb-close:hover{background:rgba(255,69,0,.65);}
+        .lb-arrow{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:2rem;width:50px;height:50px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0;}
+        .lb-arrow:hover{background:rgba(255,69,0,.55);border-color:transparent;}
+        .lb-counter{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.55);font-size:.82rem;letter-spacing:1px;}
+        @media(max-width:680px){.gal-cats,.gal-photos{grid-template-columns:repeat(2,1fr);}.lb-wrap{gap:.3rem;}.lb-img-box img{max-width:94vw;}.lb-arrow{width:36px;height:36px;font-size:1.4rem;}}
 
         /* ── CTA ── */
         .cta-section{background:radial-gradient(ellipse at 50% 0%,rgba(255,69,0,.28) 0%,transparent 60%),var(--bg-primary);text-align:center;padding:7rem 2rem;}
@@ -602,15 +627,58 @@
             <h2 class="sec-title">Momentos Únicos</h2>
             <div class="sec-divider"></div>
         </div>
-        <div class="gal-grid">
-            <div class="gal-item"><div class="gal-vis">🌋</div><div class="gal-overlay"><span class="gal-caption">Volcán Fuego en erupción</span></div></div>
-            <div class="gal-item"><div class="gal-vis">🌌</div><div class="gal-overlay"><span class="gal-caption">Cielo estrellado desde el campamento</span></div></div>
-            <div class="gal-item"><div class="gal-vis">🌄</div><div class="gal-overlay"><span class="gal-caption">Amanecer en la cumbre</span></div></div>
-            <div class="gal-item"><div class="gal-vis">🔥</div><div class="gal-overlay"><span class="gal-caption">Lava del Volcán Fuego</span></div></div>
-            <div class="gal-item"><div class="gal-vis">🏔️</div><div class="gal-overlay"><span class="gal-caption">Vista panorámica desde la cumbre</span></div></div>
+        <!-- Categorías -->
+        <div class="gal-cats" id="galCats">
+            <div class="gal-cat" onclick="openGalCat(0)">
+                <span class="gal-cat-emoji">🌋</span>
+                <span class="gal-cat-name">Volcán y Paisajes</span>
+                <span class="gal-cat-count">6 fotos</span>
+            </div>
+            <div class="gal-cat" onclick="openGalCat(1)">
+                <span class="gal-cat-emoji">🌌</span>
+                <span class="gal-cat-name">Cielo Nocturno</span>
+                <span class="gal-cat-count">5 fotos</span>
+            </div>
+            <div class="gal-cat" onclick="openGalCat(2)">
+                <span class="gal-cat-emoji">🌅</span>
+                <span class="gal-cat-name">Amaneceres</span>
+                <span class="gal-cat-count">5 fotos</span>
+            </div>
+            <div class="gal-cat" onclick="openGalCat(3)">
+                <span class="gal-cat-emoji">🔥</span>
+                <span class="gal-cat-name">Volcán de Fuego</span>
+                <span class="gal-cat-count">6 fotos</span>
+            </div>
+            <div class="gal-cat" onclick="openGalCat(4)">
+                <span class="gal-cat-emoji">🏔️</span>
+                <span class="gal-cat-name">Cumbre</span>
+                <span class="gal-cat-count">5 fotos</span>
+            </div>
+            <div class="gal-cat" onclick="openGalCat(5)">
+                <span class="gal-cat-emoji">🏕️</span>
+                <span class="gal-cat-name">Campamento y Cabañas</span>
+                <span class="gal-cat-count">5 fotos</span>
+            </div>
         </div>
+        <!-- Fotos de categoría -->
+        <button class="gal-back" id="galBack" onclick="closeGalCat()">← Volver a categorías</button>
+        <div class="gal-cat-title" id="galCatTitle"></div>
+        <div class="gal-photos" id="galPhotos"></div>
     </div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <div class="lb-wrap">
+        <button class="lb-arrow" onclick="lbNav(-1)">&#8249;</button>
+        <div class="lb-img-box">
+            <img id="lbImg" src="" alt="">
+        </div>
+        <button class="lb-arrow" onclick="lbNav(1)">&#8250;</button>
+    </div>
+    <div class="lb-counter" id="lbCounter"></div>
+</div>
 
 <!-- CTA -->
 <section class="cta-section" id="contacto">
@@ -704,6 +772,126 @@
 </div>
 
 <script>
+// ── GALLERY ──
+const galData=[
+    {name:'🌋 Volcán y Paisajes',photos:[
+        {id:10,caption:'Vista del cráter desde la ladera'},
+        {id:20,caption:'Paisaje volcánico al atardecer'},
+        {id:30,caption:'Sendero entre las nubes'},
+        {id:40,caption:'Mar de nubes bajo la cumbre'},
+        {id:50,caption:'Valle verde desde las alturas'},
+        {id:60,caption:'Perfil del volcán al amanecer'}
+    ]},
+    {name:'🌌 Cielo Nocturno',photos:[
+        {id:11,caption:'Vía Láctea sobre el campamento'},
+        {id:21,caption:'Miles de estrellas desde 3,000m'},
+        {id:31,caption:'Luna llena iluminando la cima'},
+        {id:41,caption:'Cielo estrellado sin contaminación'},
+        {id:51,caption:'Constelaciones en altitud'}
+    ]},
+    {name:'🌅 Amaneceres',photos:[
+        {id:12,caption:'Primer rayo de sol sobre Guatemala'},
+        {id:22,caption:'Amanecer dorado en la cumbre'},
+        {id:32,caption:'Nubes rosadas al despertar'},
+        {id:42,caption:'El sol nace entre los volcanes'},
+        {id:52,caption:'Horizonte infinito al alba'}
+    ]},
+    {name:'🔥 Volcán de Fuego',photos:[
+        {id:13,caption:'Erupción nocturna del Fuego'},
+        {id:23,caption:'Columna de lava en la oscuridad'},
+        {id:33,caption:'Fuego activo desde el campamento'},
+        {id:43,caption:'Ceniza y fuego en la noche'},
+        {id:53,caption:'Erupciones cada 20 minutos'},
+        {id:63,caption:'Resplandor rojizo del Fuego'}
+    ]},
+    {name:'🏔️ Cumbre',photos:[
+        {id:14,caption:'En la cima a 3,976 metros'},
+        {id:24,caption:'Vista 360° desde la cumbre'},
+        {id:34,caption:'El equipo en la cima'},
+        {id:44,caption:'Bandera en lo más alto'},
+        {id:54,caption:'El mundo a tus pies'}
+    ]},
+    {name:'🏕️ Campamento y Cabañas',photos:[
+        {id:15,caption:'Cabañas del campamento base'},
+        {id:25,caption:'Fogata bajo las estrellas'},
+        {id:35,caption:'Descanso antes de la cumbre'},
+        {id:45,caption:'Equipo reunido en el campamento'},
+        {id:55,caption:'Amanecer desde las cabañas'}
+    ]}
+];
+
+let curCat=null,lbPhotos=[],lbIdx=0;
+
+function openGalCat(i){
+    curCat=i;
+    const cat=galData[i];
+    document.getElementById('galCats').style.display='none';
+    document.getElementById('galBack').classList.add('show');
+    const title=document.getElementById('galCatTitle');
+    title.textContent=cat.name;
+    title.classList.add('show');
+    const grid=document.getElementById('galPhotos');
+    grid.innerHTML='';
+    lbPhotos=cat.photos;
+    cat.photos.forEach((p,idx)=>{
+        const div=document.createElement('div');
+        div.className='gal-photo fade-in';
+        div.innerHTML=`<img src="https://picsum.photos/800/600?random=${p.id}" alt="${p.caption}" loading="lazy"><div class="gal-photo-overlay"><span class="gal-photo-caption">${p.caption}</span></div>`;
+        div.addEventListener('click',()=>openLightbox(idx));
+        grid.appendChild(div);
+    });
+    grid.classList.add('show');
+    document.getElementById('galeria').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function closeGalCat(){
+    document.getElementById('galCats').style.display='';
+    document.getElementById('galBack').classList.remove('show');
+    document.getElementById('galCatTitle').classList.remove('show');
+    document.getElementById('galPhotos').classList.remove('show');
+    curCat=null;
+}
+
+function openLightbox(idx){
+    lbIdx=idx;
+    const lb=document.getElementById('lightbox');
+    lb.classList.add('open');
+    updateLb();
+    document.addEventListener('keydown',lbKey);
+}
+
+function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('open');
+    document.removeEventListener('keydown',lbKey);
+}
+
+function updateLb(){
+    const p=lbPhotos[lbIdx];
+    const img=document.getElementById('lbImg');
+    img.style.opacity='0';img.style.transform='scale(.9)';
+    setTimeout(()=>{
+        img.src=`https://picsum.photos/800/600?random=${p.id}`;
+        img.alt=p.caption;
+        img.style.opacity='';img.style.transform='';
+    },150);
+    document.getElementById('lbCounter').textContent=`${lbIdx+1} / ${lbPhotos.length}`;
+}
+
+function lbNav(dir){
+    lbIdx=(lbIdx+dir+lbPhotos.length)%lbPhotos.length;
+    updateLb();
+}
+
+function lbKey(e){
+    if(e.key==='ArrowRight')lbNav(1);
+    else if(e.key==='ArrowLeft')lbNav(-1);
+    else if(e.key==='Escape')closeLightbox();
+}
+
+document.getElementById('lightbox').addEventListener('click',function(e){
+    if(e.target===this)closeLightbox();
+});
+
 // ── PARTICLES ──
 (function(){
     const c=document.getElementById('particles');
