@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.C Love Travel — Tours Volcán Acatenango & Fuego, Guatemala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #1a1a24;
+            --accent-fire: #ff4500;
+            --accent-orange: #ff6b35;
+            --accent-gold: #d4af37;
+            --text-primary: #f0ede6;
+            --text-secondary: #9a9090;
+            --border: rgba(255,107,53,0.18);
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'Raleway',sans-serif;background:var(--bg-primary);color:var(--text-primary);overflow-x:hidden;}
+
+        /* ── NAV ── */
+        nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(10,10,15,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+        .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--accent-gold);text-decoration:none;font-weight:700;}
+        .nav-logo span{color:var(--accent-fire);}
+        .nav-links{display:flex;gap:2rem;list-style:none;}
+        .nav-links a{color:var(--text-primary);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;transition:color .3s;}
+        .nav-links a:hover{color:var(--accent-orange);}
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+        .hamburger span{width:24px;height:2px;background:var(--text-primary);transition:all .3s;}
+        .mobile-menu{display:none;position:fixed;top:62px;left:0;right:0;background:rgba(10,10,15,.98);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:999;flex-direction:column;gap:1.2rem;}
+        .mobile-menu.open{display:flex;}
+        .mobile-menu a{color:var(--text-primary);text-decoration:none;font-size:.95rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:.5rem 0;border-bottom:1px solid var(--border);}
+
+        /* ── HERO ── */
+        .hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+        .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,69,0,.45) 0%,transparent 60%),radial-gradient(ellipse at 30% 60%,rgba(255,107,53,.18) 0%,transparent 50%),linear-gradient(180deg,#0a0a0f 0%,#1a0a05 55%,#0a0505 100%);}
+        .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+        .particle{position:absolute;border-radius:50%;animation:floatUp linear infinite;opacity:0;}
+        @keyframes floatUp{0%{transform:translateY(100vh) scale(0);opacity:0;}10%{opacity:1;}90%{opacity:.4;}100%{transform:translateY(-120px) scale(1.6);opacity:0;}}
+        .mountain-svg{position:absolute;bottom:0;left:0;right:0;width:100%;height:45%;}
+        .hero-content{position:relative;z-index:10;text-align:center;padding:2rem;max-width:900px;}
+        .hero-badge{display:inline-block;background:rgba(255,107,53,.12);border:1px solid var(--accent-orange);color:var(--accent-orange);padding:.35rem 1.2rem;border-radius:20px;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;}
+        .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,9vw,6.5rem);font-weight:900;line-height:1.05;margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,var(--accent-gold) 50%,var(--accent-fire) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .hero-sub{font-size:clamp(.95rem,2.5vw,1.3rem);color:var(--text-secondary);margin-bottom:2.5rem;font-weight:300;letter-spacing:.5px;line-height:1.7;}
+        .hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+        .btn-primary{background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));color:#fff;padding:.9rem 2.4rem;border:none;border-radius:4px;font-size:.95rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .3s,box-shadow .3s;box-shadow:0 4px 20px rgba(255,69,0,.4);}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,69,0,.65);}
+        .btn-secondary{background:transparent;color:var(--text-primary);padding:.9rem 2.4rem;border:1px solid rgba(255,255,255,.28);border-radius:4px;font-size:.95rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;}
+        .btn-secondary:hover{border-color:var(--accent-orange);color:var(--accent-orange);}
+        .scroll-down{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);color:var(--text-secondary);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.4rem;animation:bounce 2s infinite;}
+        @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+
+        /* ── STATS ── */
+        .stats-bar{background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.2rem 2rem;}
+        .stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+        .stat-item{text-align:center;}
+        .stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--accent-orange);display:block;}
+        .stat-lbl{color:var(--text-secondary);font-size:.78rem;letter-spacing:1px;text-transform:uppercase;margin-top:.2rem;}
+
+        /* ── ABOUT ── */
+        section{padding:5.5rem 2rem;}
+        .container{max-width:1100px;margin:0 auto;}
+        .sec-tag{display:block;color:var(--accent-orange);font-size:.75rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:.7rem;}
+        .sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:var(--text-primary);margin-bottom:.8rem;}
+        .sec-divider{width:55px;height:3px;background:linear-gradient(90deg,var(--accent-fire),var(--accent-orange));margin:.8rem auto 1.2rem;}
+        .sec-desc{color:var(--text-secondary);font-size:1rem;max-width:580px;margin:0 auto;line-height:1.85;}
+        .sec-header{text-align:center;margin-bottom:3.5rem;}
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+        .volcano-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+        .volcano-vis{width:100%;height:320px;background:radial-gradient(ellipse at 50% 100%,rgba(255,69,0,.8) 0%,rgba(180,40,0,.4) 30%,transparent 70%),linear-gradient(180deg,#1a0a05 0%,#2d1208 40%,#4a1f0d 100%);display:flex;align-items:center;justify-content:center;font-size:7rem;filter:drop-shadow(0 0 30px rgba(255,69,0,.7));animation:pulseGlow 3s ease-in-out infinite;}
+        @keyframes pulseGlow{0%,100%{filter:drop-shadow(0 0 18px rgba(255,69,0,.6));}50%{filter:drop-shadow(0 0 45px rgba(255,69,0,1));}}
+        .card-info{padding:1.4rem 1.6rem;}
+        .card-info h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text-primary);margin-bottom:.4rem;}
+        .card-info p{color:var(--text-secondary);font-size:.88rem;line-height:1.65;}
+        .about-content h2{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:700;margin-bottom:1.2rem;line-height:1.25;}
+        .about-content p{color:var(--text-secondary);line-height:1.85;margin-bottom:1.3rem;font-size:.95rem;}
+        .feats{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:2rem;}
+        .feats li{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--text-secondary);}
+        .feats li i{color:var(--accent-orange);font-size:.75rem;}
+
+        /* ── PRICING ── */
+        .pricing{background:var(--bg-secondary);}
+        .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:820px;margin:0 auto;}
+        .price-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2.8rem 2.2rem;text-align:center;position:relative;transition:transform .3s,box-shadow .3s;}
+        .price-card:hover{transform:translateY(-7px);box-shadow:0 20px 55px rgba(255,107,53,.18);}
+        .price-card.featured{border-color:var(--accent-orange);background:linear-gradient(180deg,rgba(255,107,53,.06) 0%,var(--bg-card) 100%);}
+        .feat-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));color:#fff;padding:.28rem 1.4rem;border-radius:20px;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
+        .price-icon{font-size:2.2rem;margin-bottom:.8rem;}
+        .price-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:.4rem;}
+        .price-amount{font-size:3.2rem;font-weight:900;font-family:'Playfair Display',serif;background:linear-gradient(135deg,var(--accent-gold),var(--accent-orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin:.8rem 0;}
+        .price-cur{font-size:1.4rem;vertical-align:top;margin-top:.7rem;display:inline-block;}
+        .price-period{color:var(--text-secondary);font-size:.8rem;margin-bottom:1.8rem;}
+        .price-feats{list-style:none;margin-bottom:2.2rem;text-align:left;}
+        .price-feats li{padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:.7rem;color:var(--text-secondary);font-size:.88rem;}
+        .price-feats li i{color:var(--accent-orange);width:15px;flex-shrink:0;}
+        .price-feats li.off{opacity:.35;}
+        .price-feats li.off i{color:#555;}
+
+        /* ── ITINERARY ── */
+        .itinerary{background:var(--bg-primary);}
+        .timeline{position:relative;max-width:780px;margin:0 auto;}
+        .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--accent-fire),var(--accent-orange),transparent);transform:translateX(-50%);}
+        .day-header{text-align:center;margin-bottom:2rem;}
+        .day-badge{display:inline-block;background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));color:#fff;padding:.45rem 1.8rem;border-radius:30px;font-weight:600;font-size:.85rem;letter-spacing:1px;position:relative;z-index:1;}
+        .timeline-day{margin-bottom:2.5rem;}
+        .t-item{display:grid;grid-template-columns:1fr 56px 1fr;gap:1.2rem;margin-bottom:1.4rem;align-items:start;}
+        .t-item .content{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.2rem;}
+        .t-item .content h4{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--text-primary);margin-bottom:.3rem;}
+        .t-item .content p{color:var(--text-secondary);font-size:.82rem;line-height:1.55;}
+        .t-item .content .ico{font-size:1.1rem;margin-bottom:.4rem;}
+        .t-item.left .content{grid-column:1;text-align:right;}
+        .t-item.left .empty{grid-column:3;}
+        .t-item.right .content{grid-column:3;}
+        .t-item.right .empty{grid-column:1;}
+        .t-dot{grid-column:2;display:flex;flex-direction:column;align-items:center;gap:.3rem;}
+        .dot{width:13px;height:13px;border-radius:50%;background:var(--accent-orange);border:2px solid var(--bg-primary);box-shadow:0 0 10px rgba(255,107,53,.55);}
+        .t-time{font-size:.7rem;color:var(--accent-orange);font-weight:600;white-space:nowrap;}
+
+        /* ── INCLUDES ── */
+        .includes{background:var(--bg-secondary);}
+        .inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;}
+        .inc-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.8rem;text-align:center;transition:all .3s;}
+        .inc-card:hover{border-color:var(--accent-orange);transform:translateY(-4px);}
+        .inc-icon{font-size:2.2rem;margin-bottom:.8rem;display:block;}
+        .inc-card h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--text-primary);margin-bottom:.4rem;}
+        .inc-card p{color:var(--text-secondary);font-size:.82rem;line-height:1.6;}
+
+        /* ── GALLERY ── */
+        .gallery{background:var(--bg-primary);}
+        .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:230px 230px;gap:.9rem;}
+        .gal-item{border-radius:8px;overflow:hidden;position:relative;cursor:pointer;}
+        .gal-item:first-child{grid-row:span 2;}
+        .gal-vis{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;transition:transform .4s;}
+        .gal-item:nth-child(1) .gal-vis{background:linear-gradient(135deg,#1a0a05,#4a1f0d);}
+        .gal-item:nth-child(2) .gal-vis{background:linear-gradient(135deg,#0d1a2d,#1a3d5c);}
+        .gal-item:nth-child(3) .gal-vis{background:linear-gradient(135deg,#1a1505,#3d3010);}
+        .gal-item:nth-child(4) .gal-vis{background:linear-gradient(135deg,#1a0508,#4a1525);}
+        .gal-item:nth-child(5) .gal-vis{background:linear-gradient(135deg,#050d1a,#0d2040);}
+        .gal-item:hover .gal-vis{transform:scale(1.06);}
+        .gal-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 60%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.2rem;}
+        .gal-item:hover .gal-overlay{opacity:1;}
+        .gal-caption{color:#fff;font-size:.85rem;font-weight:500;}
+
+        /* ── CTA ── */
+        .cta-section{background:radial-gradient(ellipse at 50% 0%,rgba(255,69,0,.28) 0%,transparent 60%),var(--bg-primary);text-align:center;padding:7rem 2rem;}
+
+        /* ── FOOTER ── */
+        footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:3rem 2rem 1.8rem;}
+        .foot-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2rem;}
+        .foot-brand h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--accent-gold);margin-bottom:.9rem;}
+        .foot-brand p{color:var(--text-secondary);font-size:.88rem;line-height:1.7;}
+        .social-links{display:flex;gap:.8rem;margin-top:1.3rem;}
+        .soc-link{width:38px;height:38px;border-radius:50%;background:rgba(255,107,53,.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);text-decoration:none;transition:all .3s;}
+        .soc-link:hover{background:var(--accent-fire);color:#fff;border-color:var(--accent-fire);}
+        .foot-col h4{color:var(--text-primary);font-weight:600;margin-bottom:1rem;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;}
+        .foot-col ul{list-style:none;}
+        .foot-col ul li{margin-bottom:.7rem;}
+        .foot-col ul li a{color:var(--text-secondary);text-decoration:none;font-size:.88rem;transition:color .3s;}
+        .foot-col ul li a:hover{color:var(--accent-orange);}
+        .foot-bottom{max-width:1100px;margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center;color:var(--text-secondary);font-size:.8rem;}
+
+        /* ── CHATBOT ── */
+        .chat-fab{position:fixed;bottom:2rem;right:2rem;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#4285F4,#0F9D58);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 20px rgba(66,133,244,.5);transition:all .3s;z-index:999;}
+        .chat-fab:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(66,133,244,.7);}
+        .chat-notif{position:absolute;top:-3px;right:-3px;width:17px;height:17px;background:var(--accent-fire);border-radius:50%;font-size:.62rem;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;}
+        .chat-win{position:fixed;bottom:6rem;right:2rem;width:370px;height:490px;background:var(--bg-card);border:1px solid rgba(66,133,244,.28);border-radius:16px;overflow:hidden;z-index:998;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.55);transform:scale(0) translateY(20px);transform-origin:bottom right;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0;}
+        .chat-win.open{transform:scale(1) translateY(0);opacity:1;}
+        .chat-head{background:linear-gradient(135deg,#4285F4,#0F9D58);padding:.9rem 1.1rem;display:flex;align-items:center;gap:.7rem;}
+        .chat-av{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+        .chat-head-info h4{font-size:.85rem;font-weight:600;color:#fff;}
+        .chat-head-info p{font-size:.72rem;color:rgba(255,255,255,.8);}
+        .chat-x{margin-left:auto;background:none;border:none;color:#fff;cursor:pointer;font-size:.95rem;opacity:.8;transition:opacity .2s;}
+        .chat-x:hover{opacity:1;}
+        .chat-msgs{flex:1;overflow-y:auto;padding:.9rem;display:flex;flex-direction:column;gap:.7rem;scrollbar-width:thin;scrollbar-color:rgba(66,133,244,.3) transparent;}
+        .chat-msg{max-width:86%;padding:.65rem .9rem;border-radius:10px;font-size:.85rem;line-height:1.5;animation:msgIn .3s ease;}
+        @keyframes msgIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+        .chat-msg.bot{background:var(--bg-secondary);border:1px solid rgba(66,133,244,.18);color:var(--text-primary);align-self:flex-start;border-radius:4px 10px 10px 10px;}
+        .chat-msg.user{background:linear-gradient(135deg,#4285F4,#0F9D58);color:#fff;align-self:flex-end;border-radius:10px 10px 4px 10px;}
+        .chat-msg.typing{display:flex;gap:4px;align-items:center;padding:.9rem 1rem;}
+        .tdot{width:6px;height:6px;border-radius:50%;background:var(--text-secondary);animation:tdot 1.2s infinite;}
+        .tdot:nth-child(2){animation-delay:.2s;}
+        .tdot:nth-child(3){animation-delay:.4s;}
+        @keyframes tdot{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-7px);}}
+        .chat-in-area{padding:.65rem .9rem;border-top:1px solid rgba(255,255,255,.05);display:flex;gap:.5rem;background:var(--bg-secondary);}
+        .chat-in{flex:1;background:var(--bg-card);border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:.55rem .8rem;color:var(--text-primary);font-size:.85rem;font-family:'Raleway',sans-serif;outline:none;transition:border-color .2s;}
+        .chat-in:focus{border-color:rgba(66,133,244,.5);}
+        .chat-in::placeholder{color:var(--text-secondary);}
+        .chat-send{width:36px;height:36px;background:linear-gradient(135deg,#4285F4,#0F9D58);border:none;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:opacity .2s;flex-shrink:0;}
+        .chat-send:hover{opacity:.85;}
+        .chat-send:disabled{opacity:.45;cursor:not-allowed;}
+        .api-setup{padding:1.5rem;text-align:center;}
+        .api-setup h4{color:var(--text-primary);margin-bottom:.5rem;font-size:.88rem;}
+        .api-setup p{color:var(--text-secondary);font-size:.78rem;margin-bottom:.9rem;line-height:1.6;}
+        .api-in{width:100%;background:var(--bg-secondary);border:1px solid rgba(66,133,244,.3);border-radius:7px;padding:.55rem .8rem;color:var(--text-primary);font-size:.78rem;font-family:'Raleway',sans-serif;outline:none;margin-bottom:.7rem;}
+        .api-in:focus{border-color:rgba(66,133,244,.6);}
+        .btn-conn{width:100%;background:linear-gradient(135deg,#4285F4,#0F9D58);border:none;border-radius:7px;padding:.6rem;color:#fff;font-size:.82rem;font-weight:600;cursor:pointer;transition:opacity .2s;}
+        .btn-conn:hover{opacity:.85;}
+
+        /* ── ANIMATIONS ── */
+        .fade-in{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+        .fade-in.visible{opacity:1;transform:translateY(0);}
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:768px){
+            .nav-links{display:none;}
+            .hamburger{display:flex;}
+            .stats-grid{grid-template-columns:repeat(2,1fr);}
+            .about-grid{grid-template-columns:1fr;}
+            .pricing-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto;}
+            .timeline::before{left:28px;}
+            .t-item{grid-template-columns:54px 1fr;}
+            .t-item.left .content,.t-item.right .content{grid-column:2;text-align:left;}
+            .t-dot{grid-column:1;}
+            .t-item.left .empty,.t-item.right .empty{display:none;}
+            .inc-grid{grid-template-columns:1fr;}
+            .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px 160px;}
+            .gal-item:first-child{grid-row:span 1;}
+            .foot-grid{grid-template-columns:1fr;gap:2rem;}
+            .chat-win{width:calc(100vw - 2rem);right:1rem;bottom:5rem;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <a href="#inicio" class="nav-logo">M.C <span>Love</span> Travel</a>
+    <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#tours">Tours</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#itinerario">Itinerario</a></li>
+        <li><a href="#incluye">Incluye</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#inicio" onclick="closeMobile()">Inicio</a>
+    <a href="#tours" onclick="closeMobile()">Tours</a>
+    <a href="#precios" onclick="closeMobile()">Precios</a>
+    <a href="#itinerario" onclick="closeMobile()">Itinerario</a>
+    <a href="#incluye" onclick="closeMobile()">Incluye</a>
+    <a href="#contacto" onclick="closeMobile()">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="particles" id="particles"></div>
+    <svg class="mountain-svg" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="glow"><feGaussianBlur stdDeviation="8" result="cb"/><feMerge><feMergeNode in="cb"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <radialGradient id="lavaGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="rgba(255,100,0,0.9)"/>
+                <stop offset="100%" stop-color="rgba(255,50,0,0)"/>
+            </radialGradient>
+        </defs>
+        <!-- Fuego -->
+        <polygon points="0,400 200,400 380,80 480,210 580,400" fill="#0d0806"/>
+        <!-- Acatenango -->
+        <polygon points="480,400 700,400 900,15 1050,130 1160,400 1440,400" fill="#0a0605"/>
+        <!-- Lava glow Fuego -->
+        <ellipse cx="380" cy="85" rx="30" ry="18" fill="url(#lavaGlow)" filter="url(#glow)" opacity="0.85"/>
+        <rect x="0" y="380" width="1440" height="20" fill="#0a0a0f"/>
+    </svg>
+    <div class="hero-content">
+        <div class="hero-badge">🇬🇹 Guatemala · Acatenango &amp; Fuego</div>
+        <h1>M.C Love<br>Travel</h1>
+        <p class="hero-sub">Conquista las cumbres más espectaculares de Guatemala.<br>Una aventura que cambiará tu vida para siempre.</p>
+        <div class="hero-cta">
+            <a href="#precios" class="btn-primary">Ver Paquetes</a>
+            <a href="#itinerario" class="btn-secondary">Ver Itinerario</a>
+        </div>
+    </div>
+    <div class="scroll-down">
+        <span>Explorar</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="stats-grid">
+        <div class="stat-item fade-in"><span class="stat-num">3,976m</span><span class="stat-lbl">Altura Acatenango</span></div>
+        <div class="stat-item fade-in"><span class="stat-num">3,763m</span><span class="stat-lbl">Altura Fuego</span></div>
+        <div class="stat-item fade-in"><span class="stat-num">2 Días</span><span class="stat-lbl">Duración del Tour</span></div>
+        <div class="stat-item fade-in"><span class="stat-num">100%</span><span class="stat-lbl">Experiencia Única</span></div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="tours">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-visual fade-in">
+                <div class="volcano-card">
+                    <div class="volcano-vis">🌋</div>
+                    <div class="card-info">
+                        <h3>Volcán Acatenango &amp; Fuego</h3>
+                        <p>Vista privilegiada de las erupciones del Volcán Fuego desde el campamento. Una experiencia incomparable bajo el cielo estrellado de Guatemala.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content fade-in">
+                <span class="sec-tag">Sobre Nosotros</span>
+                <h2>La aventura volcánica más emocionante de Guatemala</h2>
+                <p>En M.C Love Travel somos apasionados por las montañas y queremos compartir esa pasión contigo. Ofrecemos tours seguros, guiados y completamente equipados al Volcán Acatenango.</p>
+                <p>Desde las cabañas del campamento, tendrás una vista directa de las explosiones del activo Volcán Fuego — una experiencia que ninguna foto puede capturar completamente.</p>
+                <ul class="feats">
+                    <li><i class="fas fa-check"></i> Guías certificados</li>
+                    <li><i class="fas fa-check"></i> Equipamiento completo</li>
+                    <li><i class="fas fa-check"></i> Grupos pequeños</li>
+                    <li><i class="fas fa-check"></i> Seguridad garantizada</li>
+                    <li><i class="fas fa-check"></i> Cabañas en campamento</li>
+                    <li><i class="fas fa-check"></i> Entrada PRMVA incluida</li>
+                </ul>
+                <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="btn-primary">
+                    <i class="fab fa-facebook" style="margin-right:.5rem;"></i>Síguenos en Facebook
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="precios">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-tag">Paquetes</span>
+            <h2 class="sec-title">Elige tu Experiencia</h2>
+            <div class="sec-divider"></div>
+            <p class="sec-desc">Dos opciones diseñadas para distintas preferencias. Ambas incluyen lo esencial para vivir la aventura del Acatenango.</p>
+        </div>
+        <div class="pricing-grid">
+            <!-- CON ALIMENTACIÓN -->
+            <div class="price-card featured fade-in">
+                <div class="feat-badge">⭐ Más Popular</div>
+                <div class="price-icon">🍽️</div>
+                <div class="price-name">Con Alimentación</div>
+                <div class="price-amount"><span class="price-cur">Q</span>450</div>
+                <div class="price-period">por persona · 2 días / 1 noche</div>
+                <ul class="price-feats">
+                    <li><i class="fas fa-utensils"></i> 3 comidas incluidas</li>
+                    <li><i class="fas fa-home"></i> Cabaña en campamento</li>
+                    <li><i class="fas fa-user-tie"></i> Guía certificado</li>
+                    <li><i class="fas fa-ticket-alt"></i> Entrada PRMVA</li>
+                    <li><i class="fas fa-mountain"></i> Tour 2 días completo</li>
+                    <li><i class="fas fa-star"></i> Vista Volcán Fuego</li>
+                </ul>
+                <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="btn-primary">Reservar Ahora</a>
+            </div>
+            <!-- SIN ALIMENTACIÓN -->
+            <div class="price-card fade-in">
+                <div class="price-icon">🎒</div>
+                <div class="price-name">Sin Alimentación</div>
+                <div class="price-amount"><span class="price-cur">Q</span>350</div>
+                <div class="price-period">por persona · 2 días / 1 noche</div>
+                <ul class="price-feats">
+                    <li class="off"><i class="fas fa-times"></i> Alimentación no incluida</li>
+                    <li><i class="fas fa-home"></i> Cabaña en campamento</li>
+                    <li><i class="fas fa-user-tie"></i> Guía certificado</li>
+                    <li><i class="fas fa-ticket-alt"></i> Entrada PRMVA</li>
+                    <li><i class="fas fa-mountain"></i> Tour 2 días completo</li>
+                    <li><i class="fas fa-star"></i> Vista Volcán Fuego</li>
+                </ul>
+                <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="btn-secondary">Reservar Ahora</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ITINERARY -->
+<section class="itinerary" id="itinerario">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-tag">Itinerario</span>
+            <h2 class="sec-title">Tu Aventura Paso a Paso</h2>
+            <div class="sec-divider"></div>
+            <p class="sec-desc">Dos días inolvidables entre volcanes, estrellas y el espectáculo del amanecer.</p>
+        </div>
+        <div class="timeline">
+            <!-- DÍA 1 -->
+            <div class="timeline-day fade-in">
+                <div class="day-header"><span class="day-badge">🌄 Día 1 — El Ascenso</span></div>
+                <div class="t-item left">
+                    <div class="content"><div class="ico">🚌</div><h4>Punto de Encuentro</h4><p>Reunión con el grupo y guías. Revisión de equipamiento y briefing de seguridad.</p></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">10:00 AM</span></div>
+                    <div class="empty"></div>
+                </div>
+                <div class="t-item right">
+                    <div class="empty"></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">10:00 AM</span></div>
+                    <div class="content"><div class="ico">🥾</div><h4>Inicio de la Caminata</h4><p>Comenzamos el ascenso. Aproximadamente 6 horas de caminata por senderos únicos entre bosques nubosos y vistas impresionantes.</p></div>
+                </div>
+                <div class="t-item left">
+                    <div class="content"><div class="ico">🏕️</div><h4>Llegada al Campamento</h4><p>Instalación en cabañas y cena (paquete con alimentación). Noche observando las erupciones del Volcán Fuego.</p></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">~4:00 PM</span></div>
+                    <div class="empty"></div>
+                </div>
+            </div>
+            <!-- DÍA 2 -->
+            <div class="timeline-day fade-in">
+                <div class="day-header"><span class="day-badge">🌅 Día 2 — La Cumbre</span></div>
+                <div class="t-item right">
+                    <div class="empty"></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">4:00 AM</span></div>
+                    <div class="content"><div class="ico">⭐</div><h4>Ascenso a la Cumbre</h4><p>Partimos bajo las estrellas hacia la cumbre del Acatenango (3,976 m). El objetivo: llegar antes del amanecer.</p></div>
+                </div>
+                <div class="t-item left">
+                    <div class="content"><div class="ico">🌅</div><h4>Amanecer en la Cumbre</h4><p>El espectáculo más impresionante de Guatemala: el sol nace entre los volcanes mientras el Fuego erupciona a nuestros pies.</p></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">~6:00 AM</span></div>
+                    <div class="empty"></div>
+                </div>
+                <div class="t-item right">
+                    <div class="empty"></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">8:00 AM</span></div>
+                    <div class="content"><div class="ico">🏁</div><h4>Regreso y Fin del Tour</h4><p>Descenso al punto de partida. Recuerdos y fotografías para toda la vida.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INCLUDES -->
+<section class="includes" id="incluye">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-tag">Incluye</span>
+            <h2 class="sec-title">Todo lo que Necesitas</h2>
+            <div class="sec-divider"></div>
+        </div>
+        <div class="inc-grid">
+            <div class="inc-card fade-in"><span class="inc-icon">🏕️</span><h3>Cabaña en Campamento</h3><p>Alojamiento en cabaña compartida en el campamento base del Acatenango. Abrigo seguro para descansar.</p></div>
+            <div class="inc-card fade-in"><span class="inc-icon">🧭</span><h3>Guía Certificado</h3><p>Guías de montaña con experiencia y certificación oficial. Tu seguridad es nuestra prioridad.</p></div>
+            <div class="inc-card fade-in"><span class="inc-icon">🎟️</span><h3>Entrada PRMVA</h3><p>Entrada al Parque Regional Municipal Volcán Acatenango completamente incluida en el precio.</p></div>
+            <div class="inc-card fade-in"><span class="inc-icon">🍽️</span><h3>3 Comidas (paquete premium)</h3><p>Desayuno, almuerzo y cena en el paquete con alimentación. Energía para conquistar la cumbre.</p></div>
+            <div class="inc-card fade-in"><span class="inc-icon">🌋</span><h3>Vista al Volcán Fuego</h3><p>Campamento ubicado frente al activo Volcán Fuego. Erupciones en vivo toda la noche.</p></div>
+            <div class="inc-card fade-in"><span class="inc-icon">🌅</span><h3>Amanecer en Cumbre</h3><p>El momento más mágico: el amanecer desde los 3,976 metros de altura del Acatenango.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galeria">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-tag">Experiencias</span>
+            <h2 class="sec-title">Momentos Únicos</h2>
+            <div class="sec-divider"></div>
+        </div>
+        <div class="gal-grid">
+            <div class="gal-item"><div class="gal-vis">🌋</div><div class="gal-overlay"><span class="gal-caption">Volcán Fuego en erupción</span></div></div>
+            <div class="gal-item"><div class="gal-vis">🌌</div><div class="gal-overlay"><span class="gal-caption">Cielo estrellado desde el campamento</span></div></div>
+            <div class="gal-item"><div class="gal-vis">🌄</div><div class="gal-overlay"><span class="gal-caption">Amanecer en la cumbre</span></div></div>
+            <div class="gal-item"><div class="gal-vis">🔥</div><div class="gal-overlay"><span class="gal-caption">Lava del Volcán Fuego</span></div></div>
+            <div class="gal-item"><div class="gal-vis">🏔️</div><div class="gal-overlay"><span class="gal-caption">Vista panorámica desde la cumbre</span></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contacto">
+    <div class="container">
+        <span class="sec-tag">¿Listo para la aventura?</span>
+        <h2 class="sec-title">Reserva tu Tour Hoy</h2>
+        <div class="sec-divider"></div>
+        <p class="sec-desc" style="margin-bottom:2.5rem;">Únete a cientos de aventureros que ya conquistaron el Acatenango con nosotros. ¡Plazas limitadas, reserva ahora!</p>
+        <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem;padding:1.1rem 2.8rem;">
+            <i class="fab fa-facebook" style="margin-right:.5rem;"></i>Reservar en Facebook
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-grid">
+        <div class="foot-brand">
+            <h3>M.C Love Travel</h3>
+            <p>Tu agencia de aventura en Guatemala. Especializados en tours al Volcán Acatenango y Fuego. Vivimos para compartir la magia de las montañas guatemaltecas.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="soc-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+        <div class="foot-col">
+            <h4>Tour</h4>
+            <ul>
+                <li><a href="#tours">Sobre el Tour</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="#itinerario">Itinerario</a></li>
+                <li><a href="#incluye">¿Qué incluye?</a></li>
+            </ul>
+        </div>
+        <div class="foot-col">
+            <h4>Paquetes</h4>
+            <ul>
+                <li><a href="#precios">Con Alimentación — Q450</a></li>
+                <li><a href="#precios">Sin Alimentación — Q350</a></li>
+                <li><a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener">Reservar Ahora</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="foot-bottom">
+        <p>© 2025 M.C Love Travel · Guatemala · Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<!-- CHATBOT FAB -->
+<button class="chat-fab" id="chatFab" aria-label="Abrir asistente">
+    <span id="fabIcon">✨</span>
+    <span class="chat-notif" id="chatNotif">1</span>
+</button>
+
+<!-- CHATBOT WINDOW -->
+<div class="chat-win" id="chatWin">
+    <div class="chat-head">
+        <div class="chat-av">✨</div>
+        <div class="chat-head-info">
+            <h4>Asistente M.C Love Travel</h4>
+            <p>Con tecnología Gemini AI</p>
+        </div>
+        <button class="chat-x" id="chatX" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="chatContent" style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+        <!-- API Setup -->
+        <div class="api-setup" id="apiSetup">
+            <h4>🔑 Conectar con Gemini AI</h4>
+            <p>Ingresa tu API Key de Google Gemini para activar el asistente que responderá preguntas sobre nuestros tours.</p>
+            <input type="password" class="api-in" id="apiKeyIn" placeholder="AIza... tu API key aquí" />
+            <button class="btn-conn" id="btnConn">Activar Asistente</button>
+        </div>
+        <!-- Chat UI -->
+        <div id="chatUI" style="display:none;flex-direction:column;flex:1;overflow:hidden;">
+            <div class="chat-msgs" id="chatMsgs"></div>
+            <div class="chat-in-area">
+                <input type="text" class="chat-in" id="chatIn" placeholder="Escribe tu pregunta..." />
+                <button class="chat-send" id="chatSend" aria-label="Enviar"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ── PARTICLES ──
+(function(){
+    const c=document.getElementById('particles');
+    const cols=['#ff4500','#ff6b35','#ff8c00','#ffa500','#ffcc00'];
+    for(let i=0;i<22;i++){
+        const p=document.createElement('div');
+        p.className='particle';
+        const s=Math.random()*6+2;
+        p.style.cssText=`width:${s}px;height:${s}px;background:${cols[Math.floor(Math.random()*cols.length)]};left:${Math.random()*100}%;animation-duration:${Math.random()*6+4}s;animation-delay:${Math.random()*6}s;`;
+        c.appendChild(p);
+    }
+})();
+
+// ── NAV ──
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+function closeMobile(){mobileMenu.classList.remove('open');}
+document.addEventListener('click',e=>{
+    if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target))closeMobile();
+});
+
+// ── SCROLL ANIMATIONS ──
+const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:.13});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// ── CHATBOT ──
+const chatFab=document.getElementById('chatFab');
+const chatWin=document.getElementById('chatWin');
+const chatX=document.getElementById('chatX');
+const chatNotif=document.getElementById('chatNotif');
+const fabIcon=document.getElementById('fabIcon');
+const apiSetup=document.getElementById('apiSetup');
+const apiKeyIn=document.getElementById('apiKeyIn');
+const btnConn=document.getElementById('btnConn');
+const chatUI=document.getElementById('chatUI');
+const chatMsgs=document.getElementById('chatMsgs');
+const chatIn=document.getElementById('chatIn');
+const chatSend=document.getElementById('chatSend');
+
+let open=false, apiKey='', history=[];
+
+const SYS=`Eres el asistente virtual de M.C Love Travel, agencia de turismo en Guatemala especializada en tours al Volcán Acatenango y Fuego.
+
+Información:
+- TOURS: 2 días / 1 noche al Volcán Acatenango (3,976m) con vista al activo Volcán Fuego
+- PRECIOS:
+  * Con alimentación: Q450/persona (3 comidas, cabaña, guía, entrada PRMVA)
+  * Sin alimentación: Q350/persona (cabaña, guía, entrada PRMVA)
+- ITINERARIO:
+  * Día 1: 10AM inicio caminata (~6 horas), llegada campamento, noche en cabaña
+  * Día 2: 4AM ascenso cumbre para amanecer, 8AM regreso
+- RESERVAS: Facebook → https://www.facebook.com/share/181HccdHCM/
+
+Responde siempre en español, de forma amable, entusiasta y concisa. Para reservas, dirige al Facebook.`;
+
+function toggleChat(){
+    open=!open;
+    chatWin.classList.toggle('open',open);
+    fabIcon.textContent=open?'✕':'✨';
+    if(open)chatNotif.style.display='none';
+}
+chatFab.addEventListener('click',toggleChat);
+chatX.addEventListener('click',toggleChat);
+
+function mdToHtml(md){
+    md=md.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+    md=md.replace(/__(.+?)__/g,'<strong>$1</strong>');
+    md=md.replace(/\*([^*\n]+?)\*/g,'<em>$1</em>');
+    md=md.replace(/_([^_\n]+?)_/g,'<em>$1</em>');
+    const lines=md.split('\n');
+    let html='',inUl=false,inOl=false;
+    for(let i=0;i<lines.length;i++){
+        const line=lines[i];
+        const ulM=line.match(/^[\*\-]\s+(.+)/);
+        const olM=line.match(/^\d+\.\s+(.+)/);
+        if(ulM){
+            if(inOl){html+='</ol>';inOl=false;}
+            if(!inUl){html+='<ul style="margin:.4rem 0 .4rem 1.1rem;padding:0;">';inUl=true;}
+            html+=`<li>${ulM[1]}</li>`;
+        }else if(olM){
+            if(inUl){html+='</ul>';inUl=false;}
+            if(!inOl){html+='<ol style="margin:.4rem 0 .4rem 1.1rem;padding:0;">';inOl=true;}
+            html+=`<li>${olM[1]}</li>`;
+        }else{
+            if(inUl){html+='</ul>';inUl=false;}
+            if(inOl){html+='</ol>';inOl=false;}
+            html+=line.trim()===''?'<br>':line+(i<lines.length-1?'<br>':'');
+        }
+    }
+    if(inUl)html+='</ul>';
+    if(inOl)html+='</ol>';
+    return html;
+}
+function addMsg(text,role){
+    const m=document.createElement('div');
+    m.className=`chat-msg ${role}`;
+    m.innerHTML=role==='bot'?mdToHtml(text):text.replace(/\n/g,'<br>');
+    chatMsgs.appendChild(m);
+    chatMsgs.scrollTop=chatMsgs.scrollHeight;
+}
+function showTyping(){
+    const t=document.createElement('div');
+    t.className='chat-msg bot typing';t.id='typing';
+    t.innerHTML='<div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>';
+    chatMsgs.appendChild(t);chatMsgs.scrollTop=chatMsgs.scrollHeight;
+}
+function hideTyping(){const t=document.getElementById('typing');if(t)t.remove();}
+
+async function ask(msg){
+    history.push({role:'user',parts:[{text:msg}]});
+    showTyping();chatSend.disabled=true;chatIn.disabled=true;
+    try{
+        const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+                system_instruction:{parts:[{text:SYS}]},
+                contents:history,
+                generationConfig:{temperature:.7,maxOutputTokens:500}
+            })
+        });
+        const d=await r.json();
+        hideTyping();
+        if(d.error){addMsg(`❌ Error: ${d.error.message}`,'bot');return;}
+        const reply=d.candidates[0].content.parts[0].text;
+        history.push({role:'model',parts:[{text:reply}]});
+        addMsg(reply,'bot');
+    }catch(e){
+        hideTyping();
+        addMsg('❌ Error de conexión. Verifica tu API key e intenta de nuevo.','bot');
+    }finally{
+        chatSend.disabled=false;chatIn.disabled=false;chatIn.focus();
+    }
+}
+
+function handleSend(){
+    const msg=chatIn.value.trim();
+    if(!msg)return;
+    addMsg(msg,'user');chatIn.value='';ask(msg);
+}
+chatSend.addEventListener('click',handleSend);
+chatIn.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();handleSend();}});
+
+btnConn.addEventListener('click',()=>{
+    const k=apiKeyIn.value.trim();
+    if(!k||k.length<20){apiKeyIn.style.borderColor='#ff4500';return;}
+    apiKey=k;
+    apiSetup.style.display='none';
+    chatUI.style.display='flex';
+    addMsg('¡Hola! 👋 Soy el asistente de <strong>M.C Love Travel</strong>.\n\n¿En qué te puedo ayudar hoy? Puedo responderte sobre nuestros tours al Volcán Acatenango, precios, itinerario y reservas.','bot');
+});
+apiKeyIn.addEventListener('keydown',e=>{if(e.key==='Enter')btnConn.click();});
+</script>
+</body>
+</html>
