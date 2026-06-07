@@ -632,32 +632,27 @@
             <div class="gal-cat" onclick="openGalCat(0)">
                 <span class="gal-cat-emoji">🌋</span>
                 <span class="gal-cat-name">Volcán y Paisajes</span>
-                <span class="gal-cat-count">36 fotos</span>
+                <span class="gal-cat-count">17 fotos</span>
             </div>
             <div class="gal-cat" onclick="openGalCat(1)">
-                <span class="gal-cat-emoji">🌌</span>
-                <span class="gal-cat-name">Cielo Nocturno</span>
-                <span class="gal-cat-count">36 fotos</span>
+                <span class="gal-cat-emoji">🔥</span>
+                <span class="gal-cat-name">Erupciones del Fuego</span>
+                <span class="gal-cat-count">17 fotos</span>
             </div>
             <div class="gal-cat" onclick="openGalCat(2)">
                 <span class="gal-cat-emoji">🌅</span>
                 <span class="gal-cat-name">Amaneceres</span>
-                <span class="gal-cat-count">36 fotos</span>
+                <span class="gal-cat-count">20 fotos</span>
             </div>
             <div class="gal-cat" onclick="openGalCat(3)">
-                <span class="gal-cat-emoji">🔥</span>
-                <span class="gal-cat-name">Volcán de Fuego</span>
-                <span class="gal-cat-count">36 fotos</span>
-            </div>
-            <div class="gal-cat" onclick="openGalCat(4)">
                 <span class="gal-cat-emoji">🏔️</span>
                 <span class="gal-cat-name">Cumbre</span>
-                <span class="gal-cat-count">36 fotos</span>
+                <span class="gal-cat-count">16 fotos</span>
             </div>
-            <div class="gal-cat" onclick="openGalCat(5)">
+            <div class="gal-cat" onclick="openGalCat(4)">
                 <span class="gal-cat-emoji">🏕️</span>
                 <span class="gal-cat-name">Campamento y Cabañas</span>
-                <span class="gal-cat-count">33 fotos</span>
+                <span class="gal-cat-count">13 fotos</span>
             </div>
         </div>
         <!-- Fotos de categoría -->
@@ -773,41 +768,69 @@
 
 <script>
 // ── GALLERY ──
-function makePhotos(start,end){
-    const r=[];
-    for(let i=start;i<=end;i++) r.push({src:`fotos/${i}.jpg`,caption:`Foto ${i}`});
-    return r;
+function makePhotos(nums){
+    return nums.map(n=>({src:`fotos/${n}.jpg`,caption:`Foto ${n}`}));
 }
 const galData=[
-    {name:'🌋 Volcán y Paisajes',  photos:makePhotos(1,36)},
-    {name:'🌌 Cielo Nocturno',     photos:makePhotos(37,72)},
-    {name:'🌅 Amaneceres',         photos:makePhotos(73,108)},
-    {name:'🔥 Volcán de Fuego',    photos:makePhotos(109,144)},
-    {name:'🏔️ Cumbre',            photos:makePhotos(145,180)},
-    {name:'🏕️ Campamento y Cabañas',photos:makePhotos(181,213)}
+    {
+        name:'🌋 Volcán y Paisajes',
+        photos:makePhotos([1,2,7,8,10,11,25,26,99,100,101,115,116,190,191,210,211])
+    },
+    {
+        name:'🔥 Erupciones del Fuego',
+        photos:makePhotos([5,6,14,15,16,44,45,46,72,73,74,79,80,81,144,145,146])
+    },
+    {
+        name:'🌅 Amaneceres',
+        photos:makePhotos([19,20,21,22,23,84,85,86,89,90,91,108,109,110,119,120,121,139,140,141])
+    },
+    {
+        name:'🏔️ Cumbre',
+        photos:makePhotos([28,29,30,31,149,150,151,159,160,161,169,170,171,180,181,182])
+    },
+    {
+        name:'🏕️ Campamento y Cabañas',
+        photos:makePhotos([34,35,36,49,50,51,54,55,56,128,129,130,131])
+    }
 ];
 
 let curCat=null,lbPhotos=[],lbIdx=0;
 
+const PAGE_SIZE=12;
+let galPage=0;
+
+function renderGalPage(){
+    const cat=galData[curCat];
+    const grid=document.getElementById('galPhotos');
+    const start=galPage*PAGE_SIZE;
+    const slice=cat.photos.slice(start,start+PAGE_SIZE);
+    slice.forEach((p,rel)=>{
+        const idx=start+rel;
+        const div=document.createElement('div');
+        div.className='gal-photo';
+        div.innerHTML=`<img src="${p.src}" alt="${p.caption}" loading="lazy"><div class="gal-photo-overlay"><span class="gal-photo-caption">${p.caption}</span></div>`;
+        div.addEventListener('click',()=>openLightbox(idx));
+        grid.insertBefore(div,document.getElementById('galMoreBtn'));
+    });
+    const hasMore=start+PAGE_SIZE<cat.photos.length;
+    document.getElementById('galMoreBtn').style.display=hasMore?'block':'none';
+    galPage++;
+}
+
 function openGalCat(i){
     curCat=i;
+    galPage=0;
     const cat=galData[i];
     document.getElementById('galCats').style.display='none';
     document.getElementById('galBack').classList.add('show');
     const title=document.getElementById('galCatTitle');
     title.textContent=cat.name;
     title.classList.add('show');
-    const grid=document.getElementById('galPhotos');
-    grid.innerHTML='';
     lbPhotos=cat.photos;
-    cat.photos.forEach((p,idx)=>{
-        const div=document.createElement('div');
-        div.className='gal-photo fade-in';
-        div.innerHTML=`<img src="${p.src}" alt="${p.caption}" loading="lazy"><div class="gal-photo-overlay"><span class="gal-photo-caption">${p.caption}</span></div>`;
-        div.addEventListener('click',()=>openLightbox(idx));
-        grid.appendChild(div);
-    });
+    const grid=document.getElementById('galPhotos');
+    grid.innerHTML='<button id="galMoreBtn" onclick="renderGalPage()" style="display:none;grid-column:1/-1;background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));color:#fff;border:none;padding:.8rem 2rem;border-radius:4px;font-size:.9rem;font-weight:600;cursor:pointer;letter-spacing:.5px;margin-top:.5rem;">Ver más fotos</button>';
     grid.classList.add('show');
+    renderGalPage();
     document.getElementById('galeria').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
