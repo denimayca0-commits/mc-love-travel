@@ -130,6 +130,31 @@
         .inc-card p{color:var(--text-secondary);font-size:.82rem;line-height:1.6;}
 
         /* ── GALLERY ── */
+        /* ── FECHAS ── */
+        .fechas{background:var(--bg-primary);}
+        .fechas-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.8rem;}
+        .fecha-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.8rem;text-align:center;transition:all .3s;}
+        .fecha-card:hover{border-color:var(--accent-orange);transform:translateY(-4px);}
+        .fecha-card .ico{font-size:2rem;margin-bottom:.8rem;display:block;}
+        .fecha-card h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--text-primary);margin-bottom:.8rem;}
+        .fecha-badges{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-bottom:.8rem;}
+        .fecha-badge{background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.3);color:var(--accent-orange);padding:.2rem .7rem;border-radius:20px;font-size:.75rem;font-weight:600;}
+        .fecha-card p{color:var(--text-secondary);font-size:.82rem;line-height:1.6;}
+        .whatsapp-btn{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.7rem 1.6rem;border-radius:4px;font-size:.88rem;font-weight:600;text-decoration:none;letter-spacing:.5px;transition:all .3s;box-shadow:0 4px 15px rgba(37,211,102,.35);}
+        .whatsapp-btn:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.5);}
+        /* ── QUÉ LLEVAR ── */
+        .llevar{background:var(--bg-secondary);}
+        .llevar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;}
+        .llevar-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.6rem;transition:all .3s;}
+        .llevar-card:hover{border-color:var(--accent-orange);transform:translateY(-4px);}
+        .llevar-card .ico{font-size:1.8rem;margin-bottom:.7rem;display:block;}
+        .llevar-card h3{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--text-primary);margin-bottom:.6rem;}
+        .llevar-card ul{list-style:none;padding:0;}
+        .llevar-card ul li{color:var(--text-secondary);font-size:.82rem;padding:.25rem 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:.5rem;line-height:1.4;}
+        .llevar-card ul li::before{content:'·';color:var(--accent-orange);font-weight:700;flex-shrink:0;}
+        .warning-card{border-color:rgba(255,69,0,.4);background:rgba(255,69,0,.05);}
+        .warning-card h3{color:var(--accent-fire);}
+        /* ── GALLERY ── */
         .gallery{background:var(--bg-primary);}
         .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:230px 230px;gap:.9rem;}
         .gal-item{border-radius:8px;overflow:hidden;position:relative;cursor:pointer;}
@@ -217,6 +242,9 @@
             .t-dot{grid-column:1;}
             .t-item.left .empty,.t-item.right .empty{display:none;}
             .inc-grid{grid-template-columns:1fr;}
+            .fechas-grid{grid-template-columns:1fr;}
+            .llevar-grid{grid-template-columns:1fr;}
+            .warning-card ul{grid-template-columns:1fr !important;}
             .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px 160px;}
             .gal-item:first-child{grid-row:span 1;}
             .foot-grid{grid-template-columns:1fr;gap:2rem;}
@@ -235,6 +263,8 @@
         <li><a href="#precios">Precios</a></li>
         <li><a href="#itinerario">Itinerario</a></li>
         <li><a href="#incluye">Incluye</a></li>
+        <li><a href="#fechas">Fechas</a></li>
+        <li><a href="#llevar">Qué Llevar</a></li>
         <li><a href="#contacto">Contacto</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -247,6 +277,8 @@
     <a href="#precios" onclick="closeMobile()">Precios</a>
     <a href="#itinerario" onclick="closeMobile()">Itinerario</a>
     <a href="#incluye" onclick="closeMobile()">Incluye</a>
+    <a href="#fechas" onclick="closeMobile()">Fechas</a>
+    <a href="#llevar" onclick="closeMobile()">Qué Llevar</a>
     <a href="#contacto" onclick="closeMobile()">Contacto</a>
 </div>
 
@@ -354,7 +386,7 @@
                     <li><i class="fas fa-mountain"></i> Tour 2 días completo</li>
                     <li><i class="fas fa-star"></i> Vista Volcán Fuego</li>
                 </ul>
-                <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="btn-primary">Reservar Ahora</a>
+                <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-primary">Reservar Ahora</a>
             </div>
             <!-- SIN ALIMENTACIÓN -->
             <div class="price-card fade-in">
@@ -370,7 +402,7 @@
                     <li><i class="fas fa-mountain"></i> Tour 2 días completo</li>
                     <li><i class="fas fa-star"></i> Vista Volcán Fuego</li>
                 </ul>
-                <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="btn-secondary">Reservar Ahora</a>
+                <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-secondary">Reservar Ahora</a>
             </div>
         </div>
     </div>
@@ -383,45 +415,50 @@
             <span class="sec-tag">Itinerario</span>
             <h2 class="sec-title">Tu Aventura Paso a Paso</h2>
             <div class="sec-divider"></div>
-            <p class="sec-desc">Dos días inolvidables entre volcanes, estrellas y el espectáculo del amanecer.</p>
+            <p class="sec-desc">24 horas de aventura entre volcanes, estrellas y el espectáculo del amanecer. Duración total aproximada: 24 horas.</p>
         </div>
         <div class="timeline">
             <!-- DÍA 1 -->
             <div class="timeline-day fade-in">
                 <div class="day-header"><span class="day-badge">🌄 Día 1 — El Ascenso</span></div>
                 <div class="t-item left">
-                    <div class="content"><div class="ico">🚌</div><h4>Punto de Encuentro</h4><p>Reunión con el grupo y guías. Revisión de equipamiento y briefing de seguridad.</p></div>
+                    <div class="content"><div class="ico">📍</div><h4>Lugar de Reunión</h4><p><strong>Parque Bella Avryl</strong> — bienvenida con nuestros guías, revisión de equipamiento y briefing de seguridad.</p></div>
                     <div class="t-dot"><div class="dot"></div><span class="t-time">10:00 AM</span></div>
                     <div class="empty"></div>
                 </div>
                 <div class="t-item right">
                     <div class="empty"></div>
                     <div class="t-dot"><div class="dot"></div><span class="t-time">10:00 AM</span></div>
-                    <div class="content"><div class="ico">🥾</div><h4>Inicio de la Caminata</h4><p>Comenzamos el ascenso. Aproximadamente 6 horas de caminata por senderos únicos entre bosques nubosos y vistas impresionantes.</p></div>
+                    <div class="content"><div class="ico">🥾</div><h4>Inicio de la Caminata</h4><p>Comenzamos el ascenso por senderos únicos entre bosques nubosos con vistas impresionantes.</p></div>
                 </div>
                 <div class="t-item left">
-                    <div class="content"><div class="ico">🏕️</div><h4>Llegada al Campamento</h4><p>Instalación en cabañas y cena (paquete con alimentación). Noche observando las erupciones del Volcán Fuego.</p></div>
-                    <div class="t-dot"><div class="dot"></div><span class="t-time">~4:00 PM</span></div>
+                    <div class="content"><div class="ico">🍱</div><h4>Almuerzo en el Sendero</h4><p>Descanso para almorzar en el sendero. Recarga de energía antes de continuar el ascenso.</p></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">12–2 PM</span></div>
                     <div class="empty"></div>
+                </div>
+                <div class="t-item right">
+                    <div class="empty"></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">3–6 PM</span></div>
+                    <div class="content"><div class="ico">🏕️</div><h4>Llegada a las Cabañas</h4><p>Instalación en cabañas y cena (paquete con alimentación). Noche observando las erupciones del Volcán Fuego.</p></div>
                 </div>
             </div>
             <!-- DÍA 2 -->
             <div class="timeline-day fade-in">
                 <div class="day-header"><span class="day-badge">🌅 Día 2 — La Cumbre</span></div>
+                <div class="t-item left">
+                    <div class="content"><div class="ico">⭐</div><h4>Ascenso a la Cumbre</h4><p>Partimos bajo las estrellas. Caminata de 1:30 hrs hacia la cumbre del Acatenango (3,976 m) para llegar antes del amanecer.</p></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">3:30–4 AM</span></div>
+                    <div class="empty"></div>
+                </div>
                 <div class="t-item right">
                     <div class="empty"></div>
-                    <div class="t-dot"><div class="dot"></div><span class="t-time">4:00 AM</span></div>
-                    <div class="content"><div class="ico">⭐</div><h4>Ascenso a la Cumbre</h4><p>Partimos bajo las estrellas hacia la cumbre del Acatenango (3,976 m). El objetivo: llegar antes del amanecer.</p></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">~6:00 AM</span></div>
+                    <div class="content"><div class="ico">🌅</div><h4>Amanecer en la Cumbre</h4><p>El espectáculo más impresionante de Guatemala: el sol nace entre los volcanes mientras el Fuego erupciona a nuestros pies.</p></div>
                 </div>
                 <div class="t-item left">
-                    <div class="content"><div class="ico">🌅</div><h4>Amanecer en la Cumbre</h4><p>El espectáculo más impresionante de Guatemala: el sol nace entre los volcanes mientras el Fuego erupciona a nuestros pies.</p></div>
-                    <div class="t-dot"><div class="dot"></div><span class="t-time">~6:00 AM</span></div>
+                    <div class="content"><div class="ico">🏁</div><h4>Descenso y Fin del Tour</h4><p>Regreso al parqueo. Recuerdos y fotografías para toda la vida. ¡Misión cumplida!</p></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">8–8:30 AM</span></div>
                     <div class="empty"></div>
-                </div>
-                <div class="t-item right">
-                    <div class="empty"></div>
-                    <div class="t-dot"><div class="dot"></div><span class="t-time">8:00 AM</span></div>
-                    <div class="content"><div class="ico">🏁</div><h4>Regreso y Fin del Tour</h4><p>Descenso al punto de partida. Recuerdos y fotografías para toda la vida.</p></div>
                 </div>
             </div>
         </div>
@@ -443,6 +480,116 @@
             <div class="inc-card fade-in"><span class="inc-icon">🍽️</span><h3>3 Comidas (paquete premium)</h3><p>Desayuno, almuerzo y cena en el paquete con alimentación. Energía para conquistar la cumbre.</p></div>
             <div class="inc-card fade-in"><span class="inc-icon">🌋</span><h3>Vista al Volcán Fuego</h3><p>Campamento ubicado frente al activo Volcán Fuego. Erupciones en vivo toda la noche.</p></div>
             <div class="inc-card fade-in"><span class="inc-icon">🌅</span><h3>Amanecer en Cumbre</h3><p>El momento más mágico: el amanecer desde los 3,976 metros de altura del Acatenango.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- FECHAS -->
+<section class="fechas" id="fechas">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-tag">Disponibilidad</span>
+            <h2 class="sec-title">Fechas de Tours</h2>
+            <div class="sec-divider"></div>
+            <p class="sec-desc">Tours grupales cada sábado o personalizado de lunes a viernes. ¡Reserva tu lugar con anticipación!</p>
+        </div>
+        <div class="fechas-grid">
+            <div class="fecha-card fade-in">
+                <span class="ico">🗓️</span>
+                <h3>Tours Grupales — Junio 2026</h3>
+                <div class="fecha-badges">
+                    <span class="fecha-badge">Sáb 7</span>
+                    <span class="fecha-badge">Sáb 14</span>
+                    <span class="fecha-badge">Sáb 21</span>
+                    <span class="fecha-badge">Sáb 28</span>
+                </div>
+                <p>Grupos cada sábado de junio. Vive la aventura con otros aventureros.</p>
+            </div>
+            <div class="fecha-card fade-in">
+                <span class="ico">🗓️</span>
+                <h3>Tours Grupales — Julio 2026</h3>
+                <div class="fecha-badges">
+                    <span class="fecha-badge">Sáb 5</span>
+                    <span class="fecha-badge">Sáb 12</span>
+                    <span class="fecha-badge">Sáb 19</span>
+                    <span class="fecha-badge">Sáb 26</span>
+                </div>
+                <p>Grupos cada sábado de julio. ¡Plazas limitadas por fecha!</p>
+            </div>
+            <div class="fecha-card fade-in">
+                <span class="ico">⚡</span>
+                <h3>Tours Personalizados</h3>
+                <div class="fecha-badges">
+                    <span class="fecha-badge">Lun</span>
+                    <span class="fecha-badge">Mar</span>
+                    <span class="fecha-badge">Mié</span>
+                    <span class="fecha-badge">Jue</span>
+                    <span class="fecha-badge">Vie</span>
+                </div>
+                <p>Agenda tu tour privado cualquier día de semana. Grupo exclusivo a tu ritmo.</p>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;">
+            <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>Reservar por WhatsApp · +502 5420-1867
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- QUÉ LLEVAR -->
+<section class="llevar" id="llevar">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-tag">Equipamiento</span>
+            <h2 class="sec-title">¿Qué Llevar?</h2>
+            <div class="sec-divider"></div>
+            <p class="sec-desc">Prepárate bien para disfrutar al máximo la aventura. El frío en la cumbre puede ser intenso.</p>
+        </div>
+        <div class="llevar-grid">
+            <div class="llevar-card fade-in">
+                <span class="ico">🧥</span>
+                <h3>Ropa — Sistema 3 Capas</h3>
+                <ul>
+                    <li>Capa base térmica (interior)</li>
+                    <li>Suéter o polar (capa media)</li>
+                    <li>Chumpa rompevientos (exterior)</li>
+                    <li>Gorra de montaña o beanie</li>
+                    <li>Guantes abrigados</li>
+                    <li>Buff o cuello para el frío</li>
+                </ul>
+            </div>
+            <div class="llevar-card fade-in">
+                <span class="ico">🎒</span>
+                <h3>Equipo Esencial</h3>
+                <ul>
+                    <li>Mochila 30 litros</li>
+                    <li>2 linternas (frontal recomendada)</li>
+                    <li>Mínimo 2 litros de agua</li>
+                    <li>Electrolitos o sales minerales</li>
+                    <li>Botas o tenis de trail con tracción <strong style="color:var(--accent-fire);">OBLIGATORIO</strong></li>
+                </ul>
+            </div>
+            <div class="llevar-card fade-in">
+                <span class="ico">🍫</span>
+                <h3>Snacks y Energía</h3>
+                <ul>
+                    <li>Frutos secos (nueces, almendras)</li>
+                    <li>Chocolates energéticos</li>
+                    <li>Gomitas o dulces para energía rápida</li>
+                    <li>Yogurt o barras de proteína</li>
+                </ul>
+            </div>
+            <div class="llevar-card warning-card fade-in" style="grid-column:1/-1;">
+                <span class="ico">⚠️</span>
+                <h3>Aviso de Salud — Importante</h3>
+                <ul style="display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;">
+                    <li>No recomendado para personas con problemas del corazón</li>
+                    <li>No recomendado para presión arterial alta o baja no controlada</li>
+                    <li>No recomendado para deficiencia respiratoria</li>
+                    <li>Ante cualquier duda, consulta a tu médico antes del tour</li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
@@ -472,9 +619,14 @@
         <h2 class="sec-title">Reserva tu Tour Hoy</h2>
         <div class="sec-divider"></div>
         <p class="sec-desc" style="margin-bottom:2.5rem;">Únete a cientos de aventureros que ya conquistaron el Acatenango con nosotros. ¡Plazas limitadas, reserva ahora!</p>
-        <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem;padding:1.1rem 2.8rem;">
-            <i class="fab fa-facebook" style="margin-right:.5rem;"></i>Reservar en Facebook
-        </a>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem;padding:1.1rem 2.8rem;">
+                <i class="fab fa-whatsapp" style="margin-right:.5rem;"></i>Reservar por WhatsApp
+            </a>
+            <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="btn-secondary" style="font-size:1rem;padding:1.1rem 2.8rem;">
+                <i class="fab fa-facebook" style="margin-right:.5rem;"></i>Ver en Facebook
+            </a>
+        </div>
     </div>
 </section>
 
@@ -595,17 +747,41 @@ let open=false, apiKey='AQ.Ab8RN6J6ui6u4LdNPNTCB6uFFjye16J7HQHzzfJU8pJnSsJj0g', 
 
 const SYS=`Eres el asistente virtual de M.C Love Travel, agencia de turismo en Guatemala especializada en tours al Volcán Acatenango y Fuego.
 
-Información:
-- TOURS: 2 días / 1 noche al Volcán Acatenango (3,976m) con vista al activo Volcán Fuego
-- PRECIOS:
-  * Con alimentación: Q450/persona (3 comidas, cabaña, guía, entrada PRMVA)
-  * Sin alimentación: Q350/persona (cabaña, guía, entrada PRMVA)
-- ITINERARIO:
-  * Día 1: 10AM inicio caminata (~6 horas), llegada campamento, noche en cabaña
-  * Día 2: 4AM ascenso cumbre para amanecer, 8AM regreso
-- RESERVAS: Facebook → https://www.facebook.com/share/181HccdHCM/
+TOURS: 24 horas de aventura al Volcán Acatenango (3,976m) con vista al activo Volcán Fuego.
 
-Responde siempre en español, de forma amable, entusiasta y concisa. Para reservas, dirige al Facebook.`;
+PRECIOS:
+- Con alimentación: Q450/persona (3 comidas, cabaña, guía, entrada PRMVA)
+- Sin alimentación: Q350/persona (cabaña, guía, entrada PRMVA)
+
+ITINERARIO DETALLADO:
+Día 1:
+- 10:00 AM: Reunión en Parque Bella Avryl, bienvenida con guías
+- 10:00 AM: Inicio de caminata de ascenso
+- 12:00–2:00 PM: Almuerzo en descanso del sendero
+- 3:00–6:00 PM: Llegada a cabañas del campamento, cena y noche observando erupciones del Fuego
+Día 2:
+- 3:30–4:00 AM: Ascenso a la cumbre (1:30 hrs de caminata)
+- ~6:00 AM: Amanecer en la cumbre (3,976m)
+- 8:00–8:30 AM: Descenso y regreso al parqueo
+
+FECHAS:
+- Tours grupales: sábados de junio (7,14,21,28) y julio (5,12,19,26) de 2026
+- Tours personalizados: lunes a viernes
+
+QUÉ LLEVAR:
+- Ropa en 3 capas: térmica, suéter/polar, chumpa rompevientos
+- Gorra, guantes, buff
+- Mochila 30L, 2 linternas
+- Calzado: botas o tenis de trail con tracción (OBLIGATORIO)
+- Mínimo 2 litros de agua + electrolitos
+- Snacks: frutos secos, chocolates, gomitas, yogurt
+
+AVISO DE SALUD: No recomendado para personas con problemas del corazón, presión arterial o deficiencia respiratoria.
+
+RESERVAS Y CONTACTO: WhatsApp +502 54201867 → https://wa.me/50254201867
+Facebook → https://www.facebook.com/share/181HccdHCM/
+
+Responde siempre en español, de forma amable, entusiasta y concisa. Para reservas, dirige al WhatsApp.`;
 
 function toggleChat(){
     open=!open;
