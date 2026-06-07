@@ -632,32 +632,32 @@
             <div class="gal-cat" onclick="openGalCat(0)">
                 <span class="gal-cat-emoji">🌋</span>
                 <span class="gal-cat-name">Volcán y Paisajes</span>
-                <span class="gal-cat-count">6 fotos</span>
+                <span class="gal-cat-count">36 fotos</span>
             </div>
             <div class="gal-cat" onclick="openGalCat(1)">
                 <span class="gal-cat-emoji">🌌</span>
                 <span class="gal-cat-name">Cielo Nocturno</span>
-                <span class="gal-cat-count">5 fotos</span>
+                <span class="gal-cat-count">36 fotos</span>
             </div>
             <div class="gal-cat" onclick="openGalCat(2)">
                 <span class="gal-cat-emoji">🌅</span>
                 <span class="gal-cat-name">Amaneceres</span>
-                <span class="gal-cat-count">5 fotos</span>
+                <span class="gal-cat-count">36 fotos</span>
             </div>
             <div class="gal-cat" onclick="openGalCat(3)">
                 <span class="gal-cat-emoji">🔥</span>
                 <span class="gal-cat-name">Volcán de Fuego</span>
-                <span class="gal-cat-count">6 fotos</span>
+                <span class="gal-cat-count">36 fotos</span>
             </div>
             <div class="gal-cat" onclick="openGalCat(4)">
                 <span class="gal-cat-emoji">🏔️</span>
                 <span class="gal-cat-name">Cumbre</span>
-                <span class="gal-cat-count">5 fotos</span>
+                <span class="gal-cat-count">36 fotos</span>
             </div>
             <div class="gal-cat" onclick="openGalCat(5)">
                 <span class="gal-cat-emoji">🏕️</span>
                 <span class="gal-cat-name">Campamento y Cabañas</span>
-                <span class="gal-cat-count">5 fotos</span>
+                <span class="gal-cat-count">33 fotos</span>
             </div>
         </div>
         <!-- Fotos de categoría -->
@@ -773,51 +773,18 @@
 
 <script>
 // ── GALLERY ──
+function makePhotos(start,end){
+    const r=[];
+    for(let i=start;i<=end;i++) r.push({src:`fotos/${i}.jpg`,caption:`Foto ${i}`});
+    return r;
+}
 const galData=[
-    {name:'🌋 Volcán y Paisajes',photos:[
-        {id:10,caption:'Vista del cráter desde la ladera'},
-        {id:20,caption:'Paisaje volcánico al atardecer'},
-        {id:30,caption:'Sendero entre las nubes'},
-        {id:40,caption:'Mar de nubes bajo la cumbre'},
-        {id:50,caption:'Valle verde desde las alturas'},
-        {id:60,caption:'Perfil del volcán al amanecer'}
-    ]},
-    {name:'🌌 Cielo Nocturno',photos:[
-        {id:11,caption:'Vía Láctea sobre el campamento'},
-        {id:21,caption:'Miles de estrellas desde 3,000m'},
-        {id:31,caption:'Luna llena iluminando la cima'},
-        {id:41,caption:'Cielo estrellado sin contaminación'},
-        {id:51,caption:'Constelaciones en altitud'}
-    ]},
-    {name:'🌅 Amaneceres',photos:[
-        {id:12,caption:'Primer rayo de sol sobre Guatemala'},
-        {id:22,caption:'Amanecer dorado en la cumbre'},
-        {id:32,caption:'Nubes rosadas al despertar'},
-        {id:42,caption:'El sol nace entre los volcanes'},
-        {id:52,caption:'Horizonte infinito al alba'}
-    ]},
-    {name:'🔥 Volcán de Fuego',photos:[
-        {id:13,caption:'Erupción nocturna del Fuego'},
-        {id:23,caption:'Columna de lava en la oscuridad'},
-        {id:33,caption:'Fuego activo desde el campamento'},
-        {id:43,caption:'Ceniza y fuego en la noche'},
-        {id:53,caption:'Erupciones cada 20 minutos'},
-        {id:63,caption:'Resplandor rojizo del Fuego'}
-    ]},
-    {name:'🏔️ Cumbre',photos:[
-        {id:14,caption:'En la cima a 3,976 metros'},
-        {id:24,caption:'Vista 360° desde la cumbre'},
-        {id:34,caption:'El equipo en la cima'},
-        {id:44,caption:'Bandera en lo más alto'},
-        {id:54,caption:'El mundo a tus pies'}
-    ]},
-    {name:'🏕️ Campamento y Cabañas',photos:[
-        {id:15,caption:'Cabañas del campamento base'},
-        {id:25,caption:'Fogata bajo las estrellas'},
-        {id:35,caption:'Descanso antes de la cumbre'},
-        {id:45,caption:'Equipo reunido en el campamento'},
-        {id:55,caption:'Amanecer desde las cabañas'}
-    ]}
+    {name:'🌋 Volcán y Paisajes',  photos:makePhotos(1,36)},
+    {name:'🌌 Cielo Nocturno',     photos:makePhotos(37,72)},
+    {name:'🌅 Amaneceres',         photos:makePhotos(73,108)},
+    {name:'🔥 Volcán de Fuego',    photos:makePhotos(109,144)},
+    {name:'🏔️ Cumbre',            photos:makePhotos(145,180)},
+    {name:'🏕️ Campamento y Cabañas',photos:makePhotos(181,213)}
 ];
 
 let curCat=null,lbPhotos=[],lbIdx=0;
@@ -836,7 +803,7 @@ function openGalCat(i){
     cat.photos.forEach((p,idx)=>{
         const div=document.createElement('div');
         div.className='gal-photo fade-in';
-        div.innerHTML=`<img src="https://picsum.photos/800/600?random=${p.id}" alt="${p.caption}" loading="lazy"><div class="gal-photo-overlay"><span class="gal-photo-caption">${p.caption}</span></div>`;
+        div.innerHTML=`<img src="${p.src}" alt="${p.caption}" loading="lazy"><div class="gal-photo-overlay"><span class="gal-photo-caption">${p.caption}</span></div>`;
         div.addEventListener('click',()=>openLightbox(idx));
         grid.appendChild(div);
     });
@@ -870,7 +837,7 @@ function updateLb(){
     const img=document.getElementById('lbImg');
     img.style.opacity='0';img.style.transform='scale(.9)';
     setTimeout(()=>{
-        img.src=`https://picsum.photos/800/600?random=${p.id}`;
+        img.src=p.src;
         img.alt=p.caption;
         img.style.opacity='';img.style.transform='';
     },150);
