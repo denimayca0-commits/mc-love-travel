@@ -37,21 +37,24 @@
 
         /* ── HERO ── */
         .hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-        .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,69,0,.45) 0%,transparent 60%),radial-gradient(ellipse at 30% 60%,rgba(255,107,53,.18) 0%,transparent 50%),linear-gradient(180deg,#0a0a0f 0%,#1a0a05 55%,#0a0505 100%);}
-        .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+        .hero-photo{position:absolute;inset:0;width:100%;height:100%;}
+        .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 35%;}
+        .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.78) 100%);}
+        .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2;}
         .particle{position:absolute;border-radius:50%;animation:floatUp linear infinite;opacity:0;}
         @keyframes floatUp{0%{transform:translateY(100vh) scale(0);opacity:0;}10%{opacity:1;}90%{opacity:.4;}100%{transform:translateY(-120px) scale(1.6);opacity:0;}}
-        .mountain-svg{position:absolute;bottom:0;left:0;right:0;width:100%;height:45%;}
         .hero-content{position:relative;z-index:10;text-align:center;padding:2rem;max-width:900px;}
-        .hero-badge{display:inline-block;background:rgba(255,107,53,.12);border:1px solid var(--accent-orange);color:var(--accent-orange);padding:.35rem 1.2rem;border-radius:20px;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;}
-        .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,9vw,6.5rem);font-weight:900;line-height:1.05;margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,var(--accent-gold) 50%,var(--accent-fire) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-        .hero-sub{font-size:clamp(.95rem,2.5vw,1.3rem);color:var(--text-secondary);margin-bottom:2.5rem;font-weight:300;letter-spacing:.5px;line-height:1.7;}
+        .hero-badge{display:inline-block;background:rgba(255,107,53,.15);border:1px solid var(--accent-orange);color:var(--accent-orange);padding:.35rem 1.2rem;border-radius:20px;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;backdrop-filter:blur(4px);}
+        .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,9vw,6.5rem);font-weight:900;line-height:1.05;margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,var(--accent-gold) 50%,var(--accent-fire) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:none;}
+        .hero-sub{font-size:clamp(.95rem,2.5vw,1.3rem);color:rgba(240,237,230,.88);margin-bottom:2.5rem;font-weight:300;letter-spacing:.5px;line-height:1.7;}
         .hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
         .btn-primary{background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));color:#fff;padding:.9rem 2.4rem;border:none;border-radius:4px;font-size:.95rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .3s,box-shadow .3s;box-shadow:0 4px 20px rgba(255,69,0,.4);}
         .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,69,0,.65);}
+        .btn-whatsapp{background:#25D366;color:#fff;padding:.9rem 2.4rem;border:none;border-radius:4px;font-size:.95rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.55rem;transition:transform .3s,box-shadow .3s;box-shadow:0 4px 20px rgba(37,211,102,.4);}
+        .btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.6);}
         .btn-secondary{background:transparent;color:var(--text-primary);padding:.9rem 2.4rem;border:1px solid rgba(255,255,255,.28);border-radius:4px;font-size:.95rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;}
         .btn-secondary:hover{border-color:var(--accent-orange);color:var(--accent-orange);}
-        .scroll-down{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);color:var(--text-secondary);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.4rem;animation:bounce 2s infinite;}
+        .scroll-down{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.65);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.4rem;animation:bounce 2s infinite;z-index:10;}
         @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
 
         /* ── STATS ── */
@@ -71,8 +74,9 @@
         .sec-header{text-align:center;margin-bottom:3.5rem;}
         .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
         .volcano-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
-        .volcano-vis{width:100%;height:320px;background:radial-gradient(ellipse at 50% 100%,rgba(255,69,0,.8) 0%,rgba(180,40,0,.4) 30%,transparent 70%),linear-gradient(180deg,#1a0a05 0%,#2d1208 40%,#4a1f0d 100%);display:flex;align-items:center;justify-content:center;font-size:7rem;filter:drop-shadow(0 0 30px rgba(255,69,0,.7));animation:pulseGlow 3s ease-in-out infinite;}
-        @keyframes pulseGlow{0%,100%{filter:drop-shadow(0 0 18px rgba(255,69,0,.6));}50%{filter:drop-shadow(0 0 45px rgba(255,69,0,1));}}
+        .volcano-photo{width:100%;height:320px;overflow:hidden;position:relative;}
+        .volcano-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform .6s ease;}
+        .volcano-card:hover .volcano-photo img{transform:scale(1.04);}
         .card-info{padding:1.4rem 1.6rem;}
         .card-info h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text-primary);margin-bottom:.4rem;}
         .card-info p{color:var(--text-secondary);font-size:.88rem;line-height:1.65;}
@@ -84,21 +88,25 @@
 
         /* ── PRICING ── */
         .pricing{background:var(--bg-secondary);}
-        .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:820px;margin:0 auto;}
-        .price-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2.8rem 2.2rem;text-align:center;position:relative;transition:transform .3s,box-shadow .3s;}
+        .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:860px;margin:0 auto;}
+        .price-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;text-align:center;position:relative;transition:transform .3s,box-shadow .3s;}
         .price-card:hover{transform:translateY(-7px);box-shadow:0 20px 55px rgba(255,107,53,.18);}
         .price-card.featured{border-color:var(--accent-orange);background:linear-gradient(180deg,rgba(255,107,53,.06) 0%,var(--bg-card) 100%);}
-        .feat-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));color:#fff;padding:.28rem 1.4rem;border-radius:20px;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
-        .price-icon{font-size:2.2rem;margin-bottom:.8rem;}
-        .price-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:.4rem;}
-        .price-amount{font-size:3.2rem;font-weight:900;font-family:'Playfair Display',serif;background:linear-gradient(135deg,var(--accent-gold),var(--accent-orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin:.8rem 0;}
-        .price-cur{font-size:1.4rem;vertical-align:top;margin-top:.7rem;display:inline-block;}
-        .price-period{color:var(--text-secondary);font-size:.8rem;margin-bottom:1.8rem;}
-        .price-feats{list-style:none;margin-bottom:2.2rem;text-align:left;}
-        .price-feats li{padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:.7rem;color:var(--text-secondary);font-size:.88rem;}
+        .feat-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));color:#fff;padding:.28rem 1.4rem;border-radius:0 0 12px 12px;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;z-index:2;}
+        .price-photo{height:180px;overflow:hidden;position:relative;}
+        .price-photo img{width:100%;height:100%;object-fit:cover;object-position:center 35%;transition:transform .6s;}
+        .price-card:hover .price-photo img{transform:scale(1.05);}
+        .price-body{padding:1.8rem 2.2rem 2.2rem;}
+        .price-name{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;margin-bottom:.4rem;}
+        .price-amount{font-size:3rem;font-weight:900;font-family:'Playfair Display',serif;background:linear-gradient(135deg,var(--accent-gold),var(--accent-orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin:.6rem 0;}
+        .price-cur{font-size:1.4rem;vertical-align:top;margin-top:.6rem;display:inline-block;}
+        .price-period{color:var(--text-secondary);font-size:.8rem;margin-bottom:1.6rem;}
+        .price-feats{list-style:none;margin-bottom:2rem;text-align:left;}
+        .price-feats li{padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:.7rem;color:var(--text-secondary);font-size:.87rem;}
         .price-feats li i{color:var(--accent-orange);width:15px;flex-shrink:0;}
         .price-feats li.off{opacity:.35;}
         .price-feats li.off i{color:#555;}
+        .price-divider{width:100%;height:1px;background:var(--border);margin:1.2rem 0;}
 
         /* ── ITINERARY ── */
         .itinerary{background:var(--bg-primary);}
@@ -108,10 +116,13 @@
         .day-badge{display:inline-block;background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));color:#fff;padding:.45rem 1.8rem;border-radius:30px;font-weight:600;font-size:.85rem;letter-spacing:1px;position:relative;z-index:1;}
         .timeline-day{margin-bottom:2.5rem;}
         .t-item{display:grid;grid-template-columns:1fr 56px 1fr;gap:1.2rem;margin-bottom:1.4rem;align-items:start;}
-        .t-item .content{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.2rem;}
+        .t-item .content{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+        .t-photo{height:110px;overflow:hidden;}
+        .t-photo img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s;}
+        .t-item .content:hover .t-photo img{transform:scale(1.07);}
+        .t-inner{padding:.9rem 1.1rem;}
         .t-item .content h4{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--text-primary);margin-bottom:.3rem;}
         .t-item .content p{color:var(--text-secondary);font-size:.82rem;line-height:1.55;}
-        .t-item .content .ico{font-size:1.1rem;margin-bottom:.4rem;}
         .t-item.left .content{grid-column:1;text-align:right;}
         .t-item.left .empty{grid-column:3;}
         .t-item.right .content{grid-column:3;}
@@ -120,18 +131,8 @@
         .dot{width:13px;height:13px;border-radius:50%;background:var(--accent-orange);border:2px solid var(--bg-primary);box-shadow:0 0 10px rgba(255,107,53,.55);}
         .t-time{font-size:.7rem;color:var(--accent-orange);font-weight:600;white-space:nowrap;}
 
-        /* ── INCLUDES ── */
-        .includes{background:var(--bg-secondary);}
-        .inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;}
-        .inc-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.8rem;text-align:center;transition:all .3s;}
-        .inc-card:hover{border-color:var(--accent-orange);transform:translateY(-4px);}
-        .inc-icon{font-size:2.2rem;margin-bottom:.8rem;display:block;}
-        .inc-card h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--text-primary);margin-bottom:.4rem;}
-        .inc-card p{color:var(--text-secondary);font-size:.82rem;line-height:1.6;}
-
-        /* ── GALLERY ── */
         /* ── FECHAS ── */
-        .fechas{background:var(--bg-primary);}
+        .fechas{background:var(--bg-secondary);}
         .fechas-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.8rem;}
         .fecha-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.8rem;text-align:center;transition:all .3s;}
         .fecha-card:hover{border-color:var(--accent-orange);transform:translateY(-4px);}
@@ -142,32 +143,39 @@
         .fecha-card p{color:var(--text-secondary);font-size:.82rem;line-height:1.6;}
         .whatsapp-btn{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.7rem 1.6rem;border-radius:4px;font-size:.88rem;font-weight:600;text-decoration:none;letter-spacing:.5px;transition:all .3s;box-shadow:0 4px 15px rgba(37,211,102,.35);}
         .whatsapp-btn:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.5);}
-        /* ── QUÉ LLEVAR ── */
-        .llevar{background:var(--bg-secondary);}
-        .llevar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;}
-        .llevar-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.6rem;transition:all .3s;}
-        .llevar-card:hover{border-color:var(--accent-orange);transform:translateY(-4px);}
-        .llevar-card .ico{font-size:1.8rem;margin-bottom:.7rem;display:block;}
-        .llevar-card h3{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--text-primary);margin-bottom:.6rem;}
-        .llevar-card ul{list-style:none;padding:0;}
-        .llevar-card ul li{color:var(--text-secondary);font-size:.82rem;padding:.25rem 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:.5rem;line-height:1.4;}
-        .llevar-card ul li::before{content:'·';color:var(--accent-orange);font-weight:700;flex-shrink:0;}
-        .warning-card{border-color:rgba(255,69,0,.4);background:rgba(255,69,0,.05);}
-        .warning-card h3{color:var(--accent-fire);}
+
+        /* ── QUÉ LLEVAR — ACORDEÓN ── */
+        .llevar{background:var(--bg-primary);}
+        .accordion{max-width:780px;margin:0 auto;}
+        .acc-item{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:.6rem;}
+        .acc-trigger{width:100%;background:var(--bg-card);border:none;padding:1.1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;color:var(--text-primary);font-family:'Raleway',sans-serif;font-size:.95rem;font-weight:600;text-align:left;transition:background .25s;}
+        .acc-trigger:hover{background:rgba(255,107,53,.06);}
+        .acc-trigger .acc-label{display:flex;align-items:center;gap:.7rem;}
+        .acc-trigger .acc-label i{color:var(--accent-orange);font-size:.95rem;width:18px;}
+        .acc-arrow{color:var(--accent-orange);transition:transform .3s;font-size:.85rem;}
+        .acc-trigger.open .acc-arrow{transform:rotate(180deg);}
+        .acc-body{max-height:0;overflow:hidden;transition:max-height .38s ease;background:var(--bg-card);}
+        .acc-body.open{max-height:420px;}
+        .acc-body-inner{padding:.2rem 1.4rem 1.3rem;}
+        .acc-body-inner ul{list-style:none;padding:0;}
+        .acc-body-inner ul li{color:var(--text-secondary);font-size:.87rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:.55rem;line-height:1.45;}
+        .acc-body-inner ul li::before{content:'·';color:var(--accent-orange);font-weight:700;flex-shrink:0;}
+        .acc-item.warning-acc .acc-trigger{border-left:3px solid var(--accent-fire);}
+        .acc-item.warning-acc .acc-trigger .acc-label{color:var(--accent-fire);}
+        .acc-item.warning-acc .acc-body-inner ul li::before{content:'⚠';font-size:.72rem;}
+
         /* ── GALLERY ── */
-        .gallery{background:var(--bg-primary);}
+        .gallery{background:var(--bg-secondary);}
         .gal-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;}
-        .gal-cat{border-radius:10px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.6rem;border:1px solid var(--border);transition:transform .35s,box-shadow .35s;}
-        .gal-cat:nth-child(1){background:linear-gradient(135deg,#1a0a05,#4a1f0d);}
-        .gal-cat:nth-child(2){background:linear-gradient(135deg,#0d1a2d,#1a3d5c);}
-        .gal-cat:nth-child(3){background:linear-gradient(135deg,#1a1505,#3d3010);}
-        .gal-cat:nth-child(4){background:linear-gradient(135deg,#1a0508,#4a1525);}
-        .gal-cat:nth-child(5){background:linear-gradient(135deg,#050d1a,#0d2040);}
-        .gal-cat:nth-child(6){background:linear-gradient(135deg,#071a05,#133d10);}
-        .gal-cat:hover{transform:scale(1.04);box-shadow:0 8px 32px rgba(255,69,0,.28);}
-        .gal-cat-emoji{font-size:2.8rem;line-height:1;}
-        .gal-cat-name{color:#fff;font-weight:600;font-size:.9rem;text-align:center;padding:0 .6rem;letter-spacing:.3px;}
-        .gal-cat-count{color:rgba(255,255,255,.5);font-size:.75rem;}
+        .gal-cat{border-radius:10px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:4/3;display:flex;align-items:flex-end;justify-content:flex-start;border:1px solid var(--border);transition:transform .35s,box-shadow .35s;}
+        .gal-cat-bg{position:absolute;inset:0;}
+        .gal-cat-bg img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s;}
+        .gal-cat:hover .gal-cat-bg img{transform:scale(1.08);}
+        .gal-cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.2) 55%,transparent 100%);}
+        .gal-cat-info{position:relative;z-index:2;padding:.9rem 1rem;width:100%;}
+        .gal-cat-name{color:#fff;font-weight:700;font-size:.88rem;letter-spacing:.3px;display:block;}
+        .gal-cat-count{color:rgba(255,255,255,.55);font-size:.73rem;margin-top:.15rem;display:block;}
+        .gal-cat:hover{transform:scale(1.03);box-shadow:0 8px 32px rgba(255,69,0,.28);}
         .gal-back{display:none;align-items:center;gap:.5rem;background:none;border:1px solid var(--border);color:var(--text-secondary);padding:.5rem 1.2rem;border-radius:30px;cursor:pointer;font-size:.85rem;margin-bottom:1.5rem;transition:all .3s;}
         .gal-back:hover{border-color:var(--accent-orange);color:var(--text-primary);}
         .gal-back.show{display:inline-flex;}
@@ -181,7 +189,6 @@
         .gal-photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:.9rem;}
         .gal-photo:hover .gal-photo-overlay{opacity:1;}
         .gal-photo-caption{color:#fff;font-size:.78rem;font-weight:500;}
-        /* Lightbox */
         .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;}
         .lightbox.open{opacity:1;visibility:visible;}
         .lb-wrap{position:relative;display:flex;align-items:center;gap:1rem;max-width:92vw;}
@@ -193,7 +200,20 @@
         .lb-arrow{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:2rem;width:50px;height:50px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0;}
         .lb-arrow:hover{background:rgba(255,69,0,.55);border-color:transparent;}
         .lb-counter{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.55);font-size:.82rem;letter-spacing:1px;}
-        @media(max-width:680px){.gal-cats,.gal-photos{grid-template-columns:repeat(2,1fr);}.lb-wrap{gap:.3rem;}.lb-img-box img{max-width:94vw;}.lb-arrow{width:36px;height:36px;font-size:1.4rem;}}
+
+        /* ── TESTIMONIOS ── */
+        .testimonios{background:var(--bg-primary);}
+        .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+        .testi-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:transform .3s,border-color .3s;}
+        .testi-card:hover{transform:translateY(-5px);border-color:var(--accent-orange);}
+        .testi-stars{color:var(--accent-gold);font-size:1.05rem;letter-spacing:3px;margin-bottom:1.1rem;}
+        .testi-quote{color:rgba(255,107,53,.25);font-size:3rem;font-family:'Playfair Display',serif;line-height:.8;margin-bottom:.5rem;}
+        .testi-text{color:var(--text-secondary);font-size:.91rem;line-height:1.78;margin-bottom:1.6rem;font-style:italic;}
+        .testi-author{display:flex;align-items:center;gap:.85rem;}
+        .testi-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.9rem;flex-shrink:0;letter-spacing:.5px;}
+        .testi-name{color:var(--text-primary);font-weight:600;font-size:.9rem;}
+        .testi-country{color:var(--text-secondary);font-size:.78rem;margin-top:.2rem;}
+        .testi-note{text-align:center;margin-top:2rem;color:rgba(154,144,144,.45);font-size:.78rem;font-style:italic;}
 
         /* ── CTA ── */
         .cta-section{background:radial-gradient(ellipse at 50% 0%,rgba(255,69,0,.28) 0%,transparent 60%),var(--bg-primary);text-align:center;padding:7rem 2rem;}
@@ -242,13 +262,6 @@
         .chat-send{width:36px;height:36px;background:linear-gradient(135deg,#4285F4,#0F9D58);border:none;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:opacity .2s;flex-shrink:0;}
         .chat-send:hover{opacity:.85;}
         .chat-send:disabled{opacity:.45;cursor:not-allowed;}
-        .api-setup{padding:1.5rem;text-align:center;}
-        .api-setup h4{color:var(--text-primary);margin-bottom:.5rem;font-size:.88rem;}
-        .api-setup p{color:var(--text-secondary);font-size:.78rem;margin-bottom:.9rem;line-height:1.6;}
-        .api-in{width:100%;background:var(--bg-secondary);border:1px solid rgba(66,133,244,.3);border-radius:7px;padding:.55rem .8rem;color:var(--text-primary);font-size:.78rem;font-family:'Raleway',sans-serif;outline:none;margin-bottom:.7rem;}
-        .api-in:focus{border-color:rgba(66,133,244,.6);}
-        .btn-conn{width:100%;background:linear-gradient(135deg,#4285F4,#0F9D58);border:none;border-radius:7px;padding:.6rem;color:#fff;font-size:.82rem;font-weight:600;cursor:pointer;transition:opacity .2s;}
-        .btn-conn:hover{opacity:.85;}
 
         /* ── ANIMATIONS ── */
         .fade-in{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
@@ -260,20 +273,21 @@
             .hamburger{display:flex;}
             .stats-grid{grid-template-columns:repeat(2,1fr);}
             .about-grid{grid-template-columns:1fr;}
-            .pricing-grid{grid-template-columns:1fr;max-width:380px;margin:0 auto;}
+            .pricing-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto;}
             .timeline::before{left:28px;}
             .t-item{grid-template-columns:54px 1fr;}
             .t-item.left .content,.t-item.right .content{grid-column:2;text-align:left;}
             .t-dot{grid-column:1;}
             .t-item.left .empty,.t-item.right .empty{display:none;}
-            .inc-grid{grid-template-columns:1fr;}
+            .t-photo{height:140px;}
             .fechas-grid{grid-template-columns:1fr;}
-            .llevar-grid{grid-template-columns:1fr;}
-            .warning-card ul{grid-template-columns:1fr !important;}
-            .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px 160px;}
-            .gal-item:first-child{grid-row:span 1;}
+            .gal-cats,.gal-photos{grid-template-columns:repeat(2,1fr);}
+            .testi-grid{grid-template-columns:1fr;}
             .foot-grid{grid-template-columns:1fr;gap:2rem;}
             .chat-win{width:calc(100vw - 2rem);right:1rem;bottom:5rem;}
+            .lb-wrap{gap:.3rem;}
+            .lb-img-box img{max-width:94vw;}
+            .lb-arrow{width:36px;height:36px;font-size:1.4rem;}
         }
     </style>
 </head>
@@ -287,9 +301,9 @@
         <li><a href="#tours">Tours</a></li>
         <li><a href="#precios">Precios</a></li>
         <li><a href="#itinerario">Itinerario</a></li>
-        <li><a href="#incluye">Incluye</a></li>
         <li><a href="#fechas">Fechas</a></li>
         <li><a href="#llevar">Qué Llevar</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
         <li><a href="#contacto">Contacto</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -301,39 +315,29 @@
     <a href="#tours" onclick="closeMobile()">Tours</a>
     <a href="#precios" onclick="closeMobile()">Precios</a>
     <a href="#itinerario" onclick="closeMobile()">Itinerario</a>
-    <a href="#incluye" onclick="closeMobile()">Incluye</a>
     <a href="#fechas" onclick="closeMobile()">Fechas</a>
     <a href="#llevar" onclick="closeMobile()">Qué Llevar</a>
+    <a href="#testimonios" onclick="closeMobile()">Testimonios</a>
     <a href="#contacto" onclick="closeMobile()">Contacto</a>
 </div>
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-    <div class="hero-bg"></div>
+    <picture class="hero-photo">
+        <source srcset="fotos/webp/14.webp" type="image/webp">
+        <img src="fotos/14.jpg" alt="Erupción nocturna Volcán Fuego — Acatenango, Guatemala" loading="eager" fetchpriority="high">
+    </picture>
+    <div class="hero-overlay"></div>
     <div class="particles" id="particles"></div>
-    <svg class="mountain-svg" viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <filter id="glow"><feGaussianBlur stdDeviation="8" result="cb"/><feMerge><feMergeNode in="cb"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            <radialGradient id="lavaGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="rgba(255,100,0,0.9)"/>
-                <stop offset="100%" stop-color="rgba(255,50,0,0)"/>
-            </radialGradient>
-        </defs>
-        <!-- Fuego -->
-        <polygon points="0,400 200,400 380,80 480,210 580,400" fill="#0d0806"/>
-        <!-- Acatenango -->
-        <polygon points="480,400 700,400 900,15 1050,130 1160,400 1440,400" fill="#0a0605"/>
-        <!-- Lava glow Fuego -->
-        <ellipse cx="380" cy="85" rx="30" ry="18" fill="url(#lavaGlow)" filter="url(#glow)" opacity="0.85"/>
-        <rect x="0" y="380" width="1440" height="20" fill="#0a0a0f"/>
-    </svg>
     <div class="hero-content">
         <div class="hero-badge">🇬🇹 Guatemala · Acatenango &amp; Fuego</div>
         <h1>M.C Love<br>Travel</h1>
         <p class="hero-sub">Conquista las cumbres más espectaculares de Guatemala.<br>Una aventura que cambiará tu vida para siempre.</p>
         <div class="hero-cta">
             <a href="#precios" class="btn-primary">Ver Paquetes</a>
-            <a href="#itinerario" class="btn-secondary">Ver Itinerario</a>
+            <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i>Reservar por WhatsApp
+            </a>
         </div>
     </div>
     <div class="scroll-down">
@@ -358,7 +362,12 @@
         <div class="about-grid">
             <div class="about-visual fade-in">
                 <div class="volcano-card">
-                    <div class="volcano-vis">🌋</div>
+                    <div class="volcano-photo">
+                        <picture>
+                            <source srcset="fotos/webp/72.webp" type="image/webp">
+                            <img src="fotos/72.jpg" alt="Erupción Volcán Fuego vista desde campamento" loading="lazy">
+                        </picture>
+                    </div>
                     <div class="card-info">
                         <h3>Volcán Acatenango &amp; Fuego</h3>
                         <p>Vista privilegiada de las erupciones del Volcán Fuego desde el campamento. Una experiencia incomparable bajo el cielo estrellado de Guatemala.</p>
@@ -399,35 +408,51 @@
             <!-- CON ALIMENTACIÓN -->
             <div class="price-card featured fade-in">
                 <div class="feat-badge">⭐ Más Popular</div>
-                <div class="price-icon">🍽️</div>
-                <div class="price-name">Con Alimentación</div>
-                <div class="price-amount"><span class="price-cur">Q</span>450</div>
-                <div class="price-period">por persona · 2 días / 1 noche</div>
-                <ul class="price-feats">
-                    <li><i class="fas fa-utensils"></i> 3 comidas incluidas</li>
-                    <li><i class="fas fa-home"></i> Cabaña en campamento</li>
-                    <li><i class="fas fa-user-tie"></i> Guía certificado</li>
-                    <li><i class="fas fa-ticket-alt"></i> Entrada PRMVA</li>
-                    <li><i class="fas fa-mountain"></i> Tour 2 días completo</li>
-                    <li><i class="fas fa-star"></i> Vista Volcán Fuego</li>
-                </ul>
-                <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-primary">Reservar Ahora</a>
+                <div class="price-photo">
+                    <picture>
+                        <source srcset="fotos/webp/85.webp" type="image/webp">
+                        <img src="fotos/85.jpg" alt="Amanecer en la cumbre del Acatenango" loading="lazy">
+                    </picture>
+                </div>
+                <div class="price-body">
+                    <div class="price-name">Con Alimentación</div>
+                    <div class="price-amount"><span class="price-cur">Q</span>450</div>
+                    <div class="price-period">por persona · 2 días / 1 noche</div>
+                    <ul class="price-feats">
+                        <li><i class="fas fa-utensils"></i> 3 comidas incluidas (desayuno, almuerzo y cena)</li>
+                        <li><i class="fas fa-home"></i> Cabaña en campamento</li>
+                        <li><i class="fas fa-user-tie"></i> Guía certificado</li>
+                        <li><i class="fas fa-ticket-alt"></i> Entrada PRMVA incluida</li>
+                        <li><i class="fas fa-mountain"></i> Tour 2 días completo</li>
+                        <li><i class="fas fa-fire"></i> Vista directa Volcán Fuego</li>
+                        <li><i class="fas fa-sun"></i> Amanecer en cumbre 3,976m</li>
+                    </ul>
+                    <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-primary" style="width:100%;display:block;text-align:center;">Reservar Ahora</a>
+                </div>
             </div>
             <!-- SIN ALIMENTACIÓN -->
             <div class="price-card fade-in">
-                <div class="price-icon">🎒</div>
-                <div class="price-name">Sin Alimentación</div>
-                <div class="price-amount"><span class="price-cur">Q</span>350</div>
-                <div class="price-period">por persona · 2 días / 1 noche</div>
-                <ul class="price-feats">
-                    <li class="off"><i class="fas fa-times"></i> Alimentación no incluida</li>
-                    <li><i class="fas fa-home"></i> Cabaña en campamento</li>
-                    <li><i class="fas fa-user-tie"></i> Guía certificado</li>
-                    <li><i class="fas fa-ticket-alt"></i> Entrada PRMVA</li>
-                    <li><i class="fas fa-mountain"></i> Tour 2 días completo</li>
-                    <li><i class="fas fa-star"></i> Vista Volcán Fuego</li>
-                </ul>
-                <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-secondary">Reservar Ahora</a>
+                <div class="price-photo">
+                    <picture>
+                        <source srcset="fotos/webp/44.webp" type="image/webp">
+                        <img src="fotos/44.jpg" alt="Volcán Fuego al atardecer" loading="lazy">
+                    </picture>
+                </div>
+                <div class="price-body">
+                    <div class="price-name">Sin Alimentación</div>
+                    <div class="price-amount"><span class="price-cur">Q</span>350</div>
+                    <div class="price-period">por persona · 2 días / 1 noche</div>
+                    <ul class="price-feats">
+                        <li class="off"><i class="fas fa-times"></i> Alimentación no incluida — lleva tus propios snacks</li>
+                        <li><i class="fas fa-home"></i> Cabaña en campamento</li>
+                        <li><i class="fas fa-user-tie"></i> Guía certificado</li>
+                        <li><i class="fas fa-ticket-alt"></i> Entrada PRMVA incluida</li>
+                        <li><i class="fas fa-mountain"></i> Tour 2 días completo</li>
+                        <li><i class="fas fa-fire"></i> Vista directa Volcán Fuego</li>
+                        <li><i class="fas fa-sun"></i> Amanecer en cumbre 3,976m</li>
+                    </ul>
+                    <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-secondary" style="width:100%;display:block;text-align:center;">Reservar Ahora</a>
+                </div>
             </div>
         </div>
     </div>
@@ -445,66 +470,124 @@
         <div class="timeline">
             <!-- DÍA 1 -->
             <div class="timeline-day fade-in">
-                <div class="day-header"><span class="day-badge">🌄 Día 1 — El Ascenso</span></div>
+                <div class="day-header"><span class="day-badge">Día 1 — El Ascenso</span></div>
                 <div class="t-item left">
-                    <div class="content"><div class="ico">📍</div><h4>Lugar de Reunión</h4><p><strong>Parque Bella Avryl</strong> — bienvenida con nuestros guías, revisión de equipamiento y briefing de seguridad.</p></div>
+                    <div class="content">
+                        <div class="t-photo">
+                            <picture>
+                                <source srcset="fotos/webp/1.webp" type="image/webp">
+                                <img src="fotos/1.jpg" alt="Volcán Fuego — punto de partida" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="t-inner">
+                            <h4>Lugar de Reunión</h4>
+                            <p><strong>Parque Bella Avryl</strong> — bienvenida con nuestros guías, revisión de equipamiento y briefing de seguridad.</p>
+                        </div>
+                    </div>
                     <div class="t-dot"><div class="dot"></div><span class="t-time">10:00 AM</span></div>
                     <div class="empty"></div>
                 </div>
                 <div class="t-item right">
                     <div class="empty"></div>
                     <div class="t-dot"><div class="dot"></div><span class="t-time">10:00 AM</span></div>
-                    <div class="content"><div class="ico">🥾</div><h4>Inicio de la Caminata</h4><p>Comenzamos el ascenso por senderos únicos entre bosques nubosos con vistas impresionantes.</p></div>
+                    <div class="content">
+                        <div class="t-photo">
+                            <picture>
+                                <source srcset="fotos/webp/44.webp" type="image/webp">
+                                <img src="fotos/44.jpg" alt="Inicio del ascenso al Acatenango" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="t-inner">
+                            <h4>Inicio de la Caminata</h4>
+                            <p>Comenzamos el ascenso por senderos únicos entre bosques nubosos con vistas impresionantes al Fuego.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="t-item left">
-                    <div class="content"><div class="ico">🍱</div><h4>Almuerzo en el Sendero</h4><p>Descanso para almorzar en el sendero. Recarga de energía antes de continuar el ascenso.</p></div>
+                    <div class="content">
+                        <div class="t-photo">
+                            <picture>
+                                <source srcset="fotos/webp/34.webp" type="image/webp">
+                                <img src="fotos/34.jpg" alt="Grupo de aventureros en Acatenango" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="t-inner">
+                            <h4>Almuerzo en el Sendero</h4>
+                            <p>Descanso para almorzar y recargar energía. El esfuerzo vale la pena — el volcán te espera.</p>
+                        </div>
+                    </div>
                     <div class="t-dot"><div class="dot"></div><span class="t-time">12–2 PM</span></div>
                     <div class="empty"></div>
                 </div>
                 <div class="t-item right">
                     <div class="empty"></div>
                     <div class="t-dot"><div class="dot"></div><span class="t-time">3–6 PM</span></div>
-                    <div class="content"><div class="ico">🏕️</div><h4>Llegada a las Cabañas</h4><p>Instalación en cabañas y cena (paquete con alimentación). Noche observando las erupciones del Volcán Fuego.</p></div>
+                    <div class="content">
+                        <div class="t-photo">
+                            <picture>
+                                <source srcset="fotos/webp/50.webp" type="image/webp">
+                                <img src="fotos/50.jpg" alt="Cabaña del campamento con erupción del Fuego" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="t-inner">
+                            <h4>Llegada a las Cabañas</h4>
+                            <p>Instalación en cabañas y cena (paquete con alimentación). Noche observando las erupciones del Volcán Fuego frente a ti.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- DÍA 2 -->
             <div class="timeline-day fade-in">
-                <div class="day-header"><span class="day-badge">🌅 Día 2 — La Cumbre</span></div>
+                <div class="day-header"><span class="day-badge">Día 2 — La Cumbre</span></div>
                 <div class="t-item left">
-                    <div class="content"><div class="ico">⭐</div><h4>Ascenso a la Cumbre</h4><p>Partimos bajo las estrellas. Caminata de 1:30 hrs hacia la cumbre del Acatenango (3,976 m) para llegar antes del amanecer.</p></div>
+                    <div class="content">
+                        <div class="t-photo">
+                            <picture>
+                                <source srcset="fotos/webp/5.webp" type="image/webp">
+                                <img src="fotos/5.jpg" alt="Ascenso nocturno con estrellas" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="t-inner">
+                            <h4>Ascenso a la Cumbre</h4>
+                            <p>Partimos bajo las estrellas. Caminata de 1:30 hrs hacia la cumbre del Acatenango (3,976 m) para llegar antes del amanecer.</p>
+                        </div>
+                    </div>
                     <div class="t-dot"><div class="dot"></div><span class="t-time">3:30–4 AM</span></div>
                     <div class="empty"></div>
                 </div>
                 <div class="t-item right">
                     <div class="empty"></div>
                     <div class="t-dot"><div class="dot"></div><span class="t-time">~6:00 AM</span></div>
-                    <div class="content"><div class="ico">🌅</div><h4>Amanecer en la Cumbre</h4><p>El espectáculo más impresionante de Guatemala: el sol nace entre los volcanes mientras el Fuego erupciona a nuestros pies.</p></div>
+                    <div class="content">
+                        <div class="t-photo">
+                            <picture>
+                                <source srcset="fotos/webp/85.webp" type="image/webp">
+                                <img src="fotos/85.jpg" alt="Amanecer desde la cumbre del Acatenango" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="t-inner">
+                            <h4>Amanecer en la Cumbre</h4>
+                            <p>El espectáculo más impresionante de Guatemala: el sol nace entre los volcanes mientras el Fuego erupciona a nuestros pies.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="t-item left">
-                    <div class="content"><div class="ico">🏁</div><h4>Descenso y Fin del Tour</h4><p>Regreso al parqueo. Recuerdos y fotografías para toda la vida. ¡Misión cumplida!</p></div>
+                    <div class="content">
+                        <div class="t-photo">
+                            <picture>
+                                <source srcset="fotos/webp/160.webp" type="image/webp">
+                                <img src="fotos/160.jpg" alt="Grupo en la cumbre del Acatenango" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="t-inner">
+                            <h4>Descenso y Fin del Tour</h4>
+                            <p>Regreso al parqueo. Recuerdos y fotografías para toda la vida. ¡Misión cumplida!</p>
+                        </div>
+                    </div>
                     <div class="t-dot"><div class="dot"></div><span class="t-time">8–8:30 AM</span></div>
                     <div class="empty"></div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- INCLUDES -->
-<section class="includes" id="incluye">
-    <div class="container">
-        <div class="sec-header">
-            <span class="sec-tag">Incluye</span>
-            <h2 class="sec-title">Todo lo que Necesitas</h2>
-            <div class="sec-divider"></div>
-        </div>
-        <div class="inc-grid">
-            <div class="inc-card fade-in"><span class="inc-icon">🏕️</span><h3>Cabaña en Campamento</h3><p>Alojamiento en cabaña compartida en el campamento base del Acatenango. Abrigo seguro para descansar.</p></div>
-            <div class="inc-card fade-in"><span class="inc-icon">🧭</span><h3>Guía Certificado</h3><p>Guías de montaña con experiencia y certificación oficial. Tu seguridad es nuestra prioridad.</p></div>
-            <div class="inc-card fade-in"><span class="inc-icon">🎟️</span><h3>Entrada PRMVA</h3><p>Entrada al Parque Regional Municipal Volcán Acatenango completamente incluida en el precio.</p></div>
-            <div class="inc-card fade-in"><span class="inc-icon">🍽️</span><h3>3 Comidas (paquete premium)</h3><p>Desayuno, almuerzo y cena en el paquete con alimentación. Energía para conquistar la cumbre.</p></div>
-            <div class="inc-card fade-in"><span class="inc-icon">🌋</span><h3>Vista al Volcán Fuego</h3><p>Campamento ubicado frente al activo Volcán Fuego. Erupciones en vivo toda la noche.</p></div>
-            <div class="inc-card fade-in"><span class="inc-icon">🌅</span><h3>Amanecer en Cumbre</h3><p>El momento más mágico: el amanecer desde los 3,976 metros de altura del Acatenango.</p></div>
         </div>
     </div>
 </section>
@@ -523,7 +606,6 @@
                 <span class="ico">🗓️</span>
                 <h3>Tours Grupales — Junio 2026</h3>
                 <div class="fecha-badges">
-                    <span class="fecha-badge">Sáb 7</span>
                     <span class="fecha-badge">Sáb 14</span>
                     <span class="fecha-badge">Sáb 21</span>
                     <span class="fecha-badge">Sáb 28</span>
@@ -562,7 +644,7 @@
     </div>
 </section>
 
-<!-- QUÉ LLEVAR -->
+<!-- QUÉ LLEVAR — ACORDEÓN -->
 <section class="llevar" id="llevar">
     <div class="container">
         <div class="sec-header">
@@ -571,49 +653,73 @@
             <div class="sec-divider"></div>
             <p class="sec-desc">Prepárate bien para disfrutar al máximo la aventura. El frío en la cumbre puede ser intenso.</p>
         </div>
-        <div class="llevar-grid">
-            <div class="llevar-card fade-in">
-                <span class="ico">🧥</span>
-                <h3>Ropa — Sistema 3 Capas</h3>
-                <ul>
-                    <li>Capa base térmica (interior)</li>
-                    <li>Suéter o polar (capa media)</li>
-                    <li>Chumpa rompevientos (exterior)</li>
-                    <li>Gorra de montaña o beanie</li>
-                    <li>Guantes abrigados</li>
-                    <li>Buff o cuello para el frío</li>
-                </ul>
+        <div class="accordion">
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fas fa-tshirt"></i> Ropa — Sistema 3 Capas</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <ul>
+                            <li>Capa base térmica (interior)</li>
+                            <li>Suéter o polar (capa media)</li>
+                            <li>Chumpa rompevientos (exterior)</li>
+                            <li>Gorra de montaña o beanie</li>
+                            <li>Guantes abrigados</li>
+                            <li>Buff o cuello para el frío</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="llevar-card fade-in">
-                <span class="ico">🎒</span>
-                <h3>Equipo Esencial</h3>
-                <ul>
-                    <li>Mochila 30 litros</li>
-                    <li>2 linternas (frontal recomendada)</li>
-                    <li>Mínimo 2 litros de agua</li>
-                    <li>Electrolitos o sales minerales</li>
-                    <li>Botas o tenis de trail con tracción <strong style="color:var(--accent-fire);">OBLIGATORIO</strong></li>
-                </ul>
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fas fa-backpack"></i> Equipo Esencial</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <ul>
+                            <li>Mochila 30 litros</li>
+                            <li>2 linternas (frontal recomendada)</li>
+                            <li>Mínimo 2 litros de agua</li>
+                            <li>Electrolitos o sales minerales</li>
+                            <li>Botas o tenis de trail con tracción <strong style="color:var(--accent-fire);">OBLIGATORIO</strong></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="llevar-card fade-in">
-                <span class="ico">🍫</span>
-                <h3>Snacks y Energía</h3>
-                <ul>
-                    <li>Frutos secos (nueces, almendras)</li>
-                    <li>Chocolates energéticos</li>
-                    <li>Gomitas o dulces para energía rápida</li>
-                    <li>Yogurt o barras de proteína</li>
-                </ul>
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fas fa-cookie-bite"></i> Snacks y Energía</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <ul>
+                            <li>Frutos secos (nueces, almendras)</li>
+                            <li>Chocolates energéticos</li>
+                            <li>Gomitas o dulces para energía rápida</li>
+                            <li>Yogurt o barras de proteína</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="llevar-card warning-card fade-in" style="grid-column:1/-1;">
-                <span class="ico">⚠️</span>
-                <h3>Aviso de Salud — Importante</h3>
-                <ul style="display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;">
-                    <li>No recomendado para personas con problemas del corazón</li>
-                    <li>No recomendado para presión arterial alta o baja no controlada</li>
-                    <li>No recomendado para deficiencia respiratoria</li>
-                    <li>Ante cualquier duda, consulta a tu médico antes del tour</li>
-                </ul>
+            <div class="acc-item warning-acc">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fas fa-exclamation-triangle"></i> Aviso de Salud — Importante</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body">
+                    <div class="acc-body-inner">
+                        <ul>
+                            <li>No recomendado para personas con problemas del corazón</li>
+                            <li>No recomendado para presión arterial alta o baja no controlada</li>
+                            <li>No recomendado para deficiencia respiratoria</li>
+                            <li>Ante cualquier duda, consulta a tu médico antes del tour</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -627,35 +733,73 @@
             <h2 class="sec-title">Momentos Únicos</h2>
             <div class="sec-divider"></div>
         </div>
-        <!-- Categorías -->
         <div class="gal-cats" id="galCats">
             <div class="gal-cat" onclick="openGalCat(0)">
-                <span class="gal-cat-emoji">🌋</span>
-                <span class="gal-cat-name">Volcán y Paisajes</span>
-                <span class="gal-cat-count">17 fotos</span>
+                <div class="gal-cat-bg">
+                    <picture>
+                        <source srcset="fotos/webp/14.webp" type="image/webp">
+                        <img src="fotos/14.jpg" alt="Erupciones del Volcán Fuego" loading="lazy">
+                    </picture>
+                </div>
+                <div class="gal-cat-overlay"></div>
+                <div class="gal-cat-info">
+                    <span class="gal-cat-name">🔥 Erupciones del Fuego</span>
+                    <span class="gal-cat-count">17 fotos</span>
+                </div>
             </div>
             <div class="gal-cat" onclick="openGalCat(1)">
-                <span class="gal-cat-emoji">🔥</span>
-                <span class="gal-cat-name">Erupciones del Fuego</span>
-                <span class="gal-cat-count">17 fotos</span>
+                <div class="gal-cat-bg">
+                    <picture>
+                        <source srcset="fotos/webp/85.webp" type="image/webp">
+                        <img src="fotos/85.jpg" alt="Amanecer desde la cumbre" loading="lazy">
+                    </picture>
+                </div>
+                <div class="gal-cat-overlay"></div>
+                <div class="gal-cat-info">
+                    <span class="gal-cat-name">🌅 Amaneceres</span>
+                    <span class="gal-cat-count">21 fotos</span>
+                </div>
             </div>
             <div class="gal-cat" onclick="openGalCat(2)">
-                <span class="gal-cat-emoji">🌅</span>
-                <span class="gal-cat-name">Amaneceres</span>
-                <span class="gal-cat-count">20 fotos</span>
+                <div class="gal-cat-bg">
+                    <picture>
+                        <source srcset="fotos/webp/160.webp" type="image/webp">
+                        <img src="fotos/160.jpg" alt="Cumbre del Acatenango" loading="lazy">
+                    </picture>
+                </div>
+                <div class="gal-cat-overlay"></div>
+                <div class="gal-cat-info">
+                    <span class="gal-cat-name">🏔️ Cumbre</span>
+                    <span class="gal-cat-count">14 fotos</span>
+                </div>
             </div>
             <div class="gal-cat" onclick="openGalCat(3)">
-                <span class="gal-cat-emoji">🏔️</span>
-                <span class="gal-cat-name">Cumbre</span>
-                <span class="gal-cat-count">16 fotos</span>
+                <div class="gal-cat-bg">
+                    <picture>
+                        <source srcset="fotos/webp/50.webp" type="image/webp">
+                        <img src="fotos/50.jpg" alt="Campamento y cabañas Acatenango" loading="lazy">
+                    </picture>
+                </div>
+                <div class="gal-cat-overlay"></div>
+                <div class="gal-cat-info">
+                    <span class="gal-cat-name">🏕️ Campamento y Cabañas</span>
+                    <span class="gal-cat-count">12 fotos</span>
+                </div>
             </div>
             <div class="gal-cat" onclick="openGalCat(4)">
-                <span class="gal-cat-emoji">🏕️</span>
-                <span class="gal-cat-name">Campamento y Cabañas</span>
-                <span class="gal-cat-count">13 fotos</span>
+                <div class="gal-cat-bg">
+                    <picture>
+                        <source srcset="fotos/webp/1.webp" type="image/webp">
+                        <img src="fotos/1.jpg" alt="Paisajes volcánicos de Guatemala" loading="lazy">
+                    </picture>
+                </div>
+                <div class="gal-cat-overlay"></div>
+                <div class="gal-cat-info">
+                    <span class="gal-cat-name">🌋 Volcán y Paisajes</span>
+                    <span class="gal-cat-count">19 fotos</span>
+                </div>
             </div>
         </div>
-        <!-- Fotos de categoría -->
         <button class="gal-back" id="galBack" onclick="closeGalCat()">← Volver a categorías</button>
         <div class="gal-cat-title" id="galCatTitle"></div>
         <div class="gal-photos" id="galPhotos"></div>
@@ -675,6 +819,60 @@
     <div class="lb-counter" id="lbCounter"></div>
 </div>
 
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-tag">Reseñas</span>
+            <h2 class="sec-title">Lo Que Dicen Nuestros Aventureros</h2>
+            <div class="sec-divider"></div>
+            <p class="sec-desc">Historias reales de personas que conquistaron el Acatenango con nosotros.</p>
+        </div>
+        <div class="testi-grid">
+            <!-- TESTIMONIO 1 — Edita este bloque con nombre, país y frase real -->
+            <div class="testi-card fade-in">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-quote">"</div>
+                <p class="testi-text">La experiencia más increíble de mi vida. Ver el Fuego erupcionar desde las cabañas por la noche, con el cielo lleno de estrellas, es algo que no olvidaré jamás. Los guías son excepcionales.</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">MR</div>
+                    <div>
+                        <div class="testi-name">María R.</div>
+                        <div class="testi-country">🇲🇽 México</div>
+                    </div>
+                </div>
+            </div>
+            <!-- TESTIMONIO 2 — Edita este bloque con nombre, país y frase real -->
+            <div class="testi-card fade-in">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-quote">"</div>
+                <p class="testi-text">El amanecer desde la cumbre a 3,976 metros con todos los volcanes de Guatemala a tus pies… no hay palabras. La organización fue perfecta, segura y muy profesional. 100% recomendado.</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">JP</div>
+                    <div>
+                        <div class="testi-name">Johan P.</div>
+                        <div class="testi-country">🇩🇪 Alemania</div>
+                    </div>
+                </div>
+            </div>
+            <!-- TESTIMONIO 3 — Edita este bloque con nombre, país y frase real -->
+            <div class="testi-card fade-in">
+                <div class="testi-stars">★★★★★</div>
+                <div class="testi-quote">"</div>
+                <p class="testi-text">Vine sola y me sentí completamente segura. El equipo de M.C Love Travel es muy atento y el campamento es muy cómodo. Las erupciones del Fuego en vivo son espectaculares. ¡Volvería!</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">SK</div>
+                    <div>
+                        <div class="testi-name">Sara K.</div>
+                        <div class="testi-country">🇺🇸 Estados Unidos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="testi-note">* Estos testimonios son ejemplos editables. Reemplázalos con reseñas reales de tus clientes.</p>
+    </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section" id="contacto">
     <div class="container">
@@ -683,8 +881,8 @@
         <div class="sec-divider"></div>
         <p class="sec-desc" style="margin-bottom:2.5rem;">Únete a cientos de aventureros que ya conquistaron el Acatenango con nosotros. ¡Plazas limitadas, reserva ahora!</p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-            <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem;padding:1.1rem 2.8rem;">
-                <i class="fab fa-whatsapp" style="margin-right:.5rem;"></i>Reservar por WhatsApp
+            <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-whatsapp" style="font-size:1rem;padding:1.1rem 2.8rem;">
+                <i class="fab fa-whatsapp"></i>Reservar por WhatsApp
             </a>
             <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="btn-secondary" style="font-size:1rem;padding:1.1rem 2.8rem;">
                 <i class="fab fa-facebook" style="margin-right:.5rem;"></i>Ver en Facebook
@@ -711,7 +909,7 @@
                 <li><a href="#tours">Sobre el Tour</a></li>
                 <li><a href="#precios">Precios</a></li>
                 <li><a href="#itinerario">Itinerario</a></li>
-                <li><a href="#incluye">¿Qué incluye?</a></li>
+                <li><a href="#fechas">Fechas disponibles</a></li>
             </ul>
         </div>
         <div class="foot-col">
@@ -719,7 +917,7 @@
             <ul>
                 <li><a href="#precios">Con Alimentación — Q450</a></li>
                 <li><a href="#precios">Sin Alimentación — Q350</a></li>
-                <li><a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener">Reservar Ahora</a></li>
+                <li><a href="https://wa.me/50254201867" target="_blank" rel="noopener">Reservar Ahora</a></li>
             </ul>
         </div>
     </div>
@@ -727,7 +925,7 @@
         <p style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--accent-gold);margin-bottom:.5rem;letter-spacing:.5px;">
             ❤️ Te amo mucho Anabel, gracias por el apoyo!!!
         </p>
-        <p>© 2025 M.C Love Travel · Guatemala · Todos los derechos reservados.</p>
+        <p>© 2026 M.C Love Travel · Guatemala · Todos los derechos reservados.</p>
     </div>
 </footer>
 
@@ -748,15 +946,7 @@
         <button class="chat-x" id="chatX" aria-label="Cerrar"><i class="fas fa-times"></i></button>
     </div>
     <div id="chatContent" style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
-        <!-- API Setup -->
-        <div class="api-setup" id="apiSetup">
-            <h4>🔑 Conectar con Gemini AI</h4>
-            <p>Ingresa tu API Key de Google Gemini para activar el asistente que responderá preguntas sobre nuestros tours.</p>
-            <input type="password" class="api-in" id="apiKeyIn" placeholder="AIza... tu API key aquí" />
-            <button class="btn-conn" id="btnConn">Activar Asistente</button>
-        </div>
-        <!-- Chat UI -->
-        <div id="chatUI" style="display:none;flex-direction:column;flex:1;overflow:hidden;">
+        <div id="chatUI" style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
             <div class="chat-msgs" id="chatMsgs"></div>
             <div class="chat-in-area">
                 <input type="text" class="chat-in" id="chatIn" placeholder="Escribe tu pregunta..." />
@@ -767,166 +957,176 @@
 </div>
 
 <script>
-// ── GALLERY ──
-function makePhotos(nums){
-    return nums.map(n=>({src:`fotos/${n}.jpg`,caption:`Foto ${n}`}));
+// ── GALLERY DATA (categorías corregidas) ──
+function makePhotos(nums) {
+    return nums.map(n => ({ src: `fotos/${n}.jpg`, webp: `fotos/webp/${n}.webp`, caption: `Foto ${n}` }));
 }
-const galData=[
+const galData = [
     {
-        name:'🌋 Volcán y Paisajes',
-        photos:makePhotos([1,2,7,8,10,11,25,26,99,100,101,115,116,190,191,210,211])
+        name: '🔥 Erupciones del Fuego',
+        photos: makePhotos([14,15,5,6,16,19,44,45,46,72,73,74,79,80,81,145,146])
     },
     {
-        name:'🔥 Erupciones del Fuego',
-        photos:makePhotos([5,6,14,15,16,44,45,46,72,73,74,79,80,81,144,145,146])
+        name: '🌅 Amaneceres',
+        photos: makePhotos([85,84,28,29,20,21,22,23,86,89,90,91,109,110,119,120,121,139,140,141,144])
     },
     {
-        name:'🌅 Amaneceres',
-        photos:makePhotos([19,20,21,22,23,84,85,86,89,90,91,108,109,110,119,120,121,139,140,141])
+        name: '🏔️ Cumbre',
+        photos: makePhotos([160,150,30,31,149,151,159,161,169,170,171,180,181,182])
     },
     {
-        name:'🏔️ Cumbre',
-        photos:makePhotos([28,29,30,31,149,150,151,159,160,161,169,170,171,180,181,182])
+        name: '🏕️ Campamento y Cabañas',
+        photos: makePhotos([50,128,34,35,36,51,54,55,56,129,130,131])
     },
     {
-        name:'🏕️ Campamento y Cabañas',
-        photos:makePhotos([34,35,36,49,50,51,54,55,56,128,129,130,131])
+        name: '🌋 Volcán y Paisajes',
+        photos: makePhotos([1,2,7,8,10,11,25,26,49,99,100,101,108,115,116,190,191,210,211])
     }
 ];
 
-let curCat=null,lbPhotos=[],lbIdx=0;
+let curCat = null, lbPhotos = [], lbIdx = 0, galPage = 0;
+const PAGE_SIZE = 12;
 
-const PAGE_SIZE=12;
-let galPage=0;
-
-function renderGalPage(){
-    const cat=galData[curCat];
-    const grid=document.getElementById('galPhotos');
-    const start=galPage*PAGE_SIZE;
-    const slice=cat.photos.slice(start,start+PAGE_SIZE);
-    slice.forEach((p,rel)=>{
-        const idx=start+rel;
-        const div=document.createElement('div');
-        div.className='gal-photo';
-        div.innerHTML=`<img src="${p.src}" alt="${p.caption}" loading="lazy"><div class="gal-photo-overlay"><span class="gal-photo-caption">${p.caption}</span></div>`;
-        div.addEventListener('click',()=>openLightbox(idx));
-        grid.insertBefore(div,document.getElementById('galMoreBtn'));
+function renderGalPage() {
+    const cat = galData[curCat];
+    const grid = document.getElementById('galPhotos');
+    const start = galPage * PAGE_SIZE;
+    const slice = cat.photos.slice(start, start + PAGE_SIZE);
+    slice.forEach((p, rel) => {
+        const idx = start + rel;
+        const div = document.createElement('div');
+        div.className = 'gal-photo';
+        div.innerHTML = `<picture><source srcset="${p.webp}" type="image/webp"><img src="${p.src}" alt="${p.caption}" loading="lazy"></picture><div class="gal-photo-overlay"><span class="gal-photo-caption">${p.caption}</span></div>`;
+        div.addEventListener('click', () => openLightbox(idx));
+        grid.insertBefore(div, document.getElementById('galMoreBtn'));
     });
-    const hasMore=start+PAGE_SIZE<cat.photos.length;
-    document.getElementById('galMoreBtn').style.display=hasMore?'block':'none';
+    const hasMore = start + PAGE_SIZE < cat.photos.length;
+    document.getElementById('galMoreBtn').style.display = hasMore ? 'block' : 'none';
     galPage++;
 }
 
-function openGalCat(i){
-    curCat=i;
-    galPage=0;
-    const cat=galData[i];
-    document.getElementById('galCats').style.display='none';
+function openGalCat(i) {
+    curCat = i; galPage = 0;
+    const cat = galData[i];
+    document.getElementById('galCats').style.display = 'none';
     document.getElementById('galBack').classList.add('show');
-    const title=document.getElementById('galCatTitle');
-    title.textContent=cat.name;
+    const title = document.getElementById('galCatTitle');
+    title.textContent = cat.name;
     title.classList.add('show');
-    lbPhotos=cat.photos;
-    const grid=document.getElementById('galPhotos');
-    grid.innerHTML='<button id="galMoreBtn" onclick="renderGalPage()" style="display:none;grid-column:1/-1;background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));color:#fff;border:none;padding:.8rem 2rem;border-radius:4px;font-size:.9rem;font-weight:600;cursor:pointer;letter-spacing:.5px;margin-top:.5rem;">Ver más fotos</button>';
+    lbPhotos = cat.photos;
+    const grid = document.getElementById('galPhotos');
+    grid.innerHTML = '<button id="galMoreBtn" onclick="renderGalPage()" style="display:none;grid-column:1/-1;background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));color:#fff;border:none;padding:.8rem 2rem;border-radius:4px;font-size:.9rem;font-weight:600;cursor:pointer;letter-spacing:.5px;margin-top:.5rem;">Ver más fotos</button>';
     grid.classList.add('show');
     renderGalPage();
-    document.getElementById('galeria').scrollIntoView({behavior:'smooth',block:'start'});
+    document.getElementById('galeria').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function closeGalCat(){
-    document.getElementById('galCats').style.display='';
+function closeGalCat() {
+    document.getElementById('galCats').style.display = '';
     document.getElementById('galBack').classList.remove('show');
     document.getElementById('galCatTitle').classList.remove('show');
     document.getElementById('galPhotos').classList.remove('show');
-    curCat=null;
+    curCat = null;
 }
 
-function openLightbox(idx){
-    lbIdx=idx;
-    const lb=document.getElementById('lightbox');
-    lb.classList.add('open');
+function openLightbox(idx) {
+    lbIdx = idx;
+    document.getElementById('lightbox').classList.add('open');
     updateLb();
-    document.addEventListener('keydown',lbKey);
+    document.addEventListener('keydown', lbKey);
 }
 
-function closeLightbox(){
+function closeLightbox() {
     document.getElementById('lightbox').classList.remove('open');
-    document.removeEventListener('keydown',lbKey);
+    document.removeEventListener('keydown', lbKey);
 }
 
-function updateLb(){
-    const p=lbPhotos[lbIdx];
-    const img=document.getElementById('lbImg');
-    img.style.opacity='0';img.style.transform='scale(.9)';
-    setTimeout(()=>{
-        img.src=p.src;
-        img.alt=p.caption;
-        img.style.opacity='';img.style.transform='';
-    },150);
-    document.getElementById('lbCounter').textContent=`${lbIdx+1} / ${lbPhotos.length}`;
+function updateLb() {
+    const p = lbPhotos[lbIdx];
+    const img = document.getElementById('lbImg');
+    img.style.opacity = '0'; img.style.transform = 'scale(.9)';
+    setTimeout(() => {
+        img.src = p.src;
+        img.alt = p.caption;
+        img.style.opacity = ''; img.style.transform = '';
+    }, 150);
+    document.getElementById('lbCounter').textContent = `${lbIdx + 1} / ${lbPhotos.length}`;
 }
 
-function lbNav(dir){
-    lbIdx=(lbIdx+dir+lbPhotos.length)%lbPhotos.length;
+function lbNav(dir) {
+    lbIdx = (lbIdx + dir + lbPhotos.length) % lbPhotos.length;
     updateLb();
 }
 
-function lbKey(e){
-    if(e.key==='ArrowRight')lbNav(1);
-    else if(e.key==='ArrowLeft')lbNav(-1);
-    else if(e.key==='Escape')closeLightbox();
+function lbKey(e) {
+    if (e.key === 'ArrowRight') lbNav(1);
+    else if (e.key === 'ArrowLeft') lbNav(-1);
+    else if (e.key === 'Escape') closeLightbox();
 }
 
-document.getElementById('lightbox').addEventListener('click',function(e){
-    if(e.target===this)closeLightbox();
+document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
 });
 
+// ── ACCORDION ──
+function toggleAcc(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    // close all
+    document.querySelectorAll('.acc-trigger.open').forEach(b => {
+        b.classList.remove('open');
+        b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+        btn.classList.add('open');
+        body.classList.add('open');
+    }
+}
+
 // ── PARTICLES ──
-(function(){
-    const c=document.getElementById('particles');
-    const cols=['#ff4500','#ff6b35','#ff8c00','#ffa500','#ffcc00'];
-    for(let i=0;i<22;i++){
-        const p=document.createElement('div');
-        p.className='particle';
-        const s=Math.random()*6+2;
-        p.style.cssText=`width:${s}px;height:${s}px;background:${cols[Math.floor(Math.random()*cols.length)]};left:${Math.random()*100}%;animation-duration:${Math.random()*6+4}s;animation-delay:${Math.random()*6}s;`;
+(function() {
+    const c = document.getElementById('particles');
+    const cols = ['#ff4500', '#ff6b35', '#ff8c00', '#ffa500', '#ffcc00'];
+    for (let i = 0; i < 18; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const s = Math.random() * 5 + 2;
+        p.style.cssText = `width:${s}px;height:${s}px;background:${cols[Math.floor(Math.random() * cols.length)]};left:${Math.random() * 100}%;animation-duration:${Math.random() * 6 + 4}s;animation-delay:${Math.random() * 6}s;`;
         c.appendChild(p);
     }
 })();
 
 // ── NAV ──
-const hamburger=document.getElementById('hamburger');
-const mobileMenu=document.getElementById('mobileMenu');
-hamburger.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
-function closeMobile(){mobileMenu.classList.remove('open');}
-document.addEventListener('click',e=>{
-    if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target))closeMobile();
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+function closeMobile() { mobileMenu.classList.remove('open'); }
+document.addEventListener('click', e => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMobile();
 });
 
 // ── SCROLL ANIMATIONS ──
-const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:.13});
-document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .13 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
 // ── CHATBOT ──
-const chatFab=document.getElementById('chatFab');
-const chatWin=document.getElementById('chatWin');
-const chatX=document.getElementById('chatX');
-const chatNotif=document.getElementById('chatNotif');
-const fabIcon=document.getElementById('fabIcon');
-const apiSetup=document.getElementById('apiSetup');
-const apiKeyIn=document.getElementById('apiKeyIn');
-const btnConn=document.getElementById('btnConn');
-const chatUI=document.getElementById('chatUI');
-const chatMsgs=document.getElementById('chatMsgs');
-const chatIn=document.getElementById('chatIn');
-const chatSend=document.getElementById('chatSend');
+const chatFab = document.getElementById('chatFab');
+const chatWin = document.getElementById('chatWin');
+const chatX = document.getElementById('chatX');
+const chatNotif = document.getElementById('chatNotif');
+const fabIcon = document.getElementById('fabIcon');
+const chatUI = document.getElementById('chatUI');
+const chatMsgs = document.getElementById('chatMsgs');
+const chatIn = document.getElementById('chatIn');
+const chatSend = document.getElementById('chatSend');
 
-let open=false, apiKey='AQ.Ab8RN6J6ui6u4LdNPNTCB6uFFjye16J7HQHzzfJU8pJnSsJj0g', history=[];
+let open = false;
+const apiKey = 'AQ.Ab8RN6J6ui6u4LdNPNTCB6uFFjye16J7HQHzzfJU8pJnSsJj0g';
+let history = [];
 
-const SYS=`Eres el asistente virtual de M.C Love Travel, agencia de turismo en Guatemala especializada en tours al Volcán Acatenango y Fuego.
+const SYS = `Eres el asistente virtual de M.C Love Travel, agencia de turismo en Guatemala especializada en tours al Volcán Acatenango y Fuego.
 
 TOURS: 24 horas de aventura al Volcán Acatenango (3,976m) con vista al activo Volcán Fuego.
 
@@ -946,7 +1146,7 @@ Día 2:
 - 8:00–8:30 AM: Descenso y regreso al parqueo
 
 FECHAS:
-- Tours grupales: sábados de junio (7,14,21,28) y julio (5,12,19,26) de 2026
+- Tours grupales: sábados de junio (14,21,28) y julio (5,12,19,26) de 2026
 - Tours personalizados: lunes a viernes
 
 QUÉ LLEVAR:
@@ -964,96 +1164,105 @@ Facebook → https://www.facebook.com/share/181HccdHCM/
 
 Responde siempre en español, de forma amable, entusiasta y concisa. Para reservas, dirige al WhatsApp.`;
 
-function toggleChat(){
-    open=!open;
-    chatWin.classList.toggle('open',open);
-    fabIcon.textContent=open?'✕':'✨';
-    if(open)chatNotif.style.display='none';
+function toggleChat() {
+    open = !open;
+    chatWin.classList.toggle('open', open);
+    fabIcon.textContent = open ? '✕' : '✨';
+    if (open) {
+        chatNotif.style.display = 'none';
+        if (chatMsgs.children.length === 0) {
+            addMsg('¡Hola! Soy el asistente de M.C Love Travel 🌋 ¿En qué puedo ayudarte? Puedo darte info sobre precios, fechas, itinerario y qué llevar.', 'bot');
+        }
+        chatIn.focus();
+    }
 }
-chatFab.addEventListener('click',toggleChat);
-chatX.addEventListener('click',toggleChat);
+chatFab.addEventListener('click', toggleChat);
+chatX.addEventListener('click', toggleChat);
 
-function mdToHtml(md){
-    md=md.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
-    md=md.replace(/__(.+?)__/g,'<strong>$1</strong>');
-    md=md.replace(/\*([^*\n]+?)\*/g,'<em>$1</em>');
-    md=md.replace(/_([^_\n]+?)_/g,'<em>$1</em>');
-    const lines=md.split('\n');
-    let html='',inUl=false,inOl=false;
-    for(let i=0;i<lines.length;i++){
-        const line=lines[i];
-        const ulM=line.match(/^[\*\-]\s+(.+)/);
-        const olM=line.match(/^\d+\.\s+(.+)/);
-        if(ulM){
-            if(inOl){html+='</ol>';inOl=false;}
-            if(!inUl){html+='<ul style="margin:.4rem 0 .4rem 1.1rem;padding:0;">';inUl=true;}
-            html+=`<li>${ulM[1]}</li>`;
-        }else if(olM){
-            if(inUl){html+='</ul>';inUl=false;}
-            if(!inOl){html+='<ol style="margin:.4rem 0 .4rem 1.1rem;padding:0;">';inOl=true;}
-            html+=`<li>${olM[1]}</li>`;
-        }else{
-            if(inUl){html+='</ul>';inUl=false;}
-            if(inOl){html+='</ol>';inOl=false;}
-            html+=line.trim()===''?'<br>':line+(i<lines.length-1?'<br>':'');
+function mdToHtml(md) {
+    md = md.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    md = md.replace(/__(.+?)__/g, '<strong>$1</strong>');
+    md = md.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+    const lines = md.split('\n');
+    let html = '', inUl = false, inOl = false;
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const ulM = line.match(/^[\*\-]\s+(.+)/);
+        const olM = line.match(/^\d+\.\s+(.+)/);
+        if (ulM) {
+            if (inOl) { html += '</ol>'; inOl = false; }
+            if (!inUl) { html += '<ul style="margin:.4rem 0 .4rem 1.1rem;padding:0;">'; inUl = true; }
+            html += `<li>${ulM[1]}</li>`;
+        } else if (olM) {
+            if (inUl) { html += '</ul>'; inUl = false; }
+            if (!inOl) { html += '<ol style="margin:.4rem 0 .4rem 1.1rem;padding:0;">'; inOl = true; }
+            html += `<li>${olM[1]}</li>`;
+        } else {
+            if (inUl) { html += '</ul>'; inUl = false; }
+            if (inOl) { html += '</ol>'; inOl = false; }
+            html += line.trim() === '' ? '<br>' : line + (i < lines.length - 1 ? '<br>' : '');
         }
     }
-    if(inUl)html+='</ul>';
-    if(inOl)html+='</ol>';
+    if (inUl) html += '</ul>';
+    if (inOl) html += '</ol>';
     return html;
 }
-function addMsg(text,role){
-    const m=document.createElement('div');
-    m.className=`chat-msg ${role}`;
-    m.innerHTML=role==='bot'?mdToHtml(text):text.replace(/\n/g,'<br>');
-    chatMsgs.appendChild(m);
-    chatMsgs.scrollTop=chatMsgs.scrollHeight;
-}
-function showTyping(){
-    const t=document.createElement('div');
-    t.className='chat-msg bot typing';t.id='typing';
-    t.innerHTML='<div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>';
-    chatMsgs.appendChild(t);chatMsgs.scrollTop=chatMsgs.scrollHeight;
-}
-function hideTyping(){const t=document.getElementById('typing');if(t)t.remove();}
 
-async function ask(msg){
-    history.push({role:'user',parts:[{text:msg}]});
-    showTyping();chatSend.disabled=true;chatIn.disabled=true;
-    try{
-        const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({
-                system_instruction:{parts:[{text:SYS}]},
-                contents:history,
-                generationConfig:{temperature:.7,maxOutputTokens:500}
+function addMsg(text, role) {
+    const m = document.createElement('div');
+    m.className = `chat-msg ${role}`;
+    m.innerHTML = role === 'bot' ? mdToHtml(text) : text.replace(/\n/g, '<br>');
+    chatMsgs.appendChild(m);
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+}
+
+function showTyping() {
+    const t = document.createElement('div');
+    t.className = 'chat-msg bot typing'; t.id = 'typing';
+    t.innerHTML = '<div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>';
+    chatMsgs.appendChild(t);
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+}
+
+function hideTyping() {
+    const t = document.getElementById('typing');
+    if (t) t.remove();
+}
+
+async function ask(msg) {
+    history.push({ role: 'user', parts: [{ text: msg }] });
+    showTyping(); chatSend.disabled = true; chatIn.disabled = true;
+    try {
+        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                system_instruction: { parts: [{ text: SYS }] },
+                contents: history,
+                generationConfig: { temperature: .7, maxOutputTokens: 500 }
             })
         });
-        const d=await r.json();
+        const d = await r.json();
         hideTyping();
-        if(d.error){addMsg(`❌ Error: ${d.error.message}`,'bot');return;}
-        const reply=d.candidates[0].content.parts[0].text;
-        history.push({role:'model',parts:[{text:reply}]});
-        addMsg(reply,'bot');
-    }catch(e){
+        if (d.error) { addMsg(`❌ Error: ${d.error.message}`, 'bot'); return; }
+        const reply = d.candidates[0].content.parts[0].text;
+        history.push({ role: 'model', parts: [{ text: reply }] });
+        addMsg(reply, 'bot');
+    } catch (e) {
         hideTyping();
-        addMsg('❌ Error de conexión. Verifica tu API key e intenta de nuevo.','bot');
-    }finally{
-        chatSend.disabled=false;chatIn.disabled=false;chatIn.focus();
+        addMsg('❌ Error de conexión. Verifica tu conexión a internet.', 'bot');
+    } finally {
+        chatSend.disabled = false; chatIn.disabled = false; chatIn.focus();
     }
 }
 
-function handleSend(){
-    const msg=chatIn.value.trim();
-    if(!msg)return;
-    addMsg(msg,'user');chatIn.value='';ask(msg);
+function handleSend() {
+    const msg = chatIn.value.trim();
+    if (!msg) return;
+    addMsg(msg, 'user'); chatIn.value = ''; ask(msg);
 }
-chatSend.addEventListener('click',handleSend);
-chatIn.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();handleSend();}});
-
-apiSetup.style.display='none';
-chatUI.style.display='flex';
+chatSend.addEventListener('click', handleSend);
+chatIn.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } });
 </script>
 </body>
 </html>
