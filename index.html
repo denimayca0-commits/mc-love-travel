@@ -201,19 +201,18 @@
         .lb-arrow:hover{background:rgba(255,69,0,.55);border-color:transparent;}
         .lb-counter{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.55);font-size:.82rem;letter-spacing:1px;}
 
-        /* ── TESTIMONIOS ── */
+        /* ── OPINIONES ── */
         .testimonios{background:var(--bg-primary);}
-        .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
-        .testi-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:transform .3s,border-color .3s;}
-        .testi-card:hover{transform:translateY(-5px);border-color:var(--accent-orange);}
-        .testi-stars{color:var(--accent-gold);font-size:1.05rem;letter-spacing:3px;margin-bottom:1.1rem;}
-        .testi-quote{color:rgba(255,107,53,.25);font-size:3rem;font-family:'Playfair Display',serif;line-height:.8;margin-bottom:.5rem;}
-        .testi-text{color:var(--text-secondary);font-size:.91rem;line-height:1.78;margin-bottom:1.6rem;font-style:italic;}
-        .testi-author{display:flex;align-items:center;gap:.85rem;}
-        .testi-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--accent-fire),var(--accent-orange));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.9rem;flex-shrink:0;letter-spacing:.5px;}
-        .testi-name{color:var(--text-primary);font-weight:600;font-size:.9rem;}
-        .testi-country{color:var(--text-secondary);font-size:.78rem;margin-top:.2rem;}
-        .testi-note{text-align:center;margin-top:2rem;color:rgba(154,144,144,.45);font-size:.78rem;font-style:italic;}
+        .opinion-box{max-width:560px;margin:0 auto;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:2.5rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1.1rem;text-align:center;}
+        .opinion-intro{color:var(--text-secondary);font-size:.93rem;line-height:1.7;}
+        .opinion-stars{font-size:2rem;letter-spacing:8px;cursor:pointer;user-select:none;}
+        .opinion-stars span{color:rgba(255,255,255,.22);transition:color .2s,transform .2s;display:inline-block;}
+        .opinion-stars span.on{color:var(--accent-gold);}
+        .opinion-stars span:hover{transform:scale(1.15);}
+        .opinion-input{width:100%;background:var(--bg-secondary);border:1px solid var(--border);border-radius:6px;padding:.85rem 1rem;color:var(--text-primary);font-size:.92rem;font-family:inherit;resize:vertical;transition:border-color .3s;}
+        .opinion-input:focus{outline:none;border-color:var(--accent-orange);}
+        .opinion-input::placeholder{color:rgba(154,144,144,.6);}
+        .opinion-note{color:rgba(154,144,144,.55);font-size:.78rem;font-style:italic;}
 
         /* ── CTA ── */
         .cta-section{background:radial-gradient(ellipse at 50% 0%,rgba(255,69,0,.28) 0%,transparent 60%),var(--bg-primary);text-align:center;padding:7rem 2rem;}
@@ -282,7 +281,7 @@
             .t-photo{height:140px;}
             .fechas-grid{grid-template-columns:1fr;}
             .gal-cats,.gal-photos{grid-template-columns:repeat(2,1fr);}
-            .testi-grid{grid-template-columns:1fr;}
+            .opinion-box{padding:2rem 1.2rem;}
             .foot-grid{grid-template-columns:1fr;gap:2rem;}
             .chat-win{width:calc(100vw - 2rem);right:1rem;bottom:5rem;}
             .lb-wrap{gap:.3rem;}
@@ -303,7 +302,7 @@
         <li><a href="#itinerario">Itinerario</a></li>
         <li><a href="#fechas">Fechas</a></li>
         <li><a href="#llevar">Qué Llevar</a></li>
-        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#testimonios">Opiniones</a></li>
         <li><a href="#contacto">Contacto</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -317,7 +316,7 @@
     <a href="#itinerario" onclick="closeMobile()">Itinerario</a>
     <a href="#fechas" onclick="closeMobile()">Fechas</a>
     <a href="#llevar" onclick="closeMobile()">Qué Llevar</a>
-    <a href="#testimonios" onclick="closeMobile()">Testimonios</a>
+    <a href="#testimonios" onclick="closeMobile()">Opiniones</a>
     <a href="#contacto" onclick="closeMobile()">Contacto</a>
 </div>
 
@@ -335,7 +334,7 @@
         <p class="hero-sub">Conquista las cumbres más espectaculares de Guatemala.<br>Una aventura que cambiará tu vida para siempre.</p>
         <div class="hero-cta">
             <a href="#precios" class="btn-primary">Ver Paquetes</a>
-            <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-whatsapp">
+            <a href="https://wa.me/50258299965" target="_blank" rel="noopener" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i>Reservar por WhatsApp
             </a>
         </div>
@@ -427,7 +426,7 @@
                         <li><i class="fas fa-fire"></i> Vista directa Volcán Fuego</li>
                         <li><i class="fas fa-sun"></i> Amanecer en cumbre 3,976m</li>
                     </ul>
-                    <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-primary" style="width:100%;display:block;text-align:center;">Reservar Ahora</a>
+                    <a href="https://wa.me/50258299965" target="_blank" rel="noopener" class="btn-primary" style="width:100%;display:block;text-align:center;">Reservar Ahora</a>
                 </div>
             </div>
             <!-- SIN ALIMENTACIÓN -->
@@ -451,7 +450,7 @@
                         <li><i class="fas fa-fire"></i> Vista directa Volcán Fuego</li>
                         <li><i class="fas fa-sun"></i> Amanecer en cumbre 3,976m</li>
                     </ul>
-                    <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-secondary" style="width:100%;display:block;text-align:center;">Reservar Ahora</a>
+                    <a href="https://wa.me/50258299965" target="_blank" rel="noopener" class="btn-secondary" style="width:100%;display:block;text-align:center;">Reservar Ahora</a>
                 </div>
             </div>
         </div>
@@ -637,8 +636,8 @@
             </div>
         </div>
         <div style="text-align:center;margin-top:2.5rem;">
-            <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="whatsapp-btn">
-                <i class="fab fa-whatsapp"></i>Reservar por WhatsApp · +502 5420-1867
+            <a href="https://wa.me/50258299965" target="_blank" rel="noopener" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>Reservar por WhatsApp · +502 5829-9965
             </a>
         </div>
     </div>
@@ -823,53 +822,23 @@
 <section class="testimonios" id="testimonios">
     <div class="container">
         <div class="sec-header">
-            <span class="sec-tag">Reseñas</span>
-            <h2 class="sec-title">Lo Que Dicen Nuestros Aventureros</h2>
+            <span class="sec-tag">Opiniones</span>
+            <h2 class="sec-title">Deja tu Opinión</h2>
             <div class="sec-divider"></div>
-            <p class="sec-desc">Historias reales de personas que conquistaron el Acatenango con nosotros.</p>
+            <p class="sec-desc">¿Conquistaste el Acatenango con nosotros? Comparte tu experiencia y ayuda a otros aventureros.</p>
         </div>
-        <div class="testi-grid">
-            <!-- TESTIMONIO 1 — Edita este bloque con nombre, país y frase real -->
-            <div class="testi-card fade-in">
-                <div class="testi-stars">★★★★★</div>
-                <div class="testi-quote">"</div>
-                <p class="testi-text">La experiencia más increíble de mi vida. Ver el Fuego erupcionar desde las cabañas por la noche, con el cielo lleno de estrellas, es algo que no olvidaré jamás. Los guías son excepcionales.</p>
-                <div class="testi-author">
-                    <div class="testi-avatar">MR</div>
-                    <div>
-                        <div class="testi-name">María R.</div>
-                        <div class="testi-country">🇲🇽 México</div>
-                    </div>
-                </div>
+        <div class="opinion-box fade-in">
+            <p class="opinion-intro">¿Ya viviste la aventura con nosotros? Cuéntanos cómo te fue: tu opinión nos llega directo por WhatsApp.</p>
+            <div class="opinion-stars" id="opStars" aria-label="Calificación">
+                <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
             </div>
-            <!-- TESTIMONIO 2 — Edita este bloque con nombre, país y frase real -->
-            <div class="testi-card fade-in">
-                <div class="testi-stars">★★★★★</div>
-                <div class="testi-quote">"</div>
-                <p class="testi-text">El amanecer desde la cumbre a 3,976 metros con todos los volcanes de Guatemala a tus pies… no hay palabras. La organización fue perfecta, segura y muy profesional. 100% recomendado.</p>
-                <div class="testi-author">
-                    <div class="testi-avatar">JP</div>
-                    <div>
-                        <div class="testi-name">Johan P.</div>
-                        <div class="testi-country">🇩🇪 Alemania</div>
-                    </div>
-                </div>
-            </div>
-            <!-- TESTIMONIO 3 — Edita este bloque con nombre, país y frase real -->
-            <div class="testi-card fade-in">
-                <div class="testi-stars">★★★★★</div>
-                <div class="testi-quote">"</div>
-                <p class="testi-text">Vine sola y me sentí completamente segura. El equipo de M.C Love Travel es muy atento y el campamento es muy cómodo. Las erupciones del Fuego en vivo son espectaculares. ¡Volvería!</p>
-                <div class="testi-author">
-                    <div class="testi-avatar">SK</div>
-                    <div>
-                        <div class="testi-name">Sara K.</div>
-                        <div class="testi-country">🇺🇸 Estados Unidos</div>
-                    </div>
-                </div>
-            </div>
+            <input type="text" id="opName" class="opinion-input" maxlength="60" placeholder="Tu nombre">
+            <textarea id="opText" class="opinion-input" rows="4" maxlength="600" placeholder="Escribe tu opinión sobre el tour…"></textarea>
+            <button type="button" class="btn-whatsapp" onclick="sendOpinion()">
+                <i class="fab fa-whatsapp"></i>Enviar mi opinión
+            </button>
+            <p class="opinion-note" id="opNote">Tu opinión se envía por WhatsApp y podrá aparecer publicada en esta sección.</p>
         </div>
-        <p class="testi-note">* Estos testimonios son ejemplos editables. Reemplázalos con reseñas reales de tus clientes.</p>
     </div>
 </section>
 
@@ -881,7 +850,7 @@
         <div class="sec-divider"></div>
         <p class="sec-desc" style="margin-bottom:2.5rem;">Únete a cientos de aventureros que ya conquistaron el Acatenango con nosotros. ¡Plazas limitadas, reserva ahora!</p>
         <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-            <a href="https://wa.me/50254201867" target="_blank" rel="noopener" class="btn-whatsapp" style="font-size:1rem;padding:1.1rem 2.8rem;">
+            <a href="https://wa.me/50258299965" target="_blank" rel="noopener" class="btn-whatsapp" style="font-size:1rem;padding:1.1rem 2.8rem;">
                 <i class="fab fa-whatsapp"></i>Reservar por WhatsApp
             </a>
             <a href="https://www.facebook.com/share/181HccdHCM/" target="_blank" rel="noopener" class="btn-secondary" style="font-size:1rem;padding:1.1rem 2.8rem;">
@@ -917,7 +886,7 @@
             <ul>
                 <li><a href="#precios">Con Alimentación — Q450</a></li>
                 <li><a href="#precios">Sin Alimentación — Q350</a></li>
-                <li><a href="https://wa.me/50254201867" target="_blank" rel="noopener">Reservar Ahora</a></li>
+                <li><a href="https://wa.me/50258299965" target="_blank" rel="noopener">Reservar Ahora</a></li>
             </ul>
         </div>
     </div>
@@ -1111,6 +1080,31 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: .13 });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
+// ── OPINIONES ──
+let opRating = 0;
+document.querySelectorAll('#opStars span').forEach(s => {
+    s.addEventListener('click', () => {
+        opRating = parseInt(s.dataset.v);
+        document.querySelectorAll('#opStars span').forEach(x =>
+            x.classList.toggle('on', parseInt(x.dataset.v) <= opRating));
+    });
+});
+
+function sendOpinion() {
+    const name = document.getElementById('opName').value.trim();
+    const text = document.getElementById('opText').value.trim();
+    if (!text) {
+        document.getElementById('opText').focus();
+        return;
+    }
+    const stars = opRating ? '★'.repeat(opRating) + '☆'.repeat(5 - opRating) : '';
+    let msg = '✍️ Opinión sobre el tour\n';
+    if (name) msg += `Nombre: ${name}\n`;
+    if (stars) msg += `Calificación: ${stars} (${opRating}/5)\n`;
+    msg += `\n${text}`;
+    window.open('https://wa.me/50258299965?text=' + encodeURIComponent(msg), '_blank');
+}
+
 // ── CHATBOT ──
 const chatFab = document.getElementById('chatFab');
 const chatWin = document.getElementById('chatWin');
@@ -1161,7 +1155,7 @@ QUÉ LLEVAR:
 
 AVISO DE SALUD: No recomendado para personas con problemas del corazón, presión arterial o deficiencia respiratoria.
 
-RESERVAS Y CONTACTO: WhatsApp +502 54201867 → https://wa.me/50254201867
+RESERVAS Y CONTACTO: WhatsApp +502 58299965 → https://wa.me/50258299965
 Facebook → https://www.facebook.com/share/181HccdHCM/
 
 Responde siempre en español, de forma amable, entusiasta y concisa. Para reservas, dirige al WhatsApp.`;
