@@ -193,7 +193,7 @@
         .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;}
         .lightbox.open{opacity:1;visibility:visible;}
         .lb-wrap{position:relative;display:flex;align-items:center;gap:1rem;max-width:92vw;}
-        .lb-img-box{border-radius:8px;overflow:hidden;touch-action:pan-y;}
+        .lb-img-box{border-radius:8px;overflow:hidden;touch-action:pan-y;perspective:1200px;}
         .lb-img-box img{display:block;max-width:80vw;max-height:82vh;object-fit:contain;transform:scale(.9);opacity:0;transition:transform .35s cubic-bezier(.22,.61,.36,1),opacity .35s;}
         .lightbox.open .lb-img-box img{transform:scale(1);opacity:1;}
         .lb-close{position:fixed;top:1rem;right:1.2rem;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.5rem;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s;z-index:10;}
@@ -417,7 +417,7 @@
                 <div class="price-body">
                     <div class="price-name">Con Alimentación</div>
                     <div class="price-amount"><span class="price-cur">Q</span>450</div>
-                    <div class="price-usd">≈ US$ 59</div>
+                    <div class="price-usd">≈ US$ 59.99</div>
                     <div class="price-period">por persona · 2 días / 1 noche</div>
                     <ul class="price-feats">
                         <li><i class="fas fa-utensils"></i> 3 comidas incluidas (desayuno, almuerzo y cena)</li>
@@ -442,7 +442,7 @@
                 <div class="price-body">
                     <div class="price-name">Sin Alimentación</div>
                     <div class="price-amount"><span class="price-cur">Q</span>350</div>
-                    <div class="price-usd">≈ US$ 46</div>
+                    <div class="price-usd">≈ US$ 49.99</div>
                     <div class="price-period">por persona · 2 días / 1 noche</div>
                     <ul class="price-feats">
                         <li class="off"><i class="fas fa-times"></i> Alimentación no incluida — lleva tus propios snacks</li>
@@ -922,8 +922,8 @@
         <div class="foot-col">
             <h4>Paquetes</h4>
             <ul>
-                <li><a href="#precios">Con Alimentación — Q450 (≈ US$59)</a></li>
-                <li><a href="#precios">Sin Alimentación — Q350 (≈ US$46)</a></li>
+                <li><a href="#precios">Con Alimentación — Q450 (≈ US$59.99)</a></li>
+                <li><a href="#precios">Sin Alimentación — Q350 (≈ US$49.99)</a></li>
                 <li><a href="https://wa.me/50258299965" target="_blank" rel="noopener">Reservar Ahora</a></li>
             </ul>
         </div>
@@ -1055,9 +1055,11 @@ let lbTimer = null;
 function updateLb(dir = 0) {
     const p = lbPhotos[lbIdx];
     const img = document.getElementById('lbImg');
-    // salida: desliza hacia el lado contrario al avance (o fade si no hay dirección)
-    img.style.transition = 'transform .22s ease-in, opacity .22s ease-in';
-    img.style.transform = dir ? `translateX(${dir * -90}px)` : 'scale(.92)';
+    // salida: la foto se desliza girando levemente hacia el fondo (o fade si no hay dirección)
+    img.style.transition = 'transform .24s ease-in, opacity .24s ease-in';
+    img.style.transform = dir
+        ? `translateX(${dir * -130}px) rotateY(${dir * 14}deg) scale(.88)`
+        : 'scale(.92)';
     img.style.opacity = '0';
     const pre = new Image();
     pre.src = p.src;
@@ -1067,15 +1069,17 @@ function updateLb(dir = 0) {
             img.src = p.src;
             img.alt = p.caption;
             img.style.transition = 'none';
-            img.style.transform = dir ? `translateX(${dir * 90}px)` : 'scale(.96)';
+            img.style.transform = dir
+                ? `translateX(${dir * 130}px) rotateY(${dir * -14}deg) scale(1.08)`
+                : 'scale(1.06)';
             void img.offsetWidth;
-            img.style.transition = 'transform .32s cubic-bezier(.22,.61,.36,1), opacity .32s ease-out';
-            img.style.transform = 'translateX(0) scale(1)';
+            img.style.transition = 'transform .45s cubic-bezier(.34,1.25,.5,1), opacity .35s ease-out';
+            img.style.transform = 'translateX(0) rotateY(0) scale(1)';
             img.style.opacity = '1';
         };
         if (pre.complete) show();
         else { pre.onload = show; pre.onerror = show; }
-    }, 220);
+    }, 240);
     document.getElementById('lbCounter').textContent = `${lbIdx + 1} / ${lbPhotos.length}`;
     // precarga vecinas para que el cambio sea instantáneo
     [lbIdx + 1, lbIdx - 1].forEach(i => {
@@ -1099,7 +1103,7 @@ lbBox.addEventListener('touchmove', e => {
     if (swX === null) return;
     swDX = e.touches[0].clientX - swX;
     const img = document.getElementById('lbImg');
-    img.style.transform = `translateX(${swDX}px)`;
+    img.style.transform = `translateX(${swDX}px) rotateY(${Math.max(-12, Math.min(12, -swDX / 14))}deg)`;
     img.style.opacity = String(Math.max(.35, 1 - Math.abs(swDX) / 320));
 }, { passive: true });
 lbBox.addEventListener('touchend', () => {
@@ -1215,8 +1219,8 @@ const SYS = `Eres el asistente virtual de M.C Love Travel, agencia de turismo en
 TOURS: 24 horas de aventura al Volcán Acatenango (3,976m) con vista al activo Volcán Fuego.
 
 PRECIOS:
-- Con alimentación: Q450/persona ≈ US$59 (3 comidas, cabaña, guía, entrada PRMVA)
-- Sin alimentación: Q350/persona ≈ US$46 (cabaña, guía, entrada PRMVA)
+- Con alimentación: Q450/persona ≈ US$59.99 (3 comidas, cabaña, guía, entrada PRMVA)
+- Sin alimentación: Q350/persona ≈ US$49.99 (cabaña, guía, entrada PRMVA)
 
 ITINERARIO DETALLADO:
 Día 1:
