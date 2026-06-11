@@ -193,8 +193,8 @@
         .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;}
         .lightbox.open{opacity:1;visibility:visible;}
         .lb-wrap{position:relative;display:flex;align-items:center;gap:1rem;max-width:92vw;}
-        .lb-img-box{border-radius:8px;overflow:hidden;}
-        .lb-img-box img{display:block;max-width:80vw;max-height:82vh;object-fit:contain;transform:scale(.9);opacity:0;transition:transform .35s,opacity .35s;}
+        .lb-img-box{border-radius:8px;overflow:hidden;touch-action:pan-y;}
+        .lb-img-box img{display:block;max-width:80vw;max-height:82vh;object-fit:contain;transform:scale(.9);opacity:0;transition:transform .35s cubic-bezier(.22,.61,.36,1),opacity .35s;}
         .lightbox.open .lb-img-box img{transform:scale(1);opacity:1;}
         .lb-close{position:fixed;top:1rem;right:1.2rem;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.5rem;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s;z-index:10;}
         .lb-close:hover{background:rgba(255,69,0,.65);}
@@ -1050,22 +1050,70 @@ function closeLightbox() {
     document.removeEventListener('keydown', lbKey);
 }
 
-function updateLb() {
+let lbTimer = null;
+
+function updateLb(dir = 0) {
     const p = lbPhotos[lbIdx];
     const img = document.getElementById('lbImg');
-    img.style.opacity = '0'; img.style.transform = 'scale(.9)';
-    setTimeout(() => {
-        img.src = p.src;
-        img.alt = p.caption;
-        img.style.opacity = ''; img.style.transform = '';
-    }, 150);
+    // salida: desliza hacia el lado contrario al avance (o fade si no hay dirección)
+    img.style.transition = 'transform .22s ease-in, opacity .22s ease-in';
+    img.style.transform = dir ? `translateX(${dir * -90}px)` : 'scale(.92)';
+    img.style.opacity = '0';
+    const pre = new Image();
+    pre.src = p.src;
+    clearTimeout(lbTimer);
+    lbTimer = setTimeout(() => {
+        const show = () => {
+            img.src = p.src;
+            img.alt = p.caption;
+            img.style.transition = 'none';
+            img.style.transform = dir ? `translateX(${dir * 90}px)` : 'scale(.96)';
+            void img.offsetWidth;
+            img.style.transition = 'transform .32s cubic-bezier(.22,.61,.36,1), opacity .32s ease-out';
+            img.style.transform = 'translateX(0) scale(1)';
+            img.style.opacity = '1';
+        };
+        if (pre.complete) show();
+        else { pre.onload = show; pre.onerror = show; }
+    }, 220);
     document.getElementById('lbCounter').textContent = `${lbIdx + 1} / ${lbPhotos.length}`;
+    // precarga vecinas para que el cambio sea instantáneo
+    [lbIdx + 1, lbIdx - 1].forEach(i => {
+        (new Image()).src = lbPhotos[(i + lbPhotos.length) % lbPhotos.length].src;
+    });
 }
 
 function lbNav(dir) {
     lbIdx = (lbIdx + dir + lbPhotos.length) % lbPhotos.length;
-    updateLb();
+    updateLb(dir);
 }
+
+// Swipe táctil en el lightbox
+const lbBox = document.querySelector('.lb-img-box');
+let swX = null, swDX = 0;
+lbBox.addEventListener('touchstart', e => {
+    swX = e.touches[0].clientX; swDX = 0;
+    document.getElementById('lbImg').style.transition = 'none';
+}, { passive: true });
+lbBox.addEventListener('touchmove', e => {
+    if (swX === null) return;
+    swDX = e.touches[0].clientX - swX;
+    const img = document.getElementById('lbImg');
+    img.style.transform = `translateX(${swDX}px)`;
+    img.style.opacity = String(Math.max(.35, 1 - Math.abs(swDX) / 320));
+}, { passive: true });
+lbBox.addEventListener('touchend', () => {
+    if (swX === null) return;
+    if (Math.abs(swDX) > 60) {
+        lbNav(swDX < 0 ? 1 : -1);
+    } else {
+        const img = document.getElementById('lbImg');
+        img.style.transition = 'transform .25s ease-out, opacity .25s ease-out';
+        img.style.transform = 'translateX(0)';
+        img.style.opacity = '1';
+    }
+    swX = null;
+});
 
 function lbKey(e) {
     if (e.key === 'ArrowRight') lbNav(1);
