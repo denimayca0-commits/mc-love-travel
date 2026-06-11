@@ -100,6 +100,7 @@
         .price-name{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;margin-bottom:.4rem;}
         .price-amount{font-size:3rem;font-weight:900;font-family:'Playfair Display',serif;background:linear-gradient(135deg,var(--accent-gold),var(--accent-orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin:.6rem 0;}
         .price-cur{font-size:1.4rem;vertical-align:top;margin-top:.6rem;display:inline-block;}
+        .price-usd{color:var(--accent-gold);font-size:1.05rem;font-weight:600;margin-bottom:.3rem;}
         .price-period{color:var(--text-secondary);font-size:.8rem;margin-bottom:1.6rem;}
         .price-feats{list-style:none;margin-bottom:2rem;text-align:left;}
         .price-feats li{padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:.7rem;color:var(--text-secondary);font-size:.87rem;}
@@ -416,6 +417,7 @@
                 <div class="price-body">
                     <div class="price-name">Con Alimentación</div>
                     <div class="price-amount"><span class="price-cur">Q</span>450</div>
+                    <div class="price-usd">≈ US$ 59</div>
                     <div class="price-period">por persona · 2 días / 1 noche</div>
                     <ul class="price-feats">
                         <li><i class="fas fa-utensils"></i> 3 comidas incluidas (desayuno, almuerzo y cena)</li>
@@ -440,6 +442,7 @@
                 <div class="price-body">
                     <div class="price-name">Sin Alimentación</div>
                     <div class="price-amount"><span class="price-cur">Q</span>350</div>
+                    <div class="price-usd">≈ US$ 46</div>
                     <div class="price-period">por persona · 2 días / 1 noche</div>
                     <ul class="price-feats">
                         <li class="off"><i class="fas fa-times"></i> Alimentación no incluida — lleva tus propios snacks</li>
@@ -605,22 +608,57 @@
                 <span class="ico">🗓️</span>
                 <h3>Tours Grupales — Junio 2026</h3>
                 <div class="fecha-badges">
-                    <span class="fecha-badge">Sáb 14</span>
-                    <span class="fecha-badge">Sáb 21</span>
-                    <span class="fecha-badge">Sáb 28</span>
+                    <span class="fecha-badge">Sáb 13</span>
+                    <span class="fecha-badge">Sáb 20</span>
+                    <span class="fecha-badge">Sáb 27</span>
                 </div>
-                <p>Grupos cada sábado de junio. Vive la aventura con otros aventureros.</p>
+                <p>Grupos cada fin de semana de junio. Vive la aventura con otros aventureros.</p>
             </div>
             <div class="fecha-card fade-in">
                 <span class="ico">🗓️</span>
                 <h3>Tours Grupales — Julio 2026</h3>
+                <div class="fecha-badges">
+                    <span class="fecha-badge">Sáb 4</span>
+                    <span class="fecha-badge">Sáb 11</span>
+                    <span class="fecha-badge">Sáb 18</span>
+                    <span class="fecha-badge">Sáb 25</span>
+                </div>
+                <p>Grupos cada fin de semana de julio. ¡Plazas limitadas por fecha!</p>
+            </div>
+            <div class="fecha-card fade-in">
+                <span class="ico">🗓️</span>
+                <h3>Tours Grupales — Agosto 2026</h3>
+                <div class="fecha-badges">
+                    <span class="fecha-badge">Sáb 1</span>
+                    <span class="fecha-badge">Sáb 8</span>
+                    <span class="fecha-badge">Sáb 15</span>
+                    <span class="fecha-badge">Sáb 22</span>
+                    <span class="fecha-badge">Sáb 29</span>
+                </div>
+                <p>Cinco fines de semana de aventura en agosto. ¡Reserva con anticipación!</p>
+            </div>
+            <div class="fecha-card fade-in">
+                <span class="ico">🗓️</span>
+                <h3>Tours Grupales — Septiembre 2026</h3>
                 <div class="fecha-badges">
                     <span class="fecha-badge">Sáb 5</span>
                     <span class="fecha-badge">Sáb 12</span>
                     <span class="fecha-badge">Sáb 19</span>
                     <span class="fecha-badge">Sáb 26</span>
                 </div>
-                <p>Grupos cada sábado de julio. ¡Plazas limitadas por fecha!</p>
+                <p>Grupos cada fin de semana de septiembre. Vive el Acatenango en temporada verde.</p>
+            </div>
+            <div class="fecha-card fade-in">
+                <span class="ico">🗓️</span>
+                <h3>Tours Grupales — Octubre 2026</h3>
+                <div class="fecha-badges">
+                    <span class="fecha-badge">Sáb 3</span>
+                    <span class="fecha-badge">Sáb 10</span>
+                    <span class="fecha-badge">Sáb 17</span>
+                    <span class="fecha-badge">Sáb 24</span>
+                    <span class="fecha-badge">Sáb 31</span>
+                </div>
+                <p>Grupos cada fin de semana de octubre. Cierra el año conquistando la cumbre.</p>
             </div>
             <div class="fecha-card fade-in">
                 <span class="ico">⚡</span>
@@ -884,8 +922,8 @@
         <div class="foot-col">
             <h4>Paquetes</h4>
             <ul>
-                <li><a href="#precios">Con Alimentación — Q450</a></li>
-                <li><a href="#precios">Sin Alimentación — Q350</a></li>
+                <li><a href="#precios">Con Alimentación — Q450 (≈ US$59)</a></li>
+                <li><a href="#precios">Sin Alimentación — Q350 (≈ US$46)</a></li>
                 <li><a href="https://wa.me/50258299965" target="_blank" rel="noopener">Reservar Ahora</a></li>
             </ul>
         </div>
@@ -988,6 +1026,8 @@ function openGalCat(i) {
     grid.classList.add('show');
     renderGalPage();
     document.getElementById('galeria').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Abre el carrusel de inmediato; al cerrarlo queda la cuadrícula de la categoría
+    openLightbox(0);
 }
 
 function closeGalCat() {
@@ -1127,8 +1167,8 @@ const SYS = `Eres el asistente virtual de M.C Love Travel, agencia de turismo en
 TOURS: 24 horas de aventura al Volcán Acatenango (3,976m) con vista al activo Volcán Fuego.
 
 PRECIOS:
-- Con alimentación: Q450/persona (3 comidas, cabaña, guía, entrada PRMVA)
-- Sin alimentación: Q350/persona (cabaña, guía, entrada PRMVA)
+- Con alimentación: Q450/persona ≈ US$59 (3 comidas, cabaña, guía, entrada PRMVA)
+- Sin alimentación: Q350/persona ≈ US$46 (cabaña, guía, entrada PRMVA)
 
 ITINERARIO DETALLADO:
 Día 1:
@@ -1142,7 +1182,7 @@ Día 2:
 - 8:00–8:30 AM: Descenso y regreso al parqueo
 
 FECHAS:
-- Tours grupales: sábados de junio (14,21,28) y julio (5,12,19,26) de 2026
+- Tours grupales 2026, todos los sábados: junio (13,20,27), julio (4,11,18,25), agosto (1,8,15,22,29), septiembre (5,12,19,26) y octubre (3,10,17,24,31)
 - Tours personalizados: lunes a viernes
 
 QUÉ LLEVAR:
