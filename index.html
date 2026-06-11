@@ -38,6 +38,21 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "¿Veré erupciones del Volcán Fuego?", "acceptedAnswer": {"@type": "Answer", "text": "El Volcán Fuego es uno de los más activos de Centroamérica y erupciona varias veces al día, así que las probabilidades son muy altas. Desde el campamento la vista es directa y de noche el espectáculo es aún más impresionante."}},
+        {"@type": "Question", "name": "¿Qué condición física necesito para subir el Acatenango?", "acceptedAnswer": {"@type": "Answer", "text": "El ascenso es exigente pero se hace a ritmo moderado con descansos. No necesitas ser atleta, pero sí tener condición física aceptable."}},
+        {"@type": "Question", "name": "¿Dónde es el punto de encuentro del tour?", "acceptedAnswer": {"@type": "Answer", "text": "En el Parque Bella Avryl a las 10:00 AM del día del tour, donde se hace la bienvenida, revisión de equipo y briefing de seguridad."}},
+        {"@type": "Question", "name": "¿Qué pasa si llueve durante el tour?", "acceptedAnswer": {"@type": "Answer", "text": "El tour se realiza con lluvia ligera. Si las condiciones fueran extremas y peligrosas, se reprograma la fecha sin costo adicional."}},
+        {"@type": "Question", "name": "¿Hay edad mínima para el tour al Acatenango?", "acceptedAnswer": {"@type": "Answer", "text": "Se recomienda a partir de los 12 años, siempre acompañados de un adulto responsable."}},
+        {"@type": "Question", "name": "¿Qué incluye el precio del tour?", "acceptedAnswer": {"@type": "Answer", "text": "Cabaña en el campamento, guía experto y entrada al parque PRMVA. El paquete de Q450 incluye además 3 comidas. El transporte al punto de encuentro no está incluido."}},
+        {"@type": "Question", "name": "¿Cómo reservo el tour?", "acceptedAnswer": {"@type": "Answer", "text": "Por WhatsApp al +502 5829-9965: eliges fecha y paquete y se confirma tu lugar con las instrucciones de pago."}}
+      ]
+    }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -181,6 +196,10 @@
 
         /* ── QUÉ LLEVAR — ACORDEÓN ── */
         .llevar{background:var(--bg-primary);}
+        .faq{background:var(--bg-secondary);}
+        .lang-btn{background:transparent;border:1px solid var(--accent-orange);color:var(--accent-orange);padding:.3rem .8rem;border-radius:4px;font-size:.8rem;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .3s;font-family:inherit;}
+        .lang-btn:hover{background:var(--accent-orange);color:#fff;}
+        .lang-btn-mobile{margin-top:1rem;font-size:1rem;padding:.6rem 1.6rem;}
         .accordion{max-width:780px;margin:0 auto;}
         .acc-item{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:.6rem;}
         .acc-trigger{width:100%;background:var(--bg-card);border:none;padding:1.1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;color:var(--text-primary);font-family:'Raleway',sans-serif;font-size:.95rem;font-weight:600;text-align:left;transition:background .25s;}
@@ -338,7 +357,9 @@
         <li><a href="#fechas">Fechas</a></li>
         <li><a href="#llevar">Qué Llevar</a></li>
         <li><a href="#testimonios">Opiniones</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contacto">Contacto</a></li>
+        <li><button class="lang-btn" id="langBtn" onclick="toggleLang()" aria-label="Cambiar idioma">EN</button></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -352,7 +373,9 @@
     <a href="#fechas" onclick="closeMobile()">Fechas</a>
     <a href="#llevar" onclick="closeMobile()">Qué Llevar</a>
     <a href="#testimonios" onclick="closeMobile()">Opiniones</a>
+    <a href="#faq" onclick="closeMobile()">FAQ</a>
     <a href="#contacto" onclick="closeMobile()">Contacto</a>
+    <button class="lang-btn lang-btn-mobile" id="langBtnM" onclick="toggleLang();closeMobile()">English</button>
 </div>
 
 <!-- HERO -->
@@ -914,6 +937,83 @@
     </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq" id="faq">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-tag">FAQ</span>
+            <h2 class="sec-title">Preguntas Frecuentes</h2>
+            <div class="sec-divider"></div>
+            <p class="sec-desc">Todo lo que necesitas saber antes de tu aventura al Acatenango.</p>
+        </div>
+        <div class="accordion">
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fas fa-fire"></i> ¿Veré erupciones del Volcán Fuego?</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body"><div class="acc-body-inner"><ul>
+                    <li>El Volcán Fuego es uno de los más activos de Centroamérica y erupciona varias veces al día, así que las probabilidades son muy altas. La visibilidad depende del clima, pero desde el campamento la vista es directa y de noche el espectáculo es aún más impresionante.</li>
+                </ul></div></div>
+            </div>
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fas fa-dumbbell"></i> ¿Qué condición física necesito?</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body"><div class="acc-body-inner"><ul>
+                    <li>El ascenso es exigente pero se hace a ritmo moderado con descansos. No necesitas ser atleta, pero sí tener condición física aceptable. Si haces caminatas o ejercicio con regularidad, podrás completarlo sin problema.</li>
+                </ul></div></div>
+            </div>
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fas fa-map-marker-alt"></i> ¿Dónde es el punto de encuentro?</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body"><div class="acc-body-inner"><ul>
+                    <li>Nos reunimos en el Parque Bella Avryl a las 10:00 AM del día del tour. Ahí te recibe el equipo de guías, se revisa tu equipamiento y se da el briefing de seguridad antes de partir.</li>
+                </ul></div></div>
+            </div>
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fas fa-cloud-rain"></i> ¿Qué pasa si llueve?</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body"><div class="acc-body-inner"><ul>
+                    <li>El tour se realiza con lluvia ligera — es parte de la montaña, solo recuerda llevar capa o poncho impermeable. Si las condiciones climáticas fueran extremas y peligrosas, te avisamos y reprogramamos tu fecha sin costo adicional.</li>
+                </ul></div></div>
+            </div>
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fas fa-child"></i> ¿Hay edad mínima para el tour?</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body"><div class="acc-body-inner"><ul>
+                    <li>Recomendamos el tour a partir de los 12 años, siempre acompañados de un adulto responsable. Si viajas con niños o personas mayores, escríbenos por WhatsApp y evaluamos juntos la mejor opción.</li>
+                </ul></div></div>
+            </div>
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fas fa-tag"></i> ¿Qué incluye exactamente el precio?</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body"><div class="acc-body-inner"><ul>
+                    <li>Ambos paquetes incluyen cabaña en el campamento, guía experto y la entrada al parque PRMVA. El paquete con alimentación (Q450) agrega las 3 comidas: desayuno, almuerzo y cena. El transporte hasta el punto de encuentro no está incluido.</li>
+                </ul></div></div>
+            </div>
+            <div class="acc-item">
+                <button class="acc-trigger" onclick="toggleAcc(this)">
+                    <span class="acc-label"><i class="fab fa-whatsapp"></i> ¿Cómo reservo y pago?</span>
+                    <i class="fas fa-chevron-down acc-arrow"></i>
+                </button>
+                <div class="acc-body"><div class="acc-body-inner"><ul>
+                    <li>Escríbenos por WhatsApp al +502 5829-9965, elige tu fecha y paquete, y te confirmamos tu lugar con las instrucciones de pago. ¡Reserva con anticipación porque los cupos por fecha son limitados!</li>
+                </ul></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section" id="contacto">
     <div class="container">
@@ -1044,6 +1144,7 @@ function renderGalPage() {
     const hasMore = start + PAGE_SIZE < cat.photos.length;
     document.getElementById('galMoreBtn').style.display = hasMore ? 'block' : 'none';
     galPage++;
+    applyLang();
 }
 
 function openGalCat(i) {
@@ -1162,6 +1263,186 @@ function lbKey(e) {
 document.getElementById('lightbox').addEventListener('click', function(e) {
     if (e.target === this) closeLightbox();
 });
+
+// ── IDIOMA ES/EN ──
+const EN_MAP = {
+    'Inicio': 'Home', 'Precios': 'Prices', 'Itinerario': 'Itinerary', 'Fechas': 'Dates',
+    'Qué Llevar': 'What to Bring', 'Opiniones': 'Reviews', 'Contacto': 'Contact',
+    'Conquista las cumbres más espectaculares de Guatemala.': "Conquer Guatemala's most spectacular summits.",
+    'Una aventura que cambiará tu vida para siempre.': 'An adventure that will change your life forever.',
+    'Ver Paquetes': 'View Packages', 'Reservar por WhatsApp': 'Book via WhatsApp', 'Explorar': 'Explore',
+    'Altura Acatenango': 'Acatenango Height', 'Altura Fuego': 'Fuego Height', '2 Días': '2 Days',
+    'Duración del Tour': 'Tour Duration', 'Experiencia Única': 'Unique Experience',
+    'Volcán Acatenango & Fuego': 'Acatenango & Fuego Volcanoes',
+    'Vista privilegiada de las erupciones del Volcán Fuego desde el campamento. Una experiencia incomparable bajo el cielo estrellado de Guatemala.': "A privileged view of Fuego Volcano's eruptions from the campsite. An unmatched experience under Guatemala's starry sky.",
+    'Sobre Nosotros': 'About Us',
+    'La aventura volcánica más emocionante de Guatemala': "Guatemala's most thrilling volcanic adventure",
+    'En M.C Love Travel somos apasionados por las montañas y queremos compartir esa pasión contigo. Ofrecemos tours seguros, guiados y completamente equipados al Volcán Acatenango.': 'At M.C Love Travel we are passionate about mountains and want to share that passion with you. We offer safe, guided and fully equipped tours to Acatenango Volcano.',
+    'Desde las cabañas del campamento, tendrás una vista directa de las explosiones del activo Volcán Fuego — una experiencia que ninguna foto puede capturar completamente.': 'From the campsite cabins you will have a direct view of the active Fuego Volcano erupting — an experience no photo can fully capture.',
+    'Guías expertos con años de experiencia': 'Expert guides with years of experience',
+    'Equipamiento completo': 'Full equipment', 'Grupos pequeños': 'Small groups',
+    'Seguridad garantizada': 'Safety guaranteed', 'Cabañas en campamento': 'Cabins at base camp',
+    'Entrada PRMVA incluida': 'PRMVA entrance fee included', 'Síguenos en Facebook': 'Follow us on Facebook',
+    'Paquetes': 'Packages', 'Elige tu Experiencia': 'Choose Your Experience',
+    'Dos opciones diseñadas para distintas preferencias. Ambas incluyen lo esencial para vivir la aventura del Acatenango.': 'Two options designed for different preferences. Both include the essentials to live the Acatenango adventure.',
+    '⭐ Más Popular': '⭐ Most Popular', 'Con Alimentación': 'Meals Included',
+    'por persona · 2 días / 1 noche': 'per person · 2 days / 1 night',
+    '3 comidas incluidas (desayuno, almuerzo y cena)': '3 meals included (breakfast, lunch and dinner)',
+    'Cabaña en campamento': 'Cabin at base camp',
+    'Guía experto con experiencia en el volcán': 'Expert guide with volcano experience',
+    'Tour 2 días completo': 'Full 2-day tour', 'Vista directa Volcán Fuego': 'Direct view of Fuego Volcano',
+    'Amanecer en cumbre 3,976m': 'Sunrise at the 3,976m summit', 'Reservar Ahora': 'Book Now',
+    'Sin Alimentación': 'No Meals',
+    'Alimentación no incluida — lleva tus propios snacks': 'Meals not included — bring your own snacks',
+    'Tu Aventura Paso a Paso': 'Your Adventure Step by Step',
+    '24 horas de aventura entre volcanes, estrellas y el espectáculo del amanecer. Duración total aproximada: 24 horas.': '24 hours of adventure among volcanoes, stars and a breathtaking sunrise. Approximate total duration: 24 hours.',
+    'Día 1 — El Ascenso': 'Day 1 — The Ascent', 'Lugar de Reunión': 'Meeting Point',
+    '— bienvenida con nuestros guías, revisión de equipamiento y briefing de seguridad.': '— welcome by our guides, gear check and safety briefing.',
+    'Inicio de la Caminata': 'Start of the Hike',
+    'Comenzamos el ascenso por senderos únicos entre bosques nubosos con vistas impresionantes al Fuego.': 'We begin the ascent along unique trails through cloud forests with stunning views of Fuego.',
+    'Almuerzo en el Sendero': 'Lunch on the Trail',
+    'Descanso para almorzar y recargar energía. El esfuerzo vale la pena — el volcán te espera.': 'A break for lunch and recharging energy. The effort is worth it — the volcano awaits.',
+    'Llegada a las Cabañas': 'Arrival at the Cabins',
+    'Instalación en cabañas y cena (paquete con alimentación). Noche observando las erupciones del Volcán Fuego frente a ti.': 'Settling into the cabins and dinner (meals package). A night watching Fuego Volcano erupt right in front of you.',
+    'Día 2 — La Cumbre': 'Day 2 — The Summit', 'Ascenso a la Cumbre': 'Summit Ascent',
+    'Partimos bajo las estrellas. Caminata de 1:30 hrs hacia la cumbre del Acatenango (3,976 m) para llegar antes del amanecer.': 'We set off under the stars. A 1.5-hour hike to the Acatenango summit (3,976 m) to arrive before sunrise.',
+    'Amanecer en la Cumbre': 'Sunrise at the Summit',
+    'El espectáculo más impresionante de Guatemala: el sol nace entre los volcanes mientras el Fuego erupciona a nuestros pies.': "Guatemala's most breathtaking show: the sun rises among volcanoes while Fuego erupts at our feet.",
+    'Descenso y Fin del Tour': 'Descent and End of Tour',
+    'Regreso al parqueo. Recuerdos y fotografías para toda la vida. ¡Misión cumplida!': 'Return to the parking lot. Memories and photos for a lifetime. Mission accomplished!',
+    'Disponibilidad': 'Availability', 'Fechas de Tours': 'Tour Dates',
+    'Tours grupales cada sábado o personalizado de lunes a viernes. ¡Reserva tu lugar con anticipación!': 'Group tours every Saturday or custom tours Monday to Friday. Book your spot in advance!',
+    'Tours Grupales — Junio 2026': 'Group Tours — June 2026',
+    'Tours Grupales — Julio 2026': 'Group Tours — July 2026',
+    'Tours Grupales — Agosto 2026': 'Group Tours — August 2026',
+    'Tours Grupales — Septiembre 2026': 'Group Tours — September 2026',
+    'Tours Grupales — Octubre 2026': 'Group Tours — October 2026',
+    'Grupos cada fin de semana de junio. Vive la aventura con otros aventureros.': 'Groups every weekend in June. Live the adventure with fellow adventurers.',
+    'Grupos cada fin de semana de julio. ¡Plazas limitadas por fecha!': 'Groups every weekend in July. Limited spots per date!',
+    'Cinco fines de semana de aventura en agosto. ¡Reserva con anticipación!': 'Five weekends of adventure in August. Book in advance!',
+    'Grupos cada fin de semana de septiembre. Vive el Acatenango en temporada verde.': 'Groups every weekend in September. Experience Acatenango in the green season.',
+    'Grupos cada fin de semana de octubre. Cierra el año conquistando la cumbre.': 'Groups every weekend in October. End the year by conquering the summit.',
+    'Tours Personalizados': 'Custom Tours',
+    'Lun': 'Mon', 'Mar': 'Tue', 'Mié': 'Wed', 'Jue': 'Thu', 'Vie': 'Fri',
+    'Agenda tu tour privado cualquier día de semana. Grupo exclusivo a tu ritmo.': 'Schedule your private tour any weekday. An exclusive group at your own pace.',
+    'Reservar por WhatsApp · +502 5829-9965': 'Book via WhatsApp · +502 5829-9965',
+    'Equipamiento': 'Gear', '¿Qué Llevar?': 'What to Bring?',
+    'Prepárate bien para disfrutar al máximo la aventura. El frío en la cumbre puede ser intenso.': 'Prepare well to fully enjoy the adventure. The cold at the summit can be intense.',
+    'Ropa — Sistema 3 Capas': 'Clothing — 3-Layer System',
+    'Capa base térmica (interior)': 'Thermal base layer (inner)',
+    'Suéter o polar (capa media)': 'Sweater or fleece (mid layer)',
+    'Chumpa rompevientos (exterior)': 'Windbreaker jacket (outer)',
+    'Gorra de montaña o beanie': 'Mountain cap or beanie', 'Guantes abrigados': 'Warm gloves',
+    'Buff o cuello para el frío': 'Buff or neck warmer for the cold',
+    'Equipo Esencial': 'Essential Gear', 'Mochila 30 litros': '30-liter backpack',
+    '2 linternas (frontal recomendada)': '2 flashlights (headlamp recommended)',
+    'Mínimo 2 litros de agua': 'At least 2 liters of water',
+    'Electrolitos o sales minerales': 'Electrolytes or mineral salts',
+    'Botas o tenis de trail con tracción': 'Hiking boots or trail shoes with traction',
+    'OBLIGATORIO': 'REQUIRED', 'Snacks y Energía': 'Snacks & Energy',
+    'Frutos secos (nueces, almendras)': 'Nuts (walnuts, almonds)',
+    'Chocolates energéticos': 'Energy chocolates',
+    'Gomitas o dulces para energía rápida': 'Gummies or candy for quick energy',
+    'Yogurt o barras de proteína': 'Yogurt or protein bars',
+    'Aviso de Salud — Importante': 'Health Notice — Important',
+    'No recomendado para personas con problemas del corazón': 'Not recommended for people with heart conditions',
+    'No recomendado para presión arterial alta o baja no controlada': 'Not recommended for uncontrolled high or low blood pressure',
+    'No recomendado para deficiencia respiratoria': 'Not recommended for respiratory deficiency',
+    'Ante cualquier duda, consulta a tu médico antes del tour': 'If in doubt, consult your doctor before the tour',
+    'Experiencias': 'Experiences', 'Momentos Únicos': 'Unique Moments',
+    '🔥 Erupciones del Fuego': '🔥 Fuego Eruptions', '🌅 Amaneceres': '🌅 Sunrises',
+    '🏔️ Cumbre': '🏔️ Summit', '🏕️ Campamento y Cabañas': '🏕️ Camp & Cabins',
+    '🌋 Volcán y Paisajes': '🌋 Volcano & Landscapes',
+    '← Volver a categorías': '← Back to categories', 'Ver más fotos': 'See more photos',
+    'Deja tu Opinión': 'Leave a Review',
+    '¿Conquistaste el Acatenango con nosotros? Comparte tu experiencia y ayuda a otros aventureros.': 'Did you conquer Acatenango with us? Share your experience and help other adventurers.',
+    '¿Ya viviste la aventura con nosotros? Cuéntanos cómo te fue: tu opinión nos llega directo por WhatsApp.': 'Already lived the adventure with us? Tell us how it went — your review reaches us directly via WhatsApp.',
+    'Enviar mi opinión': 'Send my review',
+    'Tu opinión se envía por WhatsApp y podrá aparecer publicada en esta sección.': 'Your review is sent via WhatsApp and may be published in this section.',
+    'Preguntas Frecuentes': 'Frequently Asked Questions',
+    'Todo lo que necesitas saber antes de tu aventura al Acatenango.': 'Everything you need to know before your Acatenango adventure.',
+    '¿Veré erupciones del Volcán Fuego?': 'Will I see Fuego Volcano erupting?',
+    'El Volcán Fuego es uno de los más activos de Centroamérica y erupciona varias veces al día, así que las probabilidades son muy altas. La visibilidad depende del clima, pero desde el campamento la vista es directa y de noche el espectáculo es aún más impresionante.': 'Fuego Volcano is one of the most active in Central America and erupts several times a day, so chances are very high. Visibility depends on the weather, but the campsite has a direct view and at night the show is even more impressive.',
+    '¿Qué condición física necesito?': 'What fitness level do I need?',
+    'El ascenso es exigente pero se hace a ritmo moderado con descansos. No necesitas ser atleta, pero sí tener condición física aceptable. Si haces caminatas o ejercicio con regularidad, podrás completarlo sin problema.': 'The ascent is demanding but done at a moderate pace with breaks. You do not need to be an athlete, but you do need decent fitness. If you hike or exercise regularly, you will complete it without a problem.',
+    '¿Dónde es el punto de encuentro?': 'Where is the meeting point?',
+    'Nos reunimos en el Parque Bella Avryl a las 10:00 AM del día del tour. Ahí te recibe el equipo de guías, se revisa tu equipamiento y se da el briefing de seguridad antes de partir.': 'We meet at Parque Bella Avryl at 10:00 AM on tour day. The guide team welcomes you there, checks your gear and gives the safety briefing before departure.',
+    '¿Qué pasa si llueve?': 'What if it rains?',
+    'El tour se realiza con lluvia ligera — es parte de la montaña, solo recuerda llevar capa o poncho impermeable. Si las condiciones climáticas fueran extremas y peligrosas, te avisamos y reprogramamos tu fecha sin costo adicional.': 'The tour runs in light rain — it is part of the mountain, just remember to bring a rain jacket or poncho. If weather conditions become extreme and dangerous, we notify you and reschedule your date at no extra cost.',
+    '¿Hay edad mínima para el tour?': 'Is there a minimum age for the tour?',
+    'Recomendamos el tour a partir de los 12 años, siempre acompañados de un adulto responsable. Si viajas con niños o personas mayores, escríbenos por WhatsApp y evaluamos juntos la mejor opción.': 'We recommend the tour for ages 12 and up, always accompanied by a responsible adult. If you travel with children or seniors, message us on WhatsApp and we will find the best option together.',
+    '¿Qué incluye exactamente el precio?': 'What exactly does the price include?',
+    'Ambos paquetes incluyen cabaña en el campamento, guía experto y la entrada al parque PRMVA. El paquete con alimentación (Q450) agrega las 3 comidas: desayuno, almuerzo y cena. El transporte hasta el punto de encuentro no está incluido.': 'Both packages include a cabin at the campsite, an expert guide and the PRMVA park entrance fee. The meals package (Q450) adds 3 meals: breakfast, lunch and dinner. Transportation to the meeting point is not included.',
+    '¿Cómo reservo y pago?': 'How do I book and pay?',
+    'Escríbenos por WhatsApp al +502 5829-9965, elige tu fecha y paquete, y te confirmamos tu lugar con las instrucciones de pago. ¡Reserva con anticipación porque los cupos por fecha son limitados!': 'Message us on WhatsApp at +502 5829-9965, choose your date and package, and we confirm your spot with payment instructions. Book in advance — spots per date are limited!',
+    '¿Listo para la aventura?': 'Ready for the adventure?', 'Reserva tu Tour Hoy': 'Book Your Tour Today',
+    'Únete a cientos de aventureros que ya conquistaron el Acatenango con nosotros. ¡Plazas limitadas, reserva ahora!': 'Join hundreds of adventurers who already conquered Acatenango with us. Limited spots — book now!',
+    'Ver en Facebook': 'View on Facebook',
+    'Tu agencia de aventura en Guatemala. Especializados en tours al Volcán Acatenango y Fuego. Vivimos para compartir la magia de las montañas guatemaltecas.': 'Your adventure agency in Guatemala. Specialized in Acatenango and Fuego Volcano tours. We live to share the magic of the Guatemalan mountains.',
+    'Sobre el Tour': 'About the Tour', 'Fechas disponibles': 'Available dates',
+    'Con Alimentación — Q450 (≈ US$59.99)': 'Meals Included — Q450 (≈ US$59.99)',
+    'Sin Alimentación — Q350 (≈ US$49.99)': 'No Meals — Q350 (≈ US$49.99)',
+    '© 2026 M.C Love Travel · Guatemala · Todos los derechos reservados.': '© 2026 M.C Love Travel · Guatemala · All rights reserved.',
+    'Asistente M.C Love Travel': 'M.C Love Travel Assistant',
+    'Con tecnología Gemini AI': 'Powered by Gemini AI'
+};
+const EN_REGEX = [
+    [/^Sáb (\d+)$/, 'Sat $1'],
+    [/^(\d+) fotos$/, '$1 photos'],
+    [/^Foto (\d+)$/, 'Photo $1']
+];
+const PLACEHOLDERS = {
+    opName: ['Tu nombre', 'Your name'],
+    opText: ['Escribe tu opinión sobre el tour…', 'Write your review of the tour…'],
+    chatIn: ['Escribe tu pregunta...', 'Type your question...']
+};
+const TITLES = {
+    es: 'Tour Volcán Acatenango y Fuego 2026 | M.C Love Travel Guatemala',
+    en: 'Acatenango & Fuego Volcano Tour 2026 | M.C Love Travel Guatemala'
+};
+let lang = localStorage.getItem('mclt-lang') || 'es';
+
+function applyLang() {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    let n;
+    while ((n = walker.nextNode())) {
+        const parent = n.parentNode && n.parentNode.nodeName;
+        if (parent === 'SCRIPT' || parent === 'STYLE') continue;
+        if (lang === 'en') {
+            const t = n.nodeValue.trim();
+            if (!t) continue;
+            let rep = EN_MAP[t];
+            if (!rep) {
+                for (const [re, sub] of EN_REGEX) {
+                    if (re.test(t)) { rep = t.replace(re, sub); break; }
+                }
+            }
+            if (rep) {
+                if (n._es === undefined) n._es = n.nodeValue;
+                n.nodeValue = n.nodeValue.replace(t, rep);
+            }
+        } else if (n._es !== undefined) {
+            n.nodeValue = n._es;
+        }
+    }
+    for (const id in PLACEHOLDERS) {
+        const el = document.getElementById(id);
+        if (el) el.placeholder = PLACEHOLDERS[id][lang === 'en' ? 1 : 0];
+    }
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+    const b = document.getElementById('langBtn');
+    if (b) b.textContent = lang === 'en' ? 'ES' : 'EN';
+    const bm = document.getElementById('langBtnM');
+    if (bm) bm.textContent = lang === 'en' ? 'Español' : 'English';
+}
+
+function toggleLang() {
+    lang = lang === 'es' ? 'en' : 'es';
+    localStorage.setItem('mclt-lang', lang);
+    applyLang();
+}
+applyLang();
 
 // ── ACCORDION ──
 function toggleAcc(btn) {
@@ -1284,7 +1565,7 @@ AVISO DE SALUD: No recomendado para personas con problemas del corazón, presió
 RESERVAS Y CONTACTO: WhatsApp +502 58299965 → https://wa.me/50258299965
 Facebook → https://www.facebook.com/share/181HccdHCM/
 
-Responde siempre en español, de forma amable, entusiasta y concisa. Para reservas, dirige al WhatsApp.`;
+Responde siempre en el idioma en que te escriba el usuario (español o inglés), de forma amable, entusiasta y concisa. Para reservas, dirige al WhatsApp.`;
 
 function toggleChat() {
     open = !open;
@@ -1293,7 +1574,9 @@ function toggleChat() {
     if (open) {
         chatNotif.style.display = 'none';
         if (chatMsgs.children.length === 0) {
-            addMsg('¡Hola! Soy el asistente de M.C Love Travel 🌋 ¿En qué puedo ayudarte? Puedo darte info sobre precios, fechas, itinerario y qué llevar.', 'bot');
+            addMsg(lang === 'en'
+                ? "Hi! I'm the M.C Love Travel assistant 🌋 How can I help you? I can give you info on prices, dates, itinerary and what to bring."
+                : '¡Hola! Soy el asistente de M.C Love Travel 🌋 ¿En qué puedo ayudarte? Puedo darte info sobre precios, fechas, itinerario y qué llevar.', 'bot');
         }
         chatIn.focus();
     }
