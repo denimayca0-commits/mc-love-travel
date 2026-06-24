@@ -45,7 +45,7 @@
       "mainEntity": [
         {"@type": "Question", "name": "¿Veré erupciones del Volcán Fuego?", "acceptedAnswer": {"@type": "Answer", "text": "El Volcán Fuego es uno de los más activos de Centroamérica y erupciona varias veces al día, así que las probabilidades son muy altas. Desde el campamento la vista es directa y de noche el espectáculo es aún más impresionante."}},
         {"@type": "Question", "name": "¿Qué condición física necesito para subir el Acatenango?", "acceptedAnswer": {"@type": "Answer", "text": "El ascenso es exigente pero se hace a ritmo moderado con descansos. No necesitas ser atleta, pero sí tener condición física aceptable."}},
-        {"@type": "Question", "name": "¿Dónde es el punto de encuentro del tour?", "acceptedAnswer": {"@type": "Answer", "text": "En el Parque Bella Avryl, en La Soledad, Acatenango, a las 10:00 AM del día del tour, donde se hace la bienvenida, revisión de equipo y briefing de seguridad."}},
+        {"@type": "Question", "name": "¿Dónde es el punto de encuentro del tour?", "acceptedAnswer": {"@type": "Answer", "text": "En el Parque Bella Avryl, en La Soledad, Acatenango, a las 9:30 AM del día del tour, donde se hace la bienvenida, revisión de equipo y briefing de seguridad."}},
         {"@type": "Question", "name": "¿Qué pasa si llueve durante el tour?", "acceptedAnswer": {"@type": "Answer", "text": "El tour se realiza con lluvia ligera. Si las condiciones fueran extremas y peligrosas, se reprograma la fecha sin costo adicional."}},
         {"@type": "Question", "name": "¿Hay edad mínima para el tour al Acatenango?", "acceptedAnswer": {"@type": "Answer", "text": "Se recomienda a partir de los 12 años, siempre acompañados de un adulto responsable."}},
         {"@type": "Question", "name": "¿Qué incluye el precio del tour?", "acceptedAnswer": {"@type": "Answer", "text": "Cabaña en el campamento, guía experto y entrada al parque PRMVA. El paquete de Q450 incluye además 3 comidas. El transporte al punto de encuentro no está incluido."}},
@@ -290,6 +290,8 @@
         /* ── CHATBOT ── */
         .chat-fab{position:fixed;bottom:2rem;right:2rem;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#4285F4,#0F9D58);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 20px rgba(66,133,244,.5);transition:all .3s;z-index:999;}
         .chat-fab:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(66,133,244,.7);}
+        .wa-fab{position:fixed;bottom:6.2rem;right:2rem;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 4px 20px rgba(37,211,102,.5);transition:all .3s;z-index:999;}
+        .wa-fab:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,.7);}
         .chat-notif{position:absolute;top:-3px;right:-3px;width:17px;height:17px;background:var(--accent-fire);border-radius:50%;font-size:.62rem;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;}
         .chat-win{position:fixed;bottom:6rem;right:2rem;width:370px;height:490px;background:var(--bg-card);border:1px solid rgba(66,133,244,.28);border-radius:16px;overflow:hidden;z-index:998;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.55);transform:scale(0) translateY(20px);transform-origin:bottom right;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0;}
         .chat-win.open{transform:scale(1) translateY(0);opacity:1;}
@@ -544,7 +546,7 @@
                             <p><strong>Parque Bella Avryl</strong> — bienvenida con nuestros guías, revisión de equipamiento y briefing de seguridad.</p>
                         </div>
                     </div>
-                    <div class="t-dot"><div class="dot"></div><span class="t-time">10:00 AM</span></div>
+                    <div class="t-dot"><div class="dot"></div><span class="t-time">9:30 AM</span></div>
                     <div class="empty"></div>
                 </div>
                 <div class="t-item right">
@@ -839,7 +841,7 @@
                 <div class="gal-cat-overlay"></div>
                 <div class="gal-cat-info">
                     <span class="gal-cat-name">🔥 Erupciones del Fuego</span>
-                    <span class="gal-cat-count">17 fotos</span>
+                    <span class="gal-cat-count">23 fotos</span>
                 </div>
             </div>
             <div class="gal-cat" onclick="openGalCat(1)">
@@ -852,7 +854,7 @@
                 <div class="gal-cat-overlay"></div>
                 <div class="gal-cat-info">
                     <span class="gal-cat-name">🌅 Amaneceres</span>
-                    <span class="gal-cat-count">21 fotos</span>
+                    <span class="gal-cat-count">19 fotos</span>
                 </div>
             </div>
             <div class="gal-cat" onclick="openGalCat(2)">
@@ -871,19 +873,6 @@
             <div class="gal-cat" onclick="openGalCat(3)">
                 <div class="gal-cat-bg">
                     <picture>
-                        <source srcset="fotos/webp/50.webp" type="image/webp">
-                        <img src="fotos/webp/50.webp" alt="Campamento y cabañas Acatenango" loading="lazy">
-                    </picture>
-                </div>
-                <div class="gal-cat-overlay"></div>
-                <div class="gal-cat-info">
-                    <span class="gal-cat-name">🏕️ Campamento y Cabañas</span>
-                    <span class="gal-cat-count">12 fotos</span>
-                </div>
-            </div>
-            <div class="gal-cat" onclick="openGalCat(4)">
-                <div class="gal-cat-bg">
-                    <picture>
                         <source srcset="fotos/webp/1.webp" type="image/webp">
                         <img src="fotos/webp/1.webp" alt="Paisajes volcánicos de Guatemala" loading="lazy">
                     </picture>
@@ -892,6 +881,19 @@
                 <div class="gal-cat-info">
                     <span class="gal-cat-name">🌋 Volcán y Paisajes</span>
                     <span class="gal-cat-count">19 fotos</span>
+                </div>
+            </div>
+            <div class="gal-cat" onclick="openGalCat(4)">
+                <div class="gal-cat-bg">
+                    <picture>
+                        <source srcset="fotos/webp/130.webp" type="image/webp">
+                        <img src="fotos/webp/130.webp" alt="Turistas en el tour al Acatenango" loading="lazy">
+                    </picture>
+                </div>
+                <div class="gal-cat-overlay"></div>
+                <div class="gal-cat-info">
+                    <span class="gal-cat-name">📸 Nuestros Turistas</span>
+                    <span class="gal-cat-count">2 fotos</span>
                 </div>
             </div>
         </div>
@@ -972,7 +974,7 @@
                     <i class="fas fa-chevron-down acc-arrow"></i>
                 </button>
                 <div class="acc-body"><div class="acc-body-inner"><ul>
-                    <li>Nos reunimos en el Parque Bella Avryl, en La Soledad, Acatenango, a las 10:00 AM del día del tour. Ahí te recibe el equipo de guías, se revisa tu equipamiento y se da el briefing de seguridad antes de partir. Encuentras el mapa en la sección de contacto.</li>
+                    <li>Nos reunimos en el Parque Bella Avryl, en La Soledad, Acatenango, a las 9:30 AM del día del tour. Ahí te recibe el equipo de guías, se revisa tu equipamiento y se da el briefing de seguridad antes de partir. Encuentras el mapa en la sección de contacto.</li>
                 </ul></div></div>
             </div>
             <div class="acc-item">
@@ -1041,9 +1043,9 @@
         </div>
         <div style="max-width:720px;margin:3rem auto 0;">
             <h3 style="margin-bottom:.6rem;"><i class="fas fa-map-marker-alt"></i> Punto de encuentro</h3>
-            <p style="margin-bottom:1.2rem;">Parque Bella Avryl, La Soledad, Acatenango — te esperamos a las 10:00 AM el día de tu tour.</p>
-            <iframe src="https://www.google.com/maps?q=La+Soledad,+Acatenango,+Chimaltenango,+Guatemala&output=embed" width="100%" height="320" style="border:0;border-radius:14px;display:block;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa del punto de encuentro"></iframe>
-            <p style="margin-top:.8rem;"><a href="https://www.google.com/maps/search/?api=1&query=La+Soledad,+Acatenango,+Chimaltenango,+Guatemala" target="_blank" rel="noopener">Abrir en Google Maps</a></p>
+            <p style="margin-bottom:1.2rem;">Parque Bella Avryl, La Soledad, Acatenango — te esperamos a las 9:30 AM el día de tu tour.</p>
+            <iframe src="https://www.google.com/maps?q=Parqueo+Bella+Avryl,+La+Soledad,+Acatenango&ll=14.536817,-90.883949&z=16&output=embed" width="100%" height="320" style="border:0;border-radius:14px;display:block;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa del punto de encuentro — Parqueo Bella Avryl"></iframe>
+            <p style="margin-top:.8rem;"><a href="https://www.google.com/maps/place/Parqueo+Bella+Avryl/@14.536817,-90.883949,17z/data=!4m6!3m5!1s0x858917e2ece3b91b:0x309e59daa16a234f!8m2!3d14.536817!4d-90.883949" target="_blank" rel="noopener">Abrir en Google Maps</a></p>
         </div>
     </div>
 </section>
@@ -1079,12 +1081,14 @@
         </div>
     </div>
     <div class="foot-bottom">
-        <p style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--accent-gold);margin-bottom:.5rem;letter-spacing:.5px;">
-            ❤️ Te amo mucho Anabel, gracias por el apoyo!!!
-        </p>
         <p>© 2026 M.C Love Travel · Guatemala · Todos los derechos reservados.</p>
     </div>
 </footer>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/50258299965" target="_blank" rel="noopener" class="wa-fab" aria-label="Escríbenos por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <!-- CHATBOT FAB -->
 <button class="chat-fab" id="chatFab" aria-label="Abrir asistente">
@@ -1121,23 +1125,23 @@ function makePhotos(nums) {
 const galData = [
     {
         name: '🔥 Erupciones del Fuego',
-        photos: makePhotos([14,15,5,6,16,19,44,45,46,72,73,74,79,80,81,145,146])
+        photos: makePhotos([14,15,5,16,19,44,45,46,72,73,74,79,80,145,146,50,34,35,36,54,55,129,128])
     },
     {
         name: '🌅 Amaneceres',
-        photos: makePhotos([85,84,28,29,20,21,22,23,86,89,90,91,109,110,119,120,121,139,140,141,144])
+        photos: makePhotos([85,84,28,29,20,21,22,90,109,110,119,120,121,139,140,141,144,51,56])
     },
     {
         name: '🏔️ Cumbre',
         photos: makePhotos([160,150,30,31,149,151,159,161,169,170,171,180,181,182])
     },
     {
-        name: '🏕️ Campamento y Cabañas',
-        photos: makePhotos([50,128,34,35,36,51,54,55,56,129,130,131])
-    },
-    {
         name: '🌋 Volcán y Paisajes',
         photos: makePhotos([1,2,7,8,10,11,25,26,49,99,100,101,108,115,116,190,191,210,211])
+    },
+    {
+        name: '📸 Nuestros Turistas',
+        photos: makePhotos([130,131])
     }
 ];
 
@@ -1367,8 +1371,8 @@ const EN_MAP = {
     'Ante cualquier duda, consulta a tu médico antes del tour': 'If in doubt, consult your doctor before the tour',
     'Experiencias': 'Experiences', 'Momentos Únicos': 'Unique Moments',
     '🔥 Erupciones del Fuego': '🔥 Fuego Eruptions', '🌅 Amaneceres': '🌅 Sunrises',
-    '🏔️ Cumbre': '🏔️ Summit', '🏕️ Campamento y Cabañas': '🏕️ Camp & Cabins',
-    '🌋 Volcán y Paisajes': '🌋 Volcano & Landscapes',
+    '🏔️ Cumbre': '🏔️ Summit',
+    '🌋 Volcán y Paisajes': '🌋 Volcano & Landscapes', '📸 Nuestros Turistas': '📸 Our Guests',
     '← Volver a categorías': '← Back to categories', 'Ver más fotos': 'See more photos',
     'Deja tu Opinión': 'Leave a Review',
     '¿Conquistaste el Acatenango con nosotros? Comparte tu experiencia y ayuda a otros aventureros.': 'Did you conquer Acatenango with us? Share your experience and help other adventurers.',
@@ -1382,7 +1386,7 @@ const EN_MAP = {
     '¿Qué condición física necesito?': 'What fitness level do I need?',
     'El ascenso es exigente pero se hace a ritmo moderado con descansos. No necesitas ser atleta, pero sí tener condición física aceptable. Si haces caminatas o ejercicio con regularidad, podrás completarlo sin problema.': 'The ascent is demanding but done at a moderate pace with breaks. You do not need to be an athlete, but you do need decent fitness. If you hike or exercise regularly, you will complete it without a problem.',
     '¿Dónde es el punto de encuentro?': 'Where is the meeting point?',
-    'Nos reunimos en el Parque Bella Avryl, en La Soledad, Acatenango, a las 10:00 AM del día del tour. Ahí te recibe el equipo de guías, se revisa tu equipamiento y se da el briefing de seguridad antes de partir. Encuentras el mapa en la sección de contacto.': 'We meet at Parque Bella Avryl in La Soledad, Acatenango, at 10:00 AM on tour day. The guide team welcomes you there, checks your gear and gives the safety briefing before departure. You can find the map in the contact section.',
+    'Nos reunimos en el Parque Bella Avryl, en La Soledad, Acatenango, a las 9:30 AM del día del tour. Ahí te recibe el equipo de guías, se revisa tu equipamiento y se da el briefing de seguridad antes de partir. Encuentras el mapa en la sección de contacto.': 'We meet at Parque Bella Avryl in La Soledad, Acatenango, at 9:30 AM on tour day. The guide team welcomes you there, checks your gear and gives the safety briefing before departure. You can find the map in the contact section.',
     '¿Qué pasa si llueve?': 'What if it rains?',
     'El tour se realiza con lluvia ligera — es parte de la montaña, solo recuerda llevar capa o poncho impermeable. Si las condiciones climáticas fueran extremas y peligrosas, te avisamos y reprogramamos tu fecha sin costo adicional.': 'The tour runs in light rain — it is part of the mountain, just remember to bring a rain jacket or poncho. If weather conditions become extreme and dangerous, we notify you and reschedule your date at no extra cost.',
     '¿Hay edad mínima para el tour?': 'Is there a minimum age for the tour?',
@@ -1395,7 +1399,7 @@ const EN_MAP = {
     'El anticipo no es reembolsable, pero puedes cambiar tu reserva a otra fecha disponible sin costo adicional — solo avísanos por WhatsApp con anticipación. Si nosotros tuviéramos que reprogramar el tour por clima extremo o cierre del parque, te movemos a la fecha que prefieras sin ningún cargo.': 'The deposit is non-refundable, but you can move your booking to another available date at no extra cost — just let us know on WhatsApp in advance. If we have to reschedule the tour due to extreme weather or a park closure, we move you to the date you prefer at no charge.',
     '¿Listo para la aventura?': 'Ready for the adventure?', 'Reserva tu Tour Hoy': 'Book Your Tour Today',
     'Punto de encuentro': 'Meeting point',
-    'Parque Bella Avryl, La Soledad, Acatenango — te esperamos a las 10:00 AM el día de tu tour.': 'Bella Avryl Park, La Soledad, Acatenango — we will be waiting for you at 10:00 AM on the day of your tour.',
+    'Parque Bella Avryl, La Soledad, Acatenango — te esperamos a las 9:30 AM el día de tu tour.': 'Bella Avryl Park, La Soledad, Acatenango — we will be waiting for you at 9:30 AM on the day of your tour.',
     'Abrir en Google Maps': 'Open in Google Maps',
     'Únete a cientos de aventureros que ya conquistaron el Acatenango con nosotros. ¡Plazas limitadas, reserva ahora!': 'Join hundreds of adventurers who already conquered Acatenango with us. Limited spots — book now!',
     'Ver en Facebook': 'View on Facebook',

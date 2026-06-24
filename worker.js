@@ -22,7 +22,7 @@ PRECIOS:
 
 ITINERARIO DETALLADO:
 Día 1:
-- 10:00 AM: Reunión en Parque Bella Avryl (La Soledad, Acatenango, Chimaltenango), bienvenida con guías
+- 9:30 AM: Reunión en Parque Bella Avryl (La Soledad, Acatenango, Chimaltenango), bienvenida con guías
 - 10:00 AM: Inicio de caminata de ascenso
 - 12:00–2:00 PM: Almuerzo en descanso del sendero
 - 3:00–6:00 PM: Llegada a cabañas del campamento, cena y noche observando erupciones del Fuego
