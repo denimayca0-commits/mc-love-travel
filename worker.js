@@ -8,7 +8,11 @@
 //  4. Copia la URL del Worker (ej: https://mc-love-chat.TU-USUARIO.workers.dev)
 //  5. Pégala en index.html donde dice WORKER_URL
 
-const ALLOWED_ORIGIN = 'https://denimayca0-commits.github.io';
+const ALLOWED_ORIGINS = [
+  'https://mclovetravel.com',
+  'https://www.mclovetravel.com',
+  'https://denimayca0-commits.github.io',
+];
 
 // Prompt del sistema del chatbot. Vive SOLO aquí (en el servidor): el cliente
 // jamás lo envía, así no queda expuesto en el HTML público.
@@ -57,8 +61,10 @@ Responde siempre en el idioma en que te escriba el usuario (español o inglés),
 
 export default {
   async fetch(request, env) {
+    const origin = request.headers.get('Origin');
+    const allowed = ALLOWED_ORIGINS.includes(origin);
     const corsHeaders = {
-      'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
+      'Access-Control-Allow-Origin': allowed ? origin : ALLOWED_ORIGINS[0],
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     };
@@ -68,9 +74,8 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders });
     }
 
-    // Solo acepta POST desde el origen permitido
-    const origin = request.headers.get('Origin');
-    if (request.method !== 'POST' || origin !== ALLOWED_ORIGIN) {
+    // Solo acepta POST desde un origen permitido
+    if (request.method !== 'POST' || !allowed) {
       return new Response('Forbidden', { status: 403 });
     }
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://denimayca0-commits.github.io/mc-love-travel/sitemap.xml
+Sitemap: https://mclovetravel.com/sitemap.xml
